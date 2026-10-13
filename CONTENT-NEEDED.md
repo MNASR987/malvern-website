@@ -47,7 +47,7 @@ These sections were written as drafts from what we know about the school. They a
 
 **Home**
 - [ ] Parent Voice — 3 testimonials **with each parent's written consent**
-- [ ] School film — YouTube link
+- [x] School film — YouTube link (Home)
 - [ ] Virtual tour — YouTube link or 360° tour link
 - [ ] Real posters for Offers & Announcements, and **delete `content/offers/sample-poster.png`**
 
