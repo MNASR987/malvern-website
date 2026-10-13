@@ -1,7 +1,7 @@
 # LEARNING PAGE
 seo:
   title: "Learning"
-  description: "The Learner Journey at Malvern International School, Riyadh: KG, Primary, Middle and High School, identity subjects, languages, and mathematics and programming with SPRIX (Japan)."
+  description: "The American curriculum and Learner Journey at Malvern International School, Riyadh: KG, Primary, Middle and High School, identity subjects, languages, and mathematics and programming with SPRIX (Japan)."
 
 hero:
   title: "Learning at Malvern"
@@ -31,7 +31,10 @@ journey:
 
 curriculum:
   title: "Our Curriculum"
-  text: "[TO CONFIRM: Name of the curriculum framework followed (e.g. American, British or other), the subjects taught in each phase, and how it aligns with Ministry requirements]"
+  text: |
+    Malvern International School follows an American curriculum, taught through programmes from Savvas and Obelas. Classes have no more than 25 students, so teachers know each learner's strengths and the things they still find hard. Alongside the American curriculum, every student studies the identity subjects: Arabic, Holy Quran and Islamic Studies, and Social Studies.
+
+    [TO CONFIRM: Subjects taught in each phase, and how the curriculum aligns with Ministry requirements]
 
 identity:
   title: "Identity Subjects"

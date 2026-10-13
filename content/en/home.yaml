@@ -4,16 +4,18 @@
 
 seo:
   title: "Malvern International School, Riyadh"
-  description: "Malvern International School in Riyadh, Saudi Arabia: girls KG to Grade 12 and boys KG to Grade 6, with mathematics and programming in partnership with SPRIX Inc. (Japan)."
+  description: "Malvern International School in Riyadh, Saudi Arabia: an American curriculum for girls KG to Grade 12 and boys KG to Grade 6, classes of no more than 25 students, and mathematics and programming in partnership with SPRIX Inc. (Japan)."
 
 hero:
   eyebrow: "Malvern International School · Riyadh"
   title: "An international education, rooted in Saudi identity."
-  text: "Girls from KG to Grade 12 and boys from KG to Grade 6, learning with global standards and strong Arabic, Islamic and national foundations."
+  text: "Girls from KG to Grade 12 and boys from KG to Grade 6, learning through an American curriculum with strong Arabic, Islamic and national foundations."
 
 facts:
   - { value: "KG – Grade 12", label: "Girls" }
   - { value: "KG – Grade 6", label: "Boys" }
+  - { value: "American", label: "Curriculum, with Savvas and Obelas programmes" }
+  - { value: "25 or fewer", label: "Students in every class" }
   - { value: "SPRIX · Japan", label: "Mathematics & programming partner, Grades 1–9" }
   - { value: "01SOL260054", label: "Ministry licence no." }
 
@@ -22,7 +24,7 @@ why:
   intro: "We believe knowledge and values go hand in hand. We strive to develop students who are capable, honest, and principled."
   items:
     - title: "International learning"
-      text: "[TO CONFIRM: Curriculum framework and international approach]"
+      text: "An American curriculum taught through Savvas and Obelas programmes, in classes of no more than 25 students."
       icon: globe
     - title: "Saudi identity at the heart"
       text: "Arabic, Holy Quran and Islamic Studies, and Social Studies are core to every learner's week."

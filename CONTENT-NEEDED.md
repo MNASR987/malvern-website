@@ -23,7 +23,7 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [ ] Approve the hero headline (draft): "An international education, rooted in Saudi identity."
 - [ ] Approve the hero sub-text (draft) and the "Begin your Malvern journey" closing text (draft)
 - [x] "Why Malvern" — one or two sentences on what makes Malvern different
-- [ ] "International learning" card — curriculum framework and international approach
+- [x] "International learning" card — American curriculum
 - [ ] "Committed to quality" card — **approved Cognia wording** (the school is in the accreditation process; must NOT say "accredited")
 - [ ] School film — the YouTube link of the video to feature (channel: youtube.com/@MalvernSch)
 - [ ] Hero video — short silent clip (10–20 seconds) uploaded to `brand` as `hero-video.mp4`; or a still photo as `brand/hero.jpg`
@@ -32,8 +32,8 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [ ] Offers & Announcements — upload real posters to `content/offers` and **delete `sample-poster.png`**
 
 ## About (`content/en/about.yaml`)
-- [ ] Principal's welcome message (150–250 words)
-- [ ] Principal's name (and photo, optional)
+- [x] Principal's welcome message and name (Ms. Sara El-Massry)
+- [ ] Principal's photo (optional)
 - [x] Vision statement
 - [x] Mission statement
 - [x] Beliefs (6 shown on About; the 7th is used in "Why Malvern" on Home)
@@ -42,7 +42,9 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [ ] About-page video — YouTube link (optional, e.g. Principal's message)
 
 ## Learning (`content/en/learning.yaml`)
-- [ ] Curriculum framework (name, subjects per phase, alignment with Ministry requirements)
+- [x] Curriculum: American, with Savvas and Obelas programmes; classes of 25 or fewer
+- [ ] Confirm the spelling of "Obelas"
+- [ ] Subjects taught in each phase, and alignment with Ministry requirements
 - [ ] Kindergarten approach
 - [ ] Primary (Grades 1–5) focus
 - [ ] Middle School (Grades 6–8) focus
@@ -67,7 +69,7 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [ ] How to confirm a place (registration form, fee payment)
 - [ ] Final list of required documents
 - [ ] Other fees, if any (registration, books, uniform, transport) and payment schedule
-- [ ] FAQ answers: curriculum; Cognia wording; transport; admission windows / mid-year entry
+- [ ] FAQ answers: Cognia wording; transport; admission windows / mid-year entry
 - [x] Tuition fees 2026–2027 (full fees, excl. VAT) — done, no discounts shown
 
 ## Parents (`content/en/parents.yaml`)

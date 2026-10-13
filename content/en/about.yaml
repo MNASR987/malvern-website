@@ -1,17 +1,27 @@
 # ABOUT PAGE
 seo:
   title: "About Us"
-  description: "About Malvern International School, Riyadh: Principal's welcome, vision, mission and values, leadership, partnerships, accreditation status and licensing."
+  description: "About Malvern International School, Riyadh: a word from the Principal, Ms. Sara El-Massry,, vision, mission and values, leadership, partnerships, accreditation status and licensing."
 
 hero:
   title: "About Malvern"
   text: "An international school in Riyadh, for girls from KG to Grade 12 and boys from KG to Grade 6."
 
 welcome:
-  title: "Principal's Welcome"
+  title: "A Word from our Principal"
   body: |
-    [TO CONFIRM: Principal's welcome message (150–250 words)]
-  name: "[TO CONFIRM: Principal's name]"
+    Welcome to Malvern International School.
+
+    When families visit us for the first time, they usually ask the same question: what will my child’s day actually feel like here? I like that question, because the honest answer matters more than any brochure.
+
+    At Malvern, your child learns in a class of no more than 25 students, with teachers who know their names, their strengths and the things they still find hard. We teach boys from KG to Grade 6 and girls from KG to Grade 12. A KG child’s first week and a Grade 12 student’s university plans deserve the same care, and we give them both our full attention.
+
+    We want our students to be at ease in an international setting and proud of who they are. That is why Arabic, the Holy Quran and Islamic Studies sit at the center of our timetable. Through our partnership with SPRIX in Japan, students in Grades 1 to 9 also study mathematics and programming using methods developed in Japanese schools.
+
+    None of this works without parents. Our door is open, and we would always rather hear a concern early than late.
+
+    I look forward to meeting you when you visit our campus.
+  name: "Ms. Sara El-Massry"
   role: "Principal"
 
 # Optional YouTube video on the About page (e.g. a message from the Principal).
@@ -47,7 +57,7 @@ leadership:
   # Add one entry per leader. Photos are optional: put the file in the
   # "brand" folder and write its name, e.g. photo: "principal.jpg"
   people:
-    - { name: "[TO CONFIRM: Name]", role: "Principal", photo: "" }
+    - { name: "Ms. Sara El-Massry", role: "Principal", photo: "" }
     - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
     - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
 

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Rich from '../components/Rich.astro';
-import { rich } from '../lib/text';
+import { rich, paragraphs } from '../lib/text';
 import Icon from '../components/Icon.astro';
 import SubNav from '../components/SubNav.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -39,7 +39,7 @@ const subnav = [
   </section>
 
   <section class="section section--alt" id="curriculum" aria-labelledby="cur-h">
-    <div class="narrow reveal"><p class="eyebrow">Curriculum</p><h2 id="cur-h">{p.curriculum.title}</h2><p class="lead" set:html={rich(p.curriculum.text)} /></div>
+    <div class="narrow reveal"><p class="eyebrow">Curriculum</p><h2 id="cur-h">{p.curriculum.title}</h2>{paragraphs(p.curriculum.text).map((t) => <p class="lead" set:html={rich(t)} />)}</div>
   </section>
 
   <section class="section" id="identity" aria-labelledby="id-h">
