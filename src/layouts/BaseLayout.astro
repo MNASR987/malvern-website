@@ -7,6 +7,7 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { getPage, languages, settings, theme, type Lang } from '../lib/content';
 import { asset, href } from '../lib/paths';
 import { phone, email } from '../lib/contact';
+import siteConfig from '../../site.config.mjs';
 
 interface Props { title: string; description: string; lang?: Lang; ogImage?: string; isHome?: boolean }
 const { title, description, lang = 'en', ogImage = 'og/default.jpg', isHome = false } = Astro.props;
@@ -51,6 +52,7 @@ const jsonLd = {
     <link rel="apple-touch-icon" href={asset('apple-touch-icon.png')} />
     <link rel="sitemap" href={asset('sitemap-index.xml')} />
     <meta name="theme-color" content={c.primary} />
+    {siteConfig.hideFromSearch && <meta name="robots" content="noindex, nofollow" />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={school} />

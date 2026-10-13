@@ -11,6 +11,10 @@
 export default {
   customDomain: '',
 
+  // true = ask Google and other search engines NOT to list the site (use until launch).
+  // Change to false when the website is approved and ready for the public.
+  hideFromSearch: true,
+
   // GitHub details — normally never change.
   githubUser: 'mnasr987',
   githubRepo: 'malvernschools',
