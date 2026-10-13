@@ -21,17 +21,25 @@ video:
 
 vision:
   title: "Vision"
-  text: "[TO CONFIRM: School vision statement]"
+  text: "Empowering students through knowledge, values, innovation, and technology while guiding minds and shaping character."
 mission:
   title: "Mission"
-  text: "[TO CONFIRM: School mission statement]"
+  text: "Through engaging learning experiences, we equip students with critical thinking skills, ethical values, digital literacy, and the confidence to thrive in an ever-changing world."
 values:
-  title: "Our Values"
+  title: "Our Beliefs"
   items:
-    - { title: "[TO CONFIRM: Value 1]", text: "[TO CONFIRM: One-line description]" }
-    - { title: "[TO CONFIRM: Value 2]", text: "[TO CONFIRM: One-line description]" }
-    - { title: "[TO CONFIRM: Value 3]", text: "[TO CONFIRM: One-line description]" }
-    - { title: "[TO CONFIRM: Value 4]", text: "[TO CONFIRM: One-line description]" }
+    - title: "Character rooted in faith"
+      text: "Education shapes not only minds but character, guided by Islamic principles, respect, and integrity."
+    - title: "Saudi identity, global outlook"
+      text: "Students grow with pride in their heritage and culture, alongside the confidence to engage with the world."
+    - title: "Every student's potential"
+      text: "Learning should be engaging and personalised, helping each student discover their strengths and voice."
+    - title: "Critical thinking"
+      text: "Students are guided to question, analyse, and reason, not just absorb information."
+    - title: "Technology & innovation"
+      text: "Digital literacy and creative problem-solving prepare students to thrive in a changing world."
+    - title: "Community & partnership"
+      text: "Families, educators, and society share the responsibility of shaping young minds."
 
 leadership:
   title: "Leadership"

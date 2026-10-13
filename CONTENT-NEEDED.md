@@ -8,23 +8,24 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 ---
 
 ## Every page (contact details — `content/settings.yaml`)
-- [ ] Phone number
-- [ ] Admissions email address
-- [ ] WhatsApp number (for the green floating button and the enquiry form)
-- [ ] Full school address
-- [ ] Working hours (e.g. Sunday–Thursday, 7:00 am – 3:00 pm)
-- [ ] Google Maps embed link and share link
-- [ ] Social media links (Instagram, X, LinkedIn, YouTube) — optional
-- [ ] **Logo** — upload to the `brand` folder as `logo.svg` or `logo.png` (and `logo-white.png` for dark backgrounds, if you have one)
-- [ ] Official brand colours (from the logo guidelines) — I will update `theme.json`
+- [x] Phone number
+- [x] Admissions email address
+- [x] WhatsApp number (for the green floating button and the enquiry form)
+- [x] Full school address
+- [x] Working hours (e.g. Sunday–Thursday, 7:00 am – 3:00 pm)
+- [ ] Check the map pin on the Contact page is on the school (map uses the National Address; send the Google Maps "Share" link if the pin is off)
+- [x] YouTube channel linked
+- [ ] Other social media links (Instagram, X, LinkedIn) — optional
+- [x] Logo (crest) added; colours matched to the crest
+- [ ] Optional: the logo as a high-resolution or vector file (SVG/PDF) from the designer, for extra sharpness
 
 ## Home (`content/en/home.yaml`)
 - [ ] Approve the hero headline (draft): "An international education, rooted in Saudi identity."
 - [ ] Approve the hero sub-text (draft) and the "Begin your Malvern journey" closing text (draft)
-- [ ] "Why Malvern" — one or two sentences on what makes Malvern different
+- [x] "Why Malvern" — one or two sentences on what makes Malvern different
 - [ ] "International learning" card — curriculum framework and international approach
 - [ ] "Committed to quality" card — **approved Cognia wording** (the school is in the accreditation process; must NOT say "accredited")
-- [ ] School film — YouTube link
+- [ ] School film — the YouTube link of the video to feature (channel: youtube.com/@MalvernSch)
 - [ ] Hero video — short silent clip (10–20 seconds) uploaded to `brand` as `hero-video.mp4`; or a still photo as `brand/hero.jpg`
 - [ ] Virtual tour — YouTube link or 360° tour link (`content/settings.yaml` → `virtualTourEmbedUrl`)
 - [ ] Parent Voice — 3 short testimonials **with each parent's written consent**, and a description such as "Parent of a Grade 3 student" (no names of children)
@@ -33,9 +34,9 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 ## About (`content/en/about.yaml`)
 - [ ] Principal's welcome message (150–250 words)
 - [ ] Principal's name (and photo, optional)
-- [ ] Vision statement
-- [ ] Mission statement
-- [ ] Values (titles + one line each — 4 suggested, any number works)
+- [x] Vision statement
+- [x] Mission statement
+- [x] Beliefs (6 shown on About; the 7th is used in "Why Malvern" on Home)
 - [ ] Leadership team: names, roles, photos (optional), and one introductory sentence
 - [ ] Cognia — approved accreditation-status wording
 - [ ] About-page video — YouTube link (optional, e.g. Principal's message)

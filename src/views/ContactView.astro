@@ -17,7 +17,7 @@ const rows = [
   { id: 'phone', icon: 'phone', label: L.phone, link: telLink, value: phone, ltr: true, missing: '[TO CONFIRM: Phone number]' },
   { id: 'email', icon: 'mail', label: L.email, link: mailLink, value: email, missing: '[TO CONFIRM: Email address]' },
   { id: 'whatsapp', icon: 'whatsapp', label: L.whatsapp, link: whatsappLink(), value: whatsappLink() ? ui.buttons.whatsapp : '', missing: '[TO CONFIRM: WhatsApp number]' },
-  { id: 'address', icon: 'pin', label: L.address, link: c.mapLink, value: c.address, missing: '[TO CONFIRM: School address]' },
+  { id: 'address', icon: 'pin', label: L.address, link: c.mapLink, value: c.address + (c.shortAddress ? ` (National Address: ${c.shortAddress})` : ''), missing: '[TO CONFIRM: School address]' },
   { id: 'hours', icon: 'clock', label: L.hours, link: '', value: c.workingHours, missing: '[TO CONFIRM: Working hours]' },
 ];
 ---
@@ -70,7 +70,7 @@ const rows = [
   .map-ph { position: relative; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, #12305A, var(--c-primary-deep)); color: #fff; text-align: center; padding: 1.5rem; }
   .map-ph span { position: relative; display: grid; gap: 1rem; justify-items: center; }
   .map-ph :global(svg) { color: var(--c-accent); }
-  .open { justify-self: start; }
+  .open { justify-self: start; align-self: start; }
   .center { text-align: center; }
   .lead { font-size: 1.12rem; color: var(--c-text-muted); margin-block: 1rem 2rem; }
   .centered { justify-content: center; }

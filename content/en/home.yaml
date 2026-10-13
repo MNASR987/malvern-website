@@ -19,7 +19,7 @@ facts:
 
 why:
   title: "Why Malvern"
-  intro: "[TO CONFIRM: One or two sentences on what makes Malvern different]"
+  intro: "We believe knowledge and values go hand in hand. We strive to develop students who are capable, honest, and principled."
   items:
     - title: "International learning"
       text: "[TO CONFIRM: Curriculum framework and international approach]"
@@ -33,6 +33,10 @@ why:
     - title: "Committed to quality"
       text: "[TO CONFIRM: Cognia accreditation status — e.g. “Malvern is currently working through the Cognia accreditation process.”]"
       icon: shield
+
+vision:
+  label: "Our Vision"
+  text: "Empowering students through knowledge, values, innovation, and technology while guiding minds and shaping character."
 
 journey:
   title: "The Learner Journey"

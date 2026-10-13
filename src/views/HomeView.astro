@@ -49,6 +49,13 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
     </div>
   </section>
 
+  <section class="vision-band" aria-label={page.vision.label}>
+    <div class="narrow reveal">
+      <p class="eyebrow">{page.vision.label}</p>
+      <p class="vision-text">“{page.vision.text}”</p>
+    </div>
+  </section>
+
   <section class="section section--alt" aria-labelledby="film">
     <div class="container split">
       <div class="reveal">
@@ -140,7 +147,7 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
   .facts { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); background: #fff; border-radius: calc(var(--radius) * 1.3); box-shadow: 0 30px 70px -40px rgba(6,24,51,.55); border: 1px solid var(--c-border); overflow: hidden; }
   @media (min-width: 900px) { .facts { grid-template-columns: repeat(4, 1fr); } }
   .facts li { display: grid; gap: .35rem; align-content: start; padding: clamp(1.1rem, 2.5vw, 1.6rem) clamp(1rem, 2.5vw, 1.75rem); border-inline-end: 1px solid var(--c-border); border-block-end: 1px solid var(--c-border); }
-  .facts strong { font: 600 clamp(1.1rem, 2.4vw, 1.5rem)/1.15 var(--font-heading); color: var(--c-primary); }
+  .facts strong { font: 650 clamp(1.05rem, 2.2vw, 1.35rem)/1.2 var(--font-body); letter-spacing: -.01em; color: var(--c-primary); }
   .facts span { font-size: .92rem; color: var(--c-text-muted); }
 
   .steps { list-style: none; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); margin-block-end: 2.5rem; counter-reset: s; }
@@ -149,9 +156,13 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
   .steps li:last-child::after { display: none; }
   .num { font: 600 .85rem/1 var(--font-body); letter-spacing: .14em; color: var(--c-accent); }
   .steps h3 { margin-block: .9rem .5rem; }
-  .grades { font: 500 1.25rem/1.3 var(--font-heading); color: var(--c-accent); }
+  .grades { font: 600 1.1rem/1.3 var(--font-body); color: var(--c-accent); }
   .who { font-size: .95rem; color: #C9D2E0; margin-block-start: .35rem; }
 
+  .vision-band { padding-block: clamp(3rem, 7vw, 5rem); text-align: center; border-block: 1px solid var(--c-border); }
+  .vision-band .eyebrow { justify-content: center; }
+  .vision-band .eyebrow::after { content: ''; inline-size: 2rem; block-size: 1px; background: currentColor; }
+  .vision-text { font: 400 clamp(1.4rem, 3vw, 2.1rem)/1.45 var(--font-heading); color: var(--c-primary); font-style: italic; }
   .head-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; margin-block-end: clamp(2rem, 4vw, 3.5rem); }
   .head-row .section-head { margin: 0; }
 

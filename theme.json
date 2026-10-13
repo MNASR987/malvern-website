@@ -1,28 +1,28 @@
 {
   "_readme": "THEME FILE — colours, fonts and logo for the whole website. Change a colour code here and every page updates. For Nile International School, copy this project and edit only this file, site.config.mjs, the 'brand' folder and the 'content' folder.",
-
   "logo": {
-    "_readme": "Upload your logo into the 'brand' folder named logo.svg or logo.png — it is picked up automatically. Until then the text below is shown as a wordmark.",
+    "_readme": "The crest in brand/logo.png is used automatically. The words below are shown next to it in the header and footer (and on their own if no logo file exists).",
     "wordmarkTop": "Malvern",
     "wordmarkBottom": "International School",
-    "monogram": "M"
+    "monogram": "M",
+    "showWordsNextToLogo": true
   },
-
   "colors": {
-    "primary": "#0B2545",
-    "primaryDeep": "#061833",
-    "accent": "#C9A24A",
-    "accentText": "#8A6416",
-    "accentSoft": "#F3EAD3",
+    "primary": "#0C1F3F",
+    "primaryDeep": "#071630",
+    "accent": "#D6B06A",
+    "accentText": "#87631F",
+    "accentSoft": "#F6EEDC",
     "background": "#FFFFFF",
-    "backgroundAlt": "#F8F5EE",
+    "backgroundAlt": "#F9F6EF",
     "text": "#1B2333",
     "textMuted": "#4E5A6B",
-    "border": "#E6DFCF",
+    "border": "#E8E0CE",
     "placeholder": "#FFF4CC",
-    "whatsapp": "#17703D"
+    "whatsapp": "#17703D",
+    "accentHover": "#E3C487",
+    "_readme": "Navy and gold sampled from the school crest (brand/logo.png)."
   },
-
   "fonts": {
     "_readme": "Heading = elegant serif; Body = clean sans-serif. The Arabic fonts are already loaded and used automatically for Arabic text.",
     "heading": "Playfair Display Variable",
@@ -30,7 +30,6 @@
     "arabicHeading": "Noto Naskh Arabic Variable",
     "arabicBody": "IBM Plex Sans Arabic"
   },
-
   "shape": {
     "radius": "14px"
   }

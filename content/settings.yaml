@@ -13,13 +13,14 @@ licence:
   unifiedNo: "7009415220"
 
 contact:
-  phone: ""            # e.g. "+966 11 000 0000"
-  email: ""            # e.g. "admissions@malvern.edu.sa"
-  whatsapp: ""         # international format, digits only, e.g. "9665XXXXXXXX"
-  address: ""          # full street address
-  workingHours: ""     # e.g. "Sunday to Thursday, 7:00 am – 3:00 pm"
-  mapEmbedUrl: ""      # Google Maps → Share → Embed a map → copy the link inside src="..."
-  mapLink: ""          # Google Maps → Share → Copy link
+  phone: "+966 50 731 1584"
+  email: "malvernschools@gmail.com"
+  whatsapp: "966507311584"   # international format, digits only
+  address: "6517 Prince Abdulaziz Ibn Mussaed Ibn Jalawi St, Al Murabba Dist., Riyadh 12628, Saudi Arabia"
+  shortAddress: "RCRA6517"   # Saudi National Address short code
+  workingHours: "Sunday to Thursday, 6:30 am – 1:30 pm"
+  mapEmbedUrl: "https://maps.google.com/maps?q=6517%20Prince%20Abdulaziz%20Ibn%20Mussaed%20Ibn%20Jalawi%2C%20Al%20Murabba%2C%20Riyadh%2012628&z=16&output=embed"   # Google Maps → Share → Embed a map → copy the link inside src="..."
+  mapLink: "https://www.google.com/maps/search/?api=1&query=6517%20Prince%20Abdulaziz%20Ibn%20Mussaed%20Ibn%20Jalawi%2C%20Al%20Murabba%2C%20Riyadh%2012628"   # Google Maps → Share → Copy link
 
 links:
   parentPortal: ""     # link to the parent portal
@@ -28,7 +29,7 @@ links:
   instagram: ""
   x: ""
   linkedin: ""
-  youtube: ""
+  youtube: "https://www.youtube.com/@MalvernSch"
 
 forms:
   # Option A (simplest with Microsoft 365): paste the Microsoft Forms
