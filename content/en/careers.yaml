@@ -1,0 +1,30 @@
+# CAREERS PAGE
+seo:
+  title: "Careers"
+  description: "Careers at Malvern International School, Riyadh: join our team of educators."
+
+hero:
+  title: "Careers at Malvern"
+  text: "Join a team shaping confident, capable learners in Riyadh."
+
+why:
+  title: "Why work with us"
+  text: "[TO CONFIRM: What Malvern offers staff — e.g. professional development, benefits, culture]"
+
+vacancies:
+  title: "Current Vacancies"
+  empty: "There are no advertised vacancies at the moment. You are welcome to send your CV for future opportunities."
+  # Add a vacancy like this (remove the # at the start of each line):
+  # - title: "Grade 3 Homeroom Teacher"
+  #   type: "Full time · Girls' section"
+  #   text: "Short description."
+  items: []
+
+apply:
+  title: "How to apply"
+  text: "Send your CV and a covering letter by email, stating the position you are applying for."
+  missing: "[TO CONFIRM: Recruitment email address]"
+
+safer:
+  title: "Safer recruitment"
+  text: "[TO CONFIRM: Safer recruitment statement — e.g. checks carried out on all staff]"

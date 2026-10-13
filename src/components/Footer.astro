@@ -1,0 +1,77 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import Rich from './Rich.astro';
+import { getPage, settings, type Lang } from '../lib/content';
+import { href } from '../lib/paths';
+import { phone, email, telLink, mailLink, whatsappLink } from '../lib/contact';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = getPage('ui', lang);
+const year = new Date().getFullYear();
+const c = settings.contact;
+const social = Object.entries(settings.links ?? {}).filter(([k, v]) => ['instagram', 'x', 'linkedin', 'youtube'].includes(k) && v);
+const socialNames: Record<string, string> = { instagram: 'Instagram', x: 'X', linkedin: 'LinkedIn', youtube: 'YouTube' };
+---
+<footer class="site-footer">
+  <div class="container top">
+    <div class="about">
+      <Logo light />
+      <p>{ui.footer.tagline}</p>
+      <div class="btn-row">
+        <a class="btn btn--gold btn--sm" href={href('/admissions/#enquire', lang)}>{ui.buttons.enquire}</a>
+        <a class="btn btn--outline-light btn--sm" href={href('/admissions/?type=tour#enquire', lang)}>{ui.buttons.bookTour}</a>
+      </div>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="f-head">{ui.footer.explore}</h2>
+      <ul class="links">
+        {[...ui.nav, ...ui.moreNav].map((i: any) => <li><a href={href(i.href, lang)}>{i.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <h2 class="f-head">{ui.footer.contact}</h2>
+      <ul class="contact">
+        <li><Icon name="pin" size={18} /><Rich text={c.address || '[TO CONFIRM: School address]'} /></li>
+        <li><Icon name="phone" size={18} />{phone ? <a href={telLink} dir="ltr">{phone}</a> : <Rich text="[TO CONFIRM: Phone]" />}</li>
+        <li><Icon name="mail" size={18} />{email ? <a href={mailLink}>{email}</a> : <Rich text="[TO CONFIRM: Email]" />}</li>
+        <li><Icon name="whatsapp" size={18} />{whatsappLink() ? <a href={whatsappLink()} rel="noopener">WhatsApp</a> : <Rich text="[TO CONFIRM: WhatsApp number]" />}</li>
+      </ul>
+      {social.length > 0 && (
+        <ul class="social">{social.map(([k, v]) => <li><a href={v as string} rel="noopener">{socialNames[k]}</a></li>)}</ul>
+      )}
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="container bottom-inner">
+      <p class="licence">
+        <span>{settings.schoolName}, {settings.city}, {settings.country}</span>
+        <span>{ui.footer.licence} <strong dir="ltr">{settings.licence.ministryLicenceNo}</strong></span>
+        <span>{ui.footer.unified} <strong dir="ltr">{settings.licence.unifiedNo}</strong></span>
+      </p>
+      <p>© {year} {settings.schoolName}. {ui.footer.rights} · <a href={href('/privacy/', lang)}>Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--c-primary-deep); color: #C9D2E0; font-size: .97rem; }
+  .top { display: grid; gap: 3rem; padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+  @media (min-width: 860px) { .top { grid-template-columns: 1.4fr 1fr 1.2fr; } }
+  .about p { margin-block: 1.25rem 1.5rem; max-width: 30rem; }
+  .f-head { font: 600 .8rem/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--c-accent); margin-block-end: 1.25rem; }
+  ul { list-style: none; padding: 0; }
+  .links { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem 1rem; }
+  a:not(.btn) { color: #E9EDF4; text-decoration: none; }
+  .bottom a { text-decoration: underline; }
+  a:not(.btn):hover { color: var(--c-accent); text-decoration: underline; }
+  .contact { display: grid; gap: .85rem; }
+  .contact li { display: flex; gap: .75rem; align-items: flex-start; }
+  .contact :global(svg) { flex-shrink: 0; margin-block-start: .3rem; color: var(--c-accent); }
+  .social { display: flex; flex-wrap: wrap; gap: 1rem; margin-block-start: 1.5rem; }
+  .bottom { border-block-start: 1px solid rgba(255,255,255,.1); font-size: .875rem; }
+  .bottom-inner { display: grid; gap: .5rem; padding-block: 1.5rem 6rem; }
+  @media (min-width: 860px) { .bottom-inner { padding-block-end: 1.5rem; } }
+  .licence { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+  .licence strong { color: #fff; font-weight: 600; }
+</style>

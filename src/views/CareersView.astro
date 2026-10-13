@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Rich from '../components/Rich.astro';
+import { rich } from '../lib/text';
+import Icon from '../components/Icon.astro';
+import { getPage, settings, type Lang } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const p = getPage('careers', lang);
+const careersEmail = settings.links.careersEmail;
+const vacancies = p.vacancies.items ?? [];
+---
+<BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
+  <PageHero title={p.hero.title} text={p.hero.text} />
+  <section class="section">
+    <div class="container split">
+      <div class="reveal"><p class="eyebrow">Join us</p><h2>{p.why.title}</h2><p class="lead" set:html={rich(p.why.text)} /></div>
+      <div class="card reveal" id="apply">
+        <span class="icon-badge"><Icon name="mail" /></span>
+        <h3>{p.apply.title}</h3>
+        <p>{p.apply.text}</p>
+        <p class="mail">{careersEmail ? <a class="btn btn--navy" href={`mailto:${careersEmail}?subject=Job application`}>{careersEmail}</a> : <Rich text={p.apply.missing} />}</p>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" aria-labelledby="vac-h">
+    <div class="narrow">
+      <h2 id="vac-h" class="h">{p.vacancies.title}</h2>
+      {vacancies.length === 0 ? <p class="lead">{p.vacancies.empty}</p> : (
+        <ul class="vacancies" role="list">
+          {vacancies.map((v: any) => (
+            <li class="card"><h3>{v.title}</h3>{v.type && <p class="type">{v.type}</p>}{v.text && <p>{v.text}</p>}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+  <section class="section">
+    <div class="narrow"><h2 class="h">{p.safer.title}</h2><p class="lead" set:html={rich(p.safer.text)} /></div>
+  </section>
+</BaseLayout>
+<style>
+  .lead { font-size: 1.12rem; margin-block-start: 1rem; color: var(--c-text-muted); }
+  .mail { margin-block-start: 1.5rem; }
+  .h { margin-block-end: 1rem; }
+  .vacancies { list-style: none; padding: 0; display: grid; gap: 1rem; margin-block-start: 1.5rem; }
+  .type { font-size: .9rem; font-weight: 600; color: var(--c-accent-text); margin-block-end: .5rem; }
+</style>

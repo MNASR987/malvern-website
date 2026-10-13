@@ -1,0 +1,56 @@
+# ABOUT PAGE
+seo:
+  title: "About Us"
+  description: "About Malvern International School, Riyadh: Principal's welcome, vision, mission and values, leadership, partnerships, accreditation status and licensing."
+
+hero:
+  title: "About Malvern"
+  text: "An international school in Riyadh, for girls from KG to Grade 12 and boys from KG to Grade 6."
+
+welcome:
+  title: "Principal's Welcome"
+  body: |
+    [TO CONFIRM: Principal's welcome message (150–250 words)]
+  name: "[TO CONFIRM: Principal's name]"
+  role: "Principal"
+
+# Optional YouTube video on the About page (e.g. a message from the Principal).
+video:
+  title: "Welcome to Malvern"
+  url: ""
+
+vision:
+  title: "Vision"
+  text: "[TO CONFIRM: School vision statement]"
+mission:
+  title: "Mission"
+  text: "[TO CONFIRM: School mission statement]"
+values:
+  title: "Our Values"
+  items:
+    - { title: "[TO CONFIRM: Value 1]", text: "[TO CONFIRM: One-line description]" }
+    - { title: "[TO CONFIRM: Value 2]", text: "[TO CONFIRM: One-line description]" }
+    - { title: "[TO CONFIRM: Value 3]", text: "[TO CONFIRM: One-line description]" }
+    - { title: "[TO CONFIRM: Value 4]", text: "[TO CONFIRM: One-line description]" }
+
+leadership:
+  title: "Leadership"
+  intro: "[TO CONFIRM: One sentence introducing the leadership team]"
+  # Add one entry per leader. Photos are optional: put the file in the
+  # "brand" folder and write its name, e.g. photo: "principal.jpg"
+  people:
+    - { name: "[TO CONFIRM: Name]", role: "Principal", photo: "" }
+    - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
+    - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
+
+partnerships:
+  title: "Accreditation & Partnerships"
+  items:
+    - title: "SPRIX Inc. (Japan)"
+      text: "Our partner for mathematics and programming in Grades 1 to 9, including the TOFAS external assessment."
+    - title: "Cognia"
+      text: "[TO CONFIRM: Approved wording for Cognia accreditation status — e.g. “Malvern International School is currently in the Cognia accreditation process.”]"
+
+licensing:
+  title: "Licensing"
+  text: "Malvern International School is licensed for boys from KG to Grade 6 and girls from KG to Grade 12."

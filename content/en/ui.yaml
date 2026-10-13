@@ -1,0 +1,61 @@
+# Words used on every page (menu, buttons, footer).
+nav:
+  - { label: "About", href: "/about/" }
+  - { label: "Learning", href: "/learning/" }
+  - { label: "Student Life", href: "/student-life/" }
+  - { label: "Admissions", href: "/admissions/" }
+  - { label: "Parents", href: "/parents/" }
+  - { label: "News & Events", href: "/news/" }
+  - { label: "Contact", href: "/contact/" }
+moreNav:
+  - { label: "Careers", href: "/careers/" }
+  - { label: "Privacy Policy", href: "/privacy/" }
+buttons:
+  enquire: "Enquire Now"
+  enquireShort: "Enquire"
+  bookTour: "Book a Tour"
+  whatsapp: "Chat on WhatsApp"
+  readMore: "Read more"
+  menu: "Menu"
+  close: "Close"
+  skip: "Skip to main content"
+footer:
+  tagline: "An international school in Riyadh, Saudi Arabia."
+  explore: "Explore"
+  contact: "Contact"
+  licence: "Ministry licence no."
+  unified: "Unified no."
+  rights: "All rights reserved."
+placeholders:
+  photo: "Photo to come"
+form:
+  type: "I would like to"
+  typeEnquire: "Make an enquiry"
+  typeTour: "Book a school tour"
+  name: "Parent / guardian name"
+  phone: "Mobile number"
+  email: "Email address"
+  section: "Section"
+  sectionGirls: "Girls"
+  sectionBoys: "Boys"
+  grade: "Grade of interest"
+  gradeChoose: "Choose a grade"
+  year: "Academic year"
+  contactBy: "Preferred contact method"
+  message: "Your message (optional)"
+  messageHint: "Please do not include your child's name or personal details."
+  consent: "I agree that Malvern International School may use the details above to respond to my enquiry, as described in the"
+  consentLink: "Privacy Policy"
+  consentNote: "in line with the Saudi Personal Data Protection Law (PDPL)."
+  required: "Required"
+  submit: "Send enquiry"
+  sending: "Sending…"
+  successTitle: "Thank you"
+  success: "Your enquiry has been sent. Our admissions team will contact you soon."
+  error: "Sorry, something went wrong. Please try again, or contact us by WhatsApp or email."
+  fallbackTitle: "Almost done — choose how to send"
+  fallbackText: "Your message is ready. Choose WhatsApp or email to send it to our admissions team."
+  sendWhatsapp: "Send by WhatsApp"
+  sendEmail: "Send by email"
+  fallbackMissing: "[TO CONFIRM: WhatsApp number and admissions email in content/settings.yaml]"
+  boysNote: "Boys are admitted from KG1 to Grade 6."

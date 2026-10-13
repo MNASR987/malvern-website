@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import { logo, logoWhite } from '../lib/images';
+import { theme } from '../lib/content';
+interface Props { light?: boolean; size?: 'sm' | 'md' }
+const { light = false, size = 'md' } = Astro.props;
+const file = light ? (logoWhite ?? logo) : logo;
+const t = theme.logo;
+---
+{file ? (
+  <Image src={file} alt={`${t.wordmarkTop} ${t.wordmarkBottom}`} class:list={['logo-img', size]} height={size === 'sm' ? 48 : 64} loading="eager" />
+) : (
+  <span class:list={['wordmark', { light }, size]}>
+    <span class="mono" aria-hidden="true">{t.monogram}</span>
+    <span class="words"><span class="top">{t.wordmarkTop}</span><span class="bottom">{t.wordmarkBottom}</span></span>
+  </span>
+)}
+<style>
+  .logo-img { block-size: 52px; inline-size: auto; }
+  .logo-img.sm { block-size: 44px; }
+  .wordmark { display: inline-flex; align-items: center; gap: .75rem; color: var(--c-primary); }
+  .wordmark.light { color: #fff; }
+  .mono { display: grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border: 1.5px solid var(--c-accent); border-radius: 50%; font: 600 1.45rem/1 var(--font-heading); color: var(--c-accent-text); }
+  .light .mono { color: var(--c-accent); }
+  .words { display: grid; line-height: 1.05; }
+  .top { font: 600 1.4rem/1 var(--font-heading); letter-spacing: .01em; }
+  .bottom { font: 600 .62rem/1.2 var(--font-body); letter-spacing: .2em; text-transform: uppercase; margin-block-start: .3rem; opacity: .85; }
+  .sm .mono { inline-size: 2.4rem; block-size: 2.4rem; font-size: 1.25rem; }
+  .sm .top { font-size: 1.2rem; }
+  .mono, .top { font-variant-numeric: lining-nums; }
+  @media (max-width: 420px) { .sm .bottom { letter-spacing: .1em; font-size: .56rem; } .wordmark { gap: .55rem; } .sm .mono { inline-size: 2.1rem; block-size: 2.1rem; font-size: 1.1rem; } }
+</style>

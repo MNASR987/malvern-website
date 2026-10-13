@@ -1,0 +1,60 @@
+---
+// Lightweight video player: shows a picture + play button, and loads the
+// YouTube player (privacy-enhanced youtube-nocookie.com) only when clicked.
+// Also works for a 360° tour link (any other https link).
+import Icon from './Icon.astro';
+import Pattern from './Pattern.astro';
+import Rich from './Rich.astro';
+interface Props { url?: string; title: string; placeholder?: string }
+const { url = '', title, placeholder = '[TO CONFIRM: YouTube link for this video]' } = Astro.props;
+
+const ytId = (() => {
+  const m = url.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/);
+  return m?.[1] ?? (/^[\w-]{11}$/.test(url) ? url : '');
+})();
+const src = ytId
+  ? `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&playsinline=1`
+  : url;
+const thumb = ytId ? `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg` : '';
+---
+{src ? (
+  <div class="video" data-video data-src={src} data-title={title}>
+    {thumb ? <img src={thumb} alt="" loading="lazy" decoding="async" width="480" height="360" /> : <Pattern opacity={0.18} />}
+    <button type="button" class="play" aria-label={`Play video: ${title}`}><Icon name="play" size={30} /></button>
+    <span class="caption">{title}</span>
+  </div>
+) : (
+  <div class="video empty">
+    <Pattern opacity={0.18} />
+    <span class="play" aria-hidden="true"><Icon name="play" size={30} /></span>
+    <p><Rich text={placeholder} /></p>
+  </div>
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-video]').forEach((box) => {
+    box.querySelector('button')?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = box.dataset.src!;
+      f.title = box.dataset.title!;
+      f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen; xr-spatial-tracking';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      box.replaceChildren(f);
+      box.classList.add('playing');
+      f.focus();
+    });
+  });
+</script>
+
+<style>
+  .video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: linear-gradient(135deg, #12305A, var(--c-primary-deep)); display: grid; place-items: center; color: #fff; box-shadow: 0 30px 60px -35px rgba(6,24,51,.6); }
+  .video img, .video :global(iframe) { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; border: 0; }
+  .video img { filter: brightness(.8); transition: filter .3s, transform .6s; }
+  .video:hover img { filter: brightness(.65); transform: scale(1.02); }
+  .play { position: relative; display: grid; place-items: center; inline-size: 78px; block-size: 78px; border-radius: 50%; border: 0; background: var(--c-accent); color: var(--c-primary-deep); cursor: pointer; padding-inline-start: 4px; box-shadow: 0 0 0 10px rgba(201,162,74,.25); transition: transform .2s; }
+  .play:hover { transform: scale(1.07); }
+  .caption { position: absolute; inset-inline: 1.25rem; inset-block-end: 1rem; font-weight: 600; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .empty { gap: 1rem; text-align: center; padding: 1.5rem; align-content: center; }
+  .empty p { position: relative; max-width: 30rem; }
+</style>

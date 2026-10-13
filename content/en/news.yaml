@@ -1,0 +1,12 @@
+# NEWS & EVENTS PAGE (the stories themselves live in the content/news folder)
+seo:
+  title: "News & Events"
+  description: "News and upcoming events at Malvern International School, Riyadh."
+
+hero:
+  title: "News & Events"
+  text: "Stories and dates from life at Malvern."
+
+upcoming: "Upcoming events"
+latest: "Latest news"
+empty: "News and events will appear here soon."

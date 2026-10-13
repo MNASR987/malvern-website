@@ -1,0 +1,17 @@
+# CONTACT PAGE
+seo:
+  title: "Contact Us"
+  description: "Contact Malvern International School, Riyadh: phone, email, WhatsApp, address, map and working hours."
+
+hero:
+  title: "Contact Us"
+  text: "We are happy to help. Reach us by phone, email or WhatsApp, or visit us in Riyadh."
+
+labels:
+  phone: "Phone"
+  email: "Email"
+  whatsapp: "WhatsApp"
+  address: "Address"
+  hours: "Working hours"
+  map: "Map"
+  openMap: "Open in Google Maps"

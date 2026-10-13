@@ -1,0 +1,38 @@
+---
+// "Offers & Announcements" — shows every poster image found in content/offers.
+import { Image } from 'astro:assets';
+import { offers } from '../lib/images';
+interface Props { title: string; intro?: string; hideWhenEmpty?: boolean; alt?: boolean }
+const { title, intro, hideWhenEmpty = false, alt = false } = Astro.props;
+---
+{(offers.length > 0 || !hideWhenEmpty) && (
+  <section class:list={['section', { 'section--alt': alt }]} id="offers" aria-labelledby="offers-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Announcements</p>
+        <h2 id="offers-title">{title}</h2>
+        {intro && <p>{intro}</p>}
+      </div>
+      {offers.length === 0 ? (
+        <p class="empty">There are no announcements at the moment.</p>
+      ) : (
+        <ul class="posters" role="list">
+          {offers.map((o) => (
+            <li class="reveal">
+              <a href={o.image.src} class="poster" target="_blank" rel="noopener" aria-label={`${o.alt} (opens full size)`}>
+                <Image src={o.image} alt={o.alt} widths={[360, 540, 720]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 90vw" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+)}
+<style>
+  .posters { list-style: none; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  .poster { display: block; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-border); background: #fff; box-shadow: 0 20px 40px -30px rgba(6,24,51,.5); transition: transform .25s, box-shadow .25s; }
+  .poster:hover { transform: translateY(-4px); box-shadow: 0 28px 50px -28px rgba(6,24,51,.55); }
+  .poster :global(img) { inline-size: 100%; block-size: auto; }
+  .empty { color: var(--c-text-muted); }
+</style>

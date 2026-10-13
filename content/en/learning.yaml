@@ -1,0 +1,62 @@
+# LEARNING PAGE
+seo:
+  title: "Learning"
+  description: "The Learner Journey at Malvern International School, Riyadh: KG, Primary, Middle and High School, identity subjects, languages, and mathematics and programming with SPRIX (Japan)."
+
+hero:
+  title: "Learning at Malvern"
+  text: "A connected journey from Kindergarten to Grade 12, with high expectations and strong roots."
+
+journey:
+  title: "The Learner Journey"
+  intro: "Four phases, one continuous journey."
+  # The four phases. "who" explains which students the phase serves.
+  phases:
+    - name: "Kindergarten"
+      grades: "KG1 – KG3"
+      who: "Boys and girls"
+      text: "[TO CONFIRM: Early years approach — e.g. play-based learning, early literacy and numeracy in English and Arabic]"
+    - name: "Primary"
+      grades: "Grades 1 – 5"
+      who: "Boys and girls"
+      text: "[TO CONFIRM: Primary phase focus]"
+    - name: "Middle School"
+      grades: "Grades 6 – 8"
+      who: "Girls Grades 6–8 · Boys Grade 6"
+      text: "[TO CONFIRM: Middle school focus]"
+    - name: "High School"
+      grades: "Grades 9 – 12"
+      who: "Girls"
+      text: "[TO CONFIRM: High school focus, pathways and graduation requirements]"
+
+curriculum:
+  title: "Our Curriculum"
+  text: "[TO CONFIRM: Name of the curriculum framework followed (e.g. American, British or other), the subjects taught in each phase, and how it aligns with Ministry requirements]"
+
+identity:
+  title: "Identity Subjects"
+  intro: "Every Malvern learner grows with a strong sense of faith, language and nation."
+  items:
+    - title: "Arabic"
+      text: "[TO CONFIRM: Short description of the Arabic programme]"
+    - title: "Holy Quran & Islamic Studies"
+      text: "[TO CONFIRM: Short description of the Quran and Islamic Studies programme]"
+    - title: "Social Studies"
+      text: "[TO CONFIRM: Short description of the Social Studies programme]"
+
+languages:
+  title: "Languages"
+  text: "[TO CONFIRM: Language of instruction, English and Arabic programmes, and any additional languages offered]"
+
+stem:
+  title: "STEM with SPRIX (Japan)"
+  text: "Malvern partners with SPRIX Inc., a Japanese education company, for mathematics and programming in Grades 1 to 9. Learners also sit TOFAS, an external assessment, so that families can see progress measured against an outside benchmark."
+  points:
+    - "Mathematics — Grades 1 to 9"
+    - "Programming — Grades 1 to 9"
+    - "TOFAS external assessment"
+  more: "[TO CONFIRM: How the SPRIX programme works in class — e.g. lessons per week, materials, how TOFAS results are shared with parents]"
+
+assessment:
+  title: "Our Approach to Assessment"
+  text: "[TO CONFIRM: How learning is assessed — e.g. ongoing classroom assessment, reports to parents (how often), internal exams, and external assessments such as TOFAS]"

@@ -1,0 +1,14 @@
+---
+// "On this page" links shown under the page title.
+interface Props { items: [string, string][] }
+const { items } = Astro.props;
+---
+<nav class="subnav" aria-label="On this page">
+  <div class="container"><ul>{items.map(([h, l]) => <li><a href={h}>{l}</a></li>)}</ul></div>
+</nav>
+<style>
+  .subnav { position: sticky; inset-block-start: 76px; z-index: 30; background: #fff; border-block-end: 1px solid var(--c-border); }
+  .subnav ul { display: flex; gap: 1.5rem; overflow-x: auto; list-style: none; padding: 0; scrollbar-width: none; }
+  .subnav a { display: block; padding-block: 1rem; white-space: nowrap; text-decoration: none; font-size: .92rem; font-weight: 500; color: var(--c-text-muted); }
+  .subnav a:hover { color: var(--c-primary); }
+</style>

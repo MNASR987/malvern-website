@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Rich from '../components/Rich.astro';
+import Icon from '../components/Icon.astro';
+import SubNav from '../components/SubNav.astro';
+import Offers from '../components/Offers.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import { getPage, type Lang } from '../lib/content';
+import { phone, email, telLink, mailLink, whatsappLink } from '../lib/contact';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const p = getPage('admissions', lang);
+const ui = getPage('ui', lang);
+const subnav = [
+  ['#who', p.whoWeAdmit.title], ['#process', p.process.title], ['#documents', p.documents.title],
+  ['#fees', 'Fees'], ['#offers', p.offers.title], ['#faq', 'FAQ'], ['#enquire', ui.buttons.bookTour],
+];
+---
+<BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
+  <PageHero title={p.hero.title} text={p.hero.text}>
+    <div class="btn-row" style="margin-block-start:2rem">
+      <a class="btn btn--gold" href="#enquire">{ui.buttons.enquire}</a>
+      <a class="btn btn--outline-light" href="?type=tour#enquire">{ui.buttons.bookTour}</a>
+    </div>
+  </PageHero>
+  <SubNav items={subnav as [string, string][]} />
+
+  <section class="section" id="who" aria-labelledby="who-h">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">Admissions</p><h2 id="who-h">{p.whoWeAdmit.title}</h2></div>
+      <div class="grid grid--2">
+        {p.whoWeAdmit.groups.map((g: any) => (
+          <article class="card admit reveal"><p class="eyebrow">{g.title}</p><p class="range">{g.text}</p></article>
+        ))}
+      </div>
+      <p class="note"><Rich text={p.whoWeAdmit.note} /></p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="process" aria-labelledby="proc-h">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">Step by step</p><h2 id="proc-h">{p.process.title}</h2><Rich as="p" text={p.process.note} /></div>
+      <ol class="process" role="list">
+        {p.process.steps.map((s: any, i: number) => (
+          <li class="reveal"><span class="n" aria-hidden="true">{i + 1}</span><div><h3><span class="visually-hidden">Step {i + 1}: </span>{s.title}</h3><Rich as="p" text={s.text} /></div></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="documents" aria-labelledby="doc-h">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Checklist</p>
+        <h2 id="doc-h">{p.documents.title}</h2>
+        <p class="note"><Rich text={p.documents.note} /></p>
+      </div>
+      <ul class="check-list docs">{p.documents.items.map((d: string) => <li><Rich text={d} /></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="fees" aria-labelledby="fees-h">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">2026 – 2027</p><h2 id="fees-h">{p.fees.title}</h2><p>{p.fees.intro}</p></div>
+      <div class="fees-wrap reveal">
+        <table class="fees">
+          <caption class="visually-hidden">{p.fees.title}. {p.fees.intro}</caption>
+          <thead><tr><th scope="col">{p.fees.columnStage}</th><th scope="col">{p.fees.columnFee}</th></tr></thead>
+          <tbody>
+            {p.fees.rows.map((r: any) => (
+              <tr><th scope="row">{r.stage}</th><td><span dir="ltr">{r.fee}</span></td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <ul class="fee-notes">{p.fees.notes.map((n: string) => <li><Rich text={n} /></li>)}</ul>
+    </div>
+  </section>
+
+  <Offers title={p.offers.title} intro={p.offers.intro} />
+
+  <section class="section section--alt" id="faq" aria-labelledby="faq-h">
+    <div class="narrow">
+      <div class="section-head"><p class="eyebrow">Questions</p><h2 id="faq-h">{p.faq.title}</h2></div>
+      <div class="faq">
+        {p.faq.items.map((f: any) => (
+          <details><summary>{f.q}<Icon name="plus" size={20} class="faq-icon" /></summary><Rich as="p" text={f.a} /></details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy" id="enquire" aria-labelledby="enq-h">
+    <div class="container enquire">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="enq-h">{p.enquire.title}</h2>
+        <p class="lead">{p.enquire.text}</p>
+        <ul class="direct">
+          <li><Icon name="whatsapp" size={20} />{whatsappLink() ? <a href={whatsappLink()} rel="noopener">WhatsApp</a> : <Rich text="[TO CONFIRM: WhatsApp number]" />}</li>
+          <li><Icon name="phone" size={20} />{phone ? <a href={telLink} dir="ltr">{phone}</a> : <Rich text="[TO CONFIRM: Phone]" />}</li>
+          <li><Icon name="mail" size={20} />{email ? <a href={mailLink}>{email}</a> : <Rich text="[TO CONFIRM: Admissions email]" />}</li>
+        </ul>
+      </div>
+      <EnquiryForm lang={lang} />
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: p.faq.items.filter((f: any) => !/\[TO CONFIRM/.test(f.a)).map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  })} />
+</BaseLayout>
+<style>
+  .admit .range { font: 600 clamp(1.6rem, 3vw, 2.2rem)/1.2 var(--font-heading); color: var(--c-primary); }
+  .note { margin-block-start: 1.5rem; color: var(--c-text-muted); }
+  .process { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+  .process li { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; background: #fff; border: 1px solid var(--c-border); border-radius: var(--radius); padding: 1.5rem; }
+  .n { display: grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; border-radius: 50%; background: var(--c-primary); color: var(--c-accent); font: 600 1.2rem/1 var(--font-heading); }
+  .process h3 { margin-block-end: .35rem; }
+  .process p { color: var(--c-text-muted); }
+  .docs { background: var(--c-bg-alt); border-radius: var(--radius); padding: 2rem; }
+  .fees-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--c-border); background: #fff; max-width: 760px; }
+  .fees { inline-size: 100%; border-collapse: collapse; font-size: 1.05rem; }
+  .fees th, .fees td { padding: 1.05rem 1.5rem; text-align: start; border-block-end: 1px solid var(--c-border); }
+  .fees thead th { background: var(--c-primary); color: #fff; font-weight: 600; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+  .fees tbody th { font-weight: 500; }
+  .fees td { text-align: end; font: 600 1.2rem/1 var(--font-heading); color: var(--c-primary); font-variant-numeric: tabular-nums; }
+  .fees thead th:last-child { text-align: end; }
+  .fees tbody tr:last-child > * { border-block-end: 0; }
+  .fees tbody tr:nth-child(even) { background: #FCFBF7; }
+  .fee-notes { margin-block-start: 1.5rem; padding-inline-start: 1.2rem; color: var(--c-text-muted); display: grid; gap: .35rem; font-size: .97rem; }
+  .faq { display: grid; gap: .75rem; }
+  details { background: #fff; border: 1px solid var(--c-border); border-radius: var(--radius); }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; color: var(--c-primary); list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary :global(.faq-icon) { flex-shrink: 0; color: var(--c-accent-text); transition: transform .25s; }
+  details[open] summary :global(.faq-icon) { transform: rotate(45deg); }
+  details > :global(p) { padding: 0 1.5rem 1.4rem; color: var(--c-text-muted); }
+  .enquire { display: grid; gap: 3rem; align-items: start; }
+  @media (min-width: 1000px) { .enquire { grid-template-columns: .8fr 1.2fr; } }
+  .lead { font-size: 1.15rem; margin-block: 1rem 2rem; color: #D5DCE7; }
+  .direct { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .direct li { display: flex; gap: .75rem; align-items: center; }
+  .direct :global(svg) { color: var(--c-accent); flex-shrink: 0; }
+  .direct a { color: #fff; }
+</style>

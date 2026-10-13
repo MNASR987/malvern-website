@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { brandImage } from '../../lib/images';
+import { href } from '../../lib/paths';
+
+export async function getStaticPaths() {
+  return (await getCollection('news')).map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const img = brandImage(d.image);
+const fmt = (x: Date) => x.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Riyadh' });
+---
+<BaseLayout title={d.title} description={d.summary || d.title}>
+  <PageHero title={d.title} eyebrow={d.type === 'event' ? `Event · ${fmt(d.eventDate ?? d.date)}` : `News · ${fmt(d.date)}`} text={d.summary} />
+  <article class="section">
+    <div class="narrow prose">
+      {img && <Image src={img} alt="" widths={[600, 900, 1200]} sizes="(min-width: 800px) 780px, 100vw" class="lead-img" />}
+      <Content />
+      <p style="margin-block-start:3rem"><a class="link-arrow" href={href('/news/')}>All news & events</a></p>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .lead-img { border-radius: var(--radius); margin-block-end: 2rem; }
+</style>

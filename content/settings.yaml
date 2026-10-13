@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────
+#  SCHOOL SETTINGS — contact details, licence numbers and links.
+#  Edit the text after the colon. Leave "" (empty quotes) if not known yet:
+#  the website will show a [TO CONFIRM] placeholder instead.
+# ─────────────────────────────────────────────────────────────
+
+schoolName: "Malvern International School"
+city: "Riyadh"
+country: "Saudi Arabia"
+
+licence:
+  ministryLicenceNo: "01SOL260054"
+  unifiedNo: "7009415220"
+
+contact:
+  phone: ""            # e.g. "+966 11 000 0000"
+  email: ""            # e.g. "admissions@malvern.edu.sa"
+  whatsapp: ""         # international format, digits only, e.g. "9665XXXXXXXX"
+  address: ""          # full street address
+  workingHours: ""     # e.g. "Sunday to Thursday, 7:00 am – 3:00 pm"
+  mapEmbedUrl: ""      # Google Maps → Share → Embed a map → copy the link inside src="..."
+  mapLink: ""          # Google Maps → Share → Copy link
+
+links:
+  parentPortal: ""     # link to the parent portal
+  careersEmail: ""     # where CVs are sent
+  virtualTourEmbedUrl: ""   # YouTube/Vimeo embed link or 360° tour link
+  instagram: ""
+  x: ""
+  linkedin: ""
+  youtube: ""
+
+forms:
+  # Option A (simplest with Microsoft 365): paste the Microsoft Forms
+  # "Embed" link here and it replaces the built-in enquiry form.
+  microsoftFormsEmbedUrl: ""
+  # Option B: a form service address that accepts the built-in form
+  # (e.g. Formspree or a Power Automate HTTP flow).
+  enquiryEndpoint: ""
+  # Until A or B is set, the built-in form sends the enquiry by
+  # WhatsApp or email (using the contact details above).

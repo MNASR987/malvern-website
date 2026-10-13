@@ -1,0 +1,7 @@
+/* Self-hosted fonts (fast, private, no Google requests).
+   Arabic fonts download only when Arabic text appears on a page. */
+@import '@fontsource-variable/playfair-display/index.css';
+@import '@fontsource-variable/inter/index.css';
+@import '@fontsource-variable/noto-naskh-arabic/index.css';
+@import '@fontsource/ibm-plex-sans-arabic/arabic-400.css';
+@import '@fontsource/ibm-plex-sans-arabic/arabic-600.css';

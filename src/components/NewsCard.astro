@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import { brandImage } from '../lib/images';
+import { href } from '../lib/paths';
+import PhotoPlaceholder from './PhotoPlaceholder.astro';
+interface Props { entry: any }
+const { entry } = Astro.props;
+const d = entry.data;
+const img = brandImage(d.image);
+const fmt = (x: Date) => x.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Riyadh' });
+---
+<article class="news-card reveal">
+  {img ? <Image src={img} alt="" widths={[400, 700]} sizes="(min-width: 900px) 33vw, 100vw" /> : <PhotoPlaceholder ratio="16 / 10" label={d.type === 'event' ? 'Event' : 'News'} />}
+  <div class="body">
+    <p class="meta">{d.type === 'event' ? 'Event' : 'News'} · <time datetime={(d.eventDate ?? d.date).toISOString()}>{fmt(d.eventDate ?? d.date)}</time></p>
+    <h3><a href={href(`/news/${entry.id}/`)}>{d.title}</a></h3>
+    {d.summary && <p>{d.summary}</p>}
+  </div>
+</article>
+<style>
+  .news-card { position: relative; display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--c-border); border-radius: var(--radius); overflow: hidden; background: #fff; }
+  .news-card :global(img) { aspect-ratio: 16 / 10; object-fit: cover; inline-size: 100%; }
+  .news-card :global(.ph) { border-radius: 0; }
+  .body { padding: 1.5rem; }
+  .meta { font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--c-accent-text); font-weight: 600; margin-block-end: .5rem; }
+  h3 a { text-decoration: none; color: var(--c-primary); }
+  h3 a::after { content: ''; position: absolute; inset: 0; }
+  h3 a:hover { text-decoration: underline; }
+  .body p:last-child { color: var(--c-text-muted); margin-block-start: .5rem; }
+</style>

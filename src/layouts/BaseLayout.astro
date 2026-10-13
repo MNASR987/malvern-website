@@ -1,0 +1,85 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { getPage, languages, settings, theme, type Lang } from '../lib/content';
+import { asset, href } from '../lib/paths';
+import { phone, email } from '../lib/contact';
+
+interface Props { title: string; description: string; lang?: Lang; ogImage?: string; isHome?: boolean }
+const { title, description, lang = 'en', ogImage = 'og/default.jpg', isHome = false } = Astro.props;
+const ui = getPage('ui', lang);
+const dir = languages[lang].dir;
+const school = settings.schoolName;
+const fullTitle = isHome ? title : `${title} | ${school}, ${settings.city}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogUrl = new URL(asset(ogImage), Astro.site);
+
+const c = theme.colors, f = theme.fonts;
+const cssVars = `:root{
+  --c-primary:${c.primary};--c-primary-deep:${c.primaryDeep};--c-accent:${c.accent};--c-accent-text:${c.accentText};
+  --c-accent-soft:${c.accentSoft};--c-bg:${c.background};--c-bg-alt:${c.backgroundAlt};--c-text:${c.text};
+  --c-text-muted:${c.textMuted};--c-border:${c.border};--c-placeholder:${c.placeholder};--c-whatsapp:${c.whatsapp};
+  --font-heading:'${f.heading}','${f.arabicHeading}',Georgia,'Times New Roman',serif;
+  --font-body:'${f.body}','${f.arabicBody}',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --radius:${theme.shape.radius};}`;
+
+// Structured data for Google (only confirmed facts).
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'School',
+  name: school,
+  url: new URL(href('/'), Astro.site).href,
+  address: { '@type': 'PostalAddress', addressLocality: settings.city, addressCountry: 'SA', ...(settings.contact.address ? { streetAddress: settings.contact.address } : {}) },
+  ...(phone ? { telephone: phone } : {}),
+  ...(email ? { email } : {}),
+};
+---
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={asset('favicon.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={asset('sitemap-index.xml')} />
+    <meta name="theme-color" content={c.primary} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={school} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_GB'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <style is:inline set:html={cssVars} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{ui.buttons.skip}</a>
+    <Header lang={lang} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <WhatsAppButton lang={lang} />
+    <script>
+      const els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+      } else els.forEach((el) => el.classList.add('is-visible'));
+    </script>
+  </body>
+</html>

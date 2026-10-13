@@ -1,0 +1,37 @@
+# PARENTS PAGE
+seo:
+  title: "Parents"
+  description: "Information for parents at Malvern International School, Riyadh: academic calendar, uniform, key policies and the parent portal."
+
+hero:
+  title: "Parents"
+  text: "Everything you need for the school year, in one place."
+
+portal:
+  title: "Parent Portal"
+  text: "Log in to view your child's information."
+  button: "Go to the Parent Portal"
+  missing: "[TO CONFIRM: Parent portal link]"
+
+calendar:
+  title: "Academic Calendar 2026–2027"
+  text: "[TO CONFIRM: Key dates — term start and end dates, holidays and exam periods]"
+  # To offer a PDF: put the file in the "public/files" folder and write its
+  # name here, e.g. pdf: "academic-calendar-2026-2027.pdf"
+  pdf: ""
+  pdfLabel: "Download the calendar (PDF)"
+
+uniform:
+  title: "Uniform"
+  text: "[TO CONFIRM: Uniform requirements for boys and girls, PE kit, and where to buy]"
+
+policies:
+  title: "Key Policies"
+  intro: "[TO CONFIRM: Which policies are published, and whether they are downloadable or available on request]"
+  # pdf: put the file in "public/files" and write its name.
+  items:
+    - { title: "[TO CONFIRM: e.g. Admissions Policy]", pdf: "" }
+    - { title: "[TO CONFIRM: e.g. Child Protection & Safeguarding Policy]", pdf: "" }
+    - { title: "[TO CONFIRM: e.g. Behaviour Policy]", pdf: "" }
+    - { title: "[TO CONFIRM: e.g. Assessment Policy]", pdf: "" }
+    - { title: "[TO CONFIRM: e.g. Attendance Policy]", pdf: "" }

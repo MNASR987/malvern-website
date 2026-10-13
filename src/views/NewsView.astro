@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { getPage, type Lang } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const p = getPage('news', lang);
+const all = await getCollection('news');
+const today = new Date(); today.setHours(0, 0, 0, 0);
+const upcoming = all.filter((e) => e.data.type === 'event' && e.data.eventDate && e.data.eventDate >= today)
+  .sort((a, b) => +a.data.eventDate! - +b.data.eventDate!);
+const latest = all.filter((e) => !upcoming.includes(e)).sort((a, b) => +b.data.date - +a.data.date);
+---
+<BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
+  <PageHero title={p.hero.title} text={p.hero.text} />
+  {all.length === 0 && (
+    <section class="section"><div class="narrow"><p class="empty">{p.empty}</p></div></section>
+  )}
+  {upcoming.length > 0 && (
+    <section class="section section--alt" aria-labelledby="up-h">
+      <div class="container"><h2 id="up-h" class="h">{p.upcoming}</h2><div class="grid grid--3">{upcoming.map((e) => <NewsCard entry={e} />)}</div></div>
+    </section>
+  )}
+  {latest.length > 0 && (
+    <section class="section" aria-labelledby="latest-h">
+      <div class="container"><h2 id="latest-h" class="h">{p.latest}</h2><div class="grid grid--3">{latest.map((e) => <NewsCard entry={e} />)}</div></div>
+    </section>
+  )}
+</BaseLayout>
+<style>
+  .h { margin-block-end: 2rem; }
+  .empty { font-size: 1.15rem; color: var(--c-text-muted); text-align: center; }
+</style>

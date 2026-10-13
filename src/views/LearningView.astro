@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Rich from '../components/Rich.astro';
+import { rich } from '../lib/text';
+import Icon from '../components/Icon.astro';
+import SubNav from '../components/SubNav.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getPage, type Lang } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const p = getPage('learning', lang);
+const subnav = [
+  ['#journey', p.journey.title], ['#curriculum', p.curriculum.title], ['#identity', p.identity.title],
+  ['#languages', p.languages.title], ['#stem', p.stem.title], ['#assessment', p.assessment.title],
+];
+---
+<BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
+  <PageHero title={p.hero.title} text={p.hero.text} />
+  <SubNav items={subnav as [string, string][]} />
+
+  <section class="section" id="journey" aria-labelledby="journey-h">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">KG to Grade 12</p><h2 id="journey-h">{p.journey.title}</h2><p>{p.journey.intro}</p></div>
+      <ol class="timeline" role="list">
+        {p.journey.phases.map((ph: any, i: number) => (
+          <li class="reveal">
+            <div class="dot" aria-hidden="true">{i + 1}</div>
+            <div class="tl-card">
+              <p class="grades">{ph.grades}</p>
+              <h3>{ph.name}</h3>
+              <p class="who"><Icon name="user" size={16} /> {ph.who}</p>
+              <Rich as="p" text={ph.text} />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="curriculum" aria-labelledby="cur-h">
+    <div class="narrow reveal"><p class="eyebrow">Curriculum</p><h2 id="cur-h">{p.curriculum.title}</h2><p class="lead" set:html={rich(p.curriculum.text)} /></div>
+  </section>
+
+  <section class="section" id="identity" aria-labelledby="id-h">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">Identity</p><h2 id="id-h">{p.identity.title}</h2><p>{p.identity.intro}</p></div>
+      <div class="grid grid--3">
+        {p.identity.items.map((s: any, i: number) => (
+          <article class="card card--gold-top reveal"><span class="icon-badge"><Icon name={['book', 'crescent', 'globe'][i] ?? 'book'} /></span><h3>{s.title}</h3><Rich as="p" text={s.text} /></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="languages" aria-labelledby="lang-h">
+    <div class="narrow reveal"><p class="eyebrow">Languages</p><h2 id="lang-h">{p.languages.title}</h2><p class="lead" set:html={rich(p.languages.text)} /></div>
+  </section>
+
+  <section class="section section--navy" id="stem" aria-labelledby="stem-h">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Partnership · Japan</p>
+        <h2 id="stem-h">{p.stem.title}</h2>
+        <p class="lead light">{p.stem.text}</p>
+      </div>
+      <div class="reveal stem-box">
+        <ul class="stem-points" role="list">{p.stem.points.map((pt: string) => <li><Icon name="cube" size={22} /> {pt}</li>)}</ul>
+        <p class="stem-more" set:html={rich(p.stem.more)} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="assessment" aria-labelledby="as-h">
+    <div class="narrow reveal"><p class="eyebrow">Assessment</p><h2 id="as-h">{p.assessment.title}</h2><p class="lead" set:html={rich(p.assessment.text)} /></div>
+  </section>
+
+  <CtaBand title="See learning in action" text="Book a tour to visit classrooms and meet our teachers." lang={lang} />
+</BaseLayout>
+<style>
+  .lead { font-size: 1.15rem; margin-block-start: 1.25rem; }
+  .lead.light { color: #D5DCE7; }
+  .timeline { list-style: none; padding: 0; display: grid; gap: 1.5rem; position: relative; }
+  .timeline::before { content: ''; position: absolute; inset-block: 1.5rem; inset-inline-start: 1.5rem; inline-size: 2px; background: linear-gradient(var(--c-accent), var(--c-primary)); opacity: .5; }
+  .timeline li { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; position: relative; }
+  .dot { display: grid; place-items: center; inline-size: 3rem; block-size: 3rem; border-radius: 50%; background: var(--c-primary); color: var(--c-accent); font: 600 1.2rem/1 var(--font-heading); box-shadow: 0 0 0 6px #fff; }
+  .tl-card { border: 1px solid var(--c-border); border-radius: var(--radius); padding: 1.75rem; background: #fff; }
+  @media (min-width: 900px) {
+    .timeline { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .timeline::before { inset-inline: 1.5rem; inset-block: 1.5rem auto; block-size: 2px; inline-size: auto; background: linear-gradient(90deg, var(--c-accent), var(--c-primary)); }
+    [dir='rtl'] .timeline::before { background: linear-gradient(-90deg, var(--c-accent), var(--c-primary)); }
+    .timeline li { grid-template-columns: 1fr; grid-template-rows: 3rem 1fr; }
+  }
+  .grades { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--c-accent-text); }
+  .tl-card h3 { margin-block: .4rem .6rem; }
+  .who { display: flex; align-items: center; gap: .4rem; font-size: .92rem; color: var(--c-primary); font-weight: 500; margin-block-end: .9rem; }
+  .tl-card > :global(p:last-child) { color: var(--c-text-muted); }
+  .stem-box { border: 1px solid rgba(201,162,74,.4); border-radius: var(--radius); padding: 2rem; background: rgba(255,255,255,.04); }
+  .stem-points { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .stem-points li { display: flex; gap: .85rem; align-items: center; font: 500 1.2rem/1.3 var(--font-heading); color: #fff; }
+  .stem-points :global(svg) { color: var(--c-accent); flex-shrink: 0; }
+  .stem-box :global(.stem-more) { display: block; margin-block-start: 1.5rem; font-size: .95rem; color: #C9D2E0; }
+</style>

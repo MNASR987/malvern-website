@@ -1,0 +1,16 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import type { Lang } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const entry = (await getEntry('pages', `${lang}/privacy`)) ?? (await getEntry('pages', 'en/privacy'));
+const { Content } = await render(entry!);
+---
+<BaseLayout title={entry!.data.title} description={entry!.data.description} lang={lang}>
+  <PageHero title={entry!.data.title} text={`Last updated: ${entry!.data.lastUpdated ?? ''}`} />
+  <section class="section">
+    <div class="narrow prose"><Content /></div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,9 @@
+---
+// Renders a content string: highlights [TO CONFIRM: …] and supports **bold**.
+import { rich, paragraphs } from '../lib/text';
+interface Props { text?: string; as?: string; class?: string; paras?: boolean }
+const { text = '', as: Tag = 'span', class: cls, paras = false } = Astro.props;
+---
+{paras
+  ? paragraphs(text).map((p) => <p class={cls} set:html={rich(p)} />)
+  : <Tag class={cls} set:html={rich(text)} />}

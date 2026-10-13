@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import { getPage, type Lang } from '../lib/content';
+import { href } from '../lib/paths';
+import { whatsappLink } from '../lib/contact';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = getPage('ui', lang);
+// Until a WhatsApp number is set in content/settings.yaml, the button opens the Contact page.
+const link = whatsappLink('Hello, I would like to know more about Malvern International School.') || href('/contact/#whatsapp', lang);
+---
+<div class="floating">
+  <a class="wa" href={link} rel="noopener" aria-label={ui.buttons.whatsapp}>
+    <Icon name="whatsapp" size={30} />
+  </a>
+</div>
+<style>
+  .floating { position: fixed; z-index: 40; inset-inline-end: 1rem; inset-block-end: max(1rem, env(safe-area-inset-bottom)); display: flex; justify-content: flex-end; align-items: center; gap: .75rem; pointer-events: none; }
+  .floating a { pointer-events: auto; box-shadow: 0 10px 30px -10px rgba(6,24,51,.55); }
+  .wa { display: grid; place-items: center; inline-size: 58px; block-size: 58px; border-radius: 50%; background: var(--c-whatsapp); color: #fff; transition: transform .2s; }
+  .wa:hover { transform: scale(1.06); color: #fff; }
+</style>

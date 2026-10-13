@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Rich from '../components/Rich.astro';
+import { rich } from '../lib/text';
+import Icon from '../components/Icon.astro';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getPage, type Lang } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const p = getPage('student-life', lang);
+const icons: Record<string, string> = { wellbeing: 'heart', activities: 'star', health: 'plus' };
+---
+<BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
+  <PageHero title={p.hero.title} text={p.hero.text} />
+  {p.sections.map((s: any, i: number) => (
+    <section class:list={['section', { 'section--alt': i % 2 === 1 }]} id={s.id} aria-labelledby={`${s.id}-h`}>
+      <div class:list={['container split', { flip: i % 2 === 1 }]}>
+        <div class="reveal">
+          <span class="icon-badge"><Icon name={icons[s.id] ?? 'star'} /></span>
+          <h2 id={`${s.id}-h`}>{s.title}</h2>
+          <p class="lead" set:html={rich(s.text)} />
+          {s.list && <ul class="check-list">{s.list.map((li: string) => <li><Rich text={li} /></li>)}</ul>}
+        </div>
+        <div class="reveal"><PhotoPlaceholder label="Photo to come (no identifiable students)" /></div>
+      </div>
+    </section>
+  ))}
+  <section class="section section--navy" aria-labelledby="sl-video">
+    <div class="narrow">
+      <h2 id="sl-video" class="section-head--center" style="text-align:center;margin-block-end:2rem">{p.video.title}</h2>
+      <VideoEmbed url={p.video.url} title={p.video.title} placeholder="[TO CONFIRM: YouTube link for the Student Life video]" />
+    </div>
+  </section>
+  <CtaBand title="Discover life at Malvern" lang={lang} />
+</BaseLayout>
+<style>
+  .lead { font-size: 1.12rem; margin-block: 1rem 1.5rem; color: var(--c-text-muted); }
+  @media (min-width: 900px) { .flip > :first-child { order: 2; } }
+</style>

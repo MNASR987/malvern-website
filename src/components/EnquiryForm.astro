@@ -1,0 +1,196 @@
+---
+// Enquiry / Book-a-tour form with PDPL consent.
+// Sending: see "forms" in content/settings.yaml.
+import Icon from './Icon.astro';
+import Rich from './Rich.astro';
+import { getPage, settings, type Lang } from '../lib/content';
+import { href } from '../lib/paths';
+import { email, whatsappNumber } from '../lib/contact';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = getPage('ui', lang).form;
+const msForm = settings.forms?.microsoftFormsEmbedUrl;
+const endpoint = settings.forms?.enquiryEndpoint ?? '';
+const grades = ['KG1', 'KG2', 'KG3', ...Array.from({ length: 12 }, (_, i) => `Grade ${i + 1}`)];
+const thisYear = new Date().getFullYear();
+const years = [`${thisYear}–${thisYear + 1}`, `${thisYear + 1}–${thisYear + 2}`];
+---
+{msForm ? (
+  <iframe class="ms-form" src={msForm} title="Enquiry form" loading="lazy"></iframe>
+) : (
+<form class="enquiry" data-enquiry data-endpoint={endpoint} data-whatsapp={whatsappNumber} data-email={email} novalidate>
+  <fieldset class="type">
+    <legend>{t.type}</legend>
+    <label><input type="radio" name="type" value="Enquiry" checked /> <span>{t.typeEnquire}</span></label>
+    <label><input type="radio" name="type" value="School tour" /> <span>{t.typeTour}</span></label>
+  </fieldset>
+
+  <div class="fields">
+    <div class="field full">
+      <label for="f-name">{t.name} <span class="req" aria-hidden="true">*</span></label>
+      <input id="f-name" name="name" type="text" autocomplete="name" required />
+    </div>
+    <div class="field">
+      <label for="f-phone">{t.phone} <span class="req" aria-hidden="true">*</span></label>
+      <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="05X XXX XXXX" required pattern="[0-9+ ()\-]{8,20}" dir="ltr" />
+    </div>
+    <div class="field">
+      <label for="f-email">{t.email} <span class="req" aria-hidden="true">*</span></label>
+      <input id="f-email" name="email" type="email" autocomplete="email" required dir="ltr" />
+    </div>
+    <div class="field">
+      <label for="f-section">{t.section} <span class="req" aria-hidden="true">*</span></label>
+      <select id="f-section" name="section" required aria-describedby="f-section-note">
+        <option value="Girls">{t.sectionGirls}</option>
+        <option value="Boys">{t.sectionBoys}</option>
+      </select>
+      <small id="f-section-note" class="hint">{t.boysNote}</small>
+    </div>
+    <div class="field">
+      <label for="f-grade">{t.grade} <span class="req" aria-hidden="true">*</span></label>
+      <select id="f-grade" name="grade" required>
+        <option value="">{t.gradeChoose}</option>
+        {grades.map((g, i) => <option value={g} data-index={i}>{g}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-year">{t.year}</label>
+      <select id="f-year" name="year">{years.map((y) => <option>{y}</option>)}</select>
+    </div>
+    <div class="field">
+      <label for="f-contact">{t.contactBy}</label>
+      <select id="f-contact" name="contactBy"><option>WhatsApp</option><option>Phone call</option><option>Email</option></select>
+    </div>
+    <div class="field full">
+      <label for="f-message">{t.message}</label>
+      <textarea id="f-message" name="message" rows="4" maxlength="1000" aria-describedby="f-message-hint"></textarea>
+      <small id="f-message-hint" class="hint">{t.messageHint}</small>
+    </div>
+  </div>
+
+  <div class="consent">
+    <input id="f-consent" name="consent" type="checkbox" required />
+    <label for="f-consent">{t.consent} <a href={href('/privacy/', lang)}>{t.consentLink}</a>, {t.consentNote} <span class="req" aria-hidden="true">*</span></label>
+  </div>
+
+  <p class="error-summary" role="alert" hidden data-errors></p>
+  <button class="btn btn--navy submit" type="submit">{t.submit} <Icon name="arrow" size={18} /></button>
+
+  <div class="result" hidden data-result tabindex="-1">
+    <div data-success hidden><h3>{t.successTitle}</h3><p>{t.success}</p></div>
+    <div data-failure hidden><p>{t.error}</p></div>
+    <div data-fallback hidden>
+      <h3>{t.fallbackTitle}</h3>
+      <p>{t.fallbackText}</p>
+      <div class="btn-row">
+        {whatsappNumber && <a class="btn btn--navy" data-send-wa target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> {t.sendWhatsapp}</a>}
+        {email && <a class="btn btn--outline" data-send-mail><Icon name="mail" size={20} /> {t.sendEmail}</a>}
+      </div>
+      {!whatsappNumber && !email && <p><Rich text={t.fallbackMissing} /></p>}
+    </div>
+  </div>
+</form>
+)}
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-enquiry]').forEach((form) => {
+    // Pre-select "Book a school tour" when arriving from a "Book a Tour" button.
+    if (new URLSearchParams(location.search).get('type') === 'tour') {
+      form.querySelector<HTMLInputElement>('input[value="School tour"]')!.checked = true;
+    }
+    // Boys: only KG1 – Grade 6 can be chosen.
+    const section = form.querySelector<HTMLSelectElement>('[name=section]')!;
+    const grade = form.querySelector<HTMLSelectElement>('[name=grade]')!;
+    const syncGrades = () => {
+      grade.querySelectorAll<HTMLOptionElement>('option[data-index]').forEach((o) => {
+        o.disabled = section.value === 'Boys' && Number(o.dataset.index) > 8;
+      });
+      if (grade.selectedOptions[0]?.disabled) grade.value = '';
+    };
+    section.addEventListener('change', syncGrades);
+
+    const errors = form.querySelector<HTMLElement>('[data-errors]')!;
+    const result = form.querySelector<HTMLElement>('[data-result]')!;
+    const show = (name: string) => {
+      result.hidden = false;
+      result.querySelectorAll<HTMLElement>('[data-success],[data-failure],[data-fallback]').forEach((el) => (el.hidden = !el.hasAttribute(name)));
+      result.focus();
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const invalid = [...form.querySelectorAll<HTMLInputElement>('input,select,textarea')].filter((el) => !el.checkValidity());
+      form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+      if (invalid.length) {
+        invalid.forEach((el) => el.setAttribute('aria-invalid', 'true'));
+        const names = invalid.map((el) => form.querySelector(`label[for="${el.id}"]`)?.textContent?.replace('*', '').trim()).filter(Boolean);
+        errors.textContent = 'Please complete: ' + [...new Set(names)].map((n) => (n!.length > 60 ? 'consent' : n)).join(', ') + '.';
+        errors.hidden = false;
+        invalid[0].focus();
+        return;
+      }
+      errors.hidden = true;
+      const data = new FormData(form);
+      const endpoint = form.dataset.endpoint;
+
+      if (endpoint) {
+        const btn = form.querySelector<HTMLButtonElement>('.submit')!;
+        btn.disabled = true;
+        try {
+          const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+          if (!res.ok) throw new Error(String(res.status));
+          form.querySelector('.fields')!.setAttribute('hidden', '');
+          show('data-success');
+        } catch { show('data-failure'); }
+        btn.disabled = false;
+        return;
+      }
+
+      // No form service yet: prepare the message for WhatsApp or email.
+      const lines = [
+        `Website ${data.get('type')} — Malvern International School`,
+        `Name: ${data.get('name')}`,
+        `Mobile: ${data.get('phone')}`,
+        `Email: ${data.get('email')}`,
+        `Section: ${data.get('section')} · ${data.get('grade')} · ${data.get('year')}`,
+        `Preferred contact: ${data.get('contactBy')}`,
+        data.get('message') ? `Message: ${data.get('message')}` : '',
+        'Consent to the Privacy Policy (PDPL): Yes',
+      ].filter(Boolean).join('\n');
+      const wa = form.querySelector<HTMLAnchorElement>('[data-send-wa]');
+      const mail = form.querySelector<HTMLAnchorElement>('[data-send-mail]');
+      if (wa) wa.href = `https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(lines)}`;
+      if (mail) mail.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`Website ${data.get('type')}`)}&body=${encodeURIComponent(lines)}`;
+      show('data-fallback');
+    });
+  });
+</script>
+
+<style>
+  .enquiry { display: grid; gap: 1.5rem; background: #fff; border: 1px solid var(--c-border); border-radius: calc(var(--radius) * 1.4); padding: clamp(1.5rem, 4vw, 2.75rem); box-shadow: 0 40px 80px -60px rgba(6,24,51,.6); color: var(--c-text); }
+  fieldset { border: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .75rem; }
+  legend { font-weight: 600; margin-block-end: .75rem; color: var(--c-primary); }
+  .type label { position: relative; cursor: pointer; }
+  .type input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .type span { display: inline-block; padding: .7rem 1.25rem; border: 1.5px solid var(--c-border); border-radius: 999px; font-weight: 500; transition: all .2s; }
+  .type input:checked + span { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+  .type input:focus-visible + span { outline: 3px solid var(--c-accent); outline-offset: 2px; }
+  .fields { display: grid; gap: 1.1rem 1.25rem; }
+  @media (min-width: 640px) { .fields { grid-template-columns: 1fr 1fr; } .full { grid-column: 1 / -1; } }
+  .field { display: grid; gap: .4rem; align-content: start; }
+  .field label { font-weight: 500; font-size: .95rem; }
+  input, select, textarea { font: inherit; color: inherit; inline-size: 100%; min-block-size: 50px; padding: .7rem .9rem; border: 1.5px solid #CFC7B5; border-radius: 10px; background: #fff; }
+  textarea { resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--c-primary); box-shadow: 0 0 0 3px rgba(201,162,74,.35); }
+  [aria-invalid='true'] { border-color: #B42318; }
+  .req { color: #B42318; }
+  .hint { color: var(--c-text-muted); font-size: .85rem; }
+  .consent { display: grid; grid-template-columns: auto 1fr; gap: .75rem; align-items: start; font-size: .95rem; background: var(--c-bg-alt); border-radius: 10px; padding: 1rem; }
+  .consent input { inline-size: 22px; min-block-size: 22px; block-size: 22px; margin-block-start: .2rem; accent-color: var(--c-primary); }
+  .error-summary { color: #B42318; font-weight: 500; }
+  .submit { justify-self: start; }
+  .result { border-block-start: 1px solid var(--c-border); padding-block-start: 1.5rem; display: grid; gap: .75rem; }
+  .result h3 { margin-block-end: .5rem; }
+  .result .btn-row { margin-block-start: 1rem; }
+  .ms-form { inline-size: 100%; min-block-size: 900px; border: 0; border-radius: var(--radius); background: #fff; }
+</style>

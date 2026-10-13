@@ -1,0 +1,162 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import Rich from '../components/Rich.astro';
+import Icon from '../components/Icon.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import Offers from '../components/Offers.astro';
+import NewsCard from '../components/NewsCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getPage, settings, type Lang } from '../lib/content';
+import { href } from '../lib/paths';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const page = getPage('home', lang);
+const ui = getPage('ui', lang);
+const phases = getPage('learning', lang).journey.phases;
+const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data.date).slice(0, 3);
+---
+<BaseLayout title={page.seo.title} description={page.seo.description} lang={lang} isHome>
+  <HomeHero hero={page.hero} buttons={ui.buttons} lang={lang} />
+
+  <section class="facts-wrap" aria-label="Key facts">
+    <div class="container">
+      <ul class="facts" role="list">
+        {page.facts.map((f: any) => (
+          <li><strong dir="auto">{f.value}</strong><span>{f.label}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Malvern International School</p>
+        <h2 id="why">{page.why.title}</h2>
+        <Rich as="p" text={page.why.intro} />
+      </div>
+      <div class="grid grid--4">
+        {page.why.items.map((item: any) => (
+          <article class="card card--gold-top reveal">
+            <span class="icon-badge"><Icon name={item.icon} /></span>
+            <h3>{item.title}</h3>
+            <Rich as="p" text={item.text} />
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="film">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Watch</p>
+        <h2 id="film">{page.video.title}</h2>
+        <p class="muted">{page.video.text}</p>
+      </div>
+      <div class="reveal"><VideoEmbed url={page.video.url} title={page.video.title} placeholder="[TO CONFIRM: YouTube link for the school film]" /></div>
+    </div>
+  </section>
+
+  <section class="section section--navy journey" aria-labelledby="journey">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">KG to Grade 12</p>
+        <h2 id="journey">{page.journey.title}</h2>
+        <p>{page.journey.intro}</p>
+      </div>
+      <ol class="steps" role="list">
+        {phases.map((p: any, i: number) => (
+          <li class="reveal">
+            <span class="num">0{i + 1}</span>
+            <h3>{p.name}</h3>
+            <p class="grades">{p.grades}</p>
+            <p class="who">{p.who}</p>
+          </li>
+        ))}
+      </ol>
+      <a class="btn btn--outline-light" href={href('/learning/#journey', lang)}>{page.journey.linkLabel}</a>
+    </div>
+  </section>
+
+  <Offers title={page.offers.title} intro={page.offers.intro} hideWhenEmpty />
+
+  <section class="section section--alt" aria-labelledby="visit">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Virtual tour</p>
+        <h2 id="visit">{page.tour.title}</h2>
+        <p class="muted">{page.tour.text}</p>
+        <div class="btn-row" style="margin-block-start:2rem">
+          <a class="btn btn--navy" href={href('/admissions/?type=tour#enquire', lang)}>{ui.buttons.bookTour}</a>
+          <a class="link-arrow" href={href('/contact/', lang)}>Find us</a>
+        </div>
+      </div>
+      <div class="reveal"><VideoEmbed url={settings.links.virtualTourEmbedUrl} title="Virtual tour" placeholder={page.tour.videoPlaceholder} /></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="news">
+    <div class="container">
+      <div class="head-row">
+        <div class="section-head"><p class="eyebrow">Latest</p><h2 id="news">{page.news.title}</h2></div>
+        <a class="link-arrow" href={href('/news/', lang)}>{page.news.linkLabel}</a>
+      </div>
+      {news.length ? (
+        <div class="grid grid--3">{news.map((n) => <NewsCard entry={n} />)}</div>
+      ) : (
+        <p class="muted">News and events will appear here soon.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="voice">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Families</p>
+        <h2 id="voice">{page.parentVoice.title}</h2>
+        <p>{page.parentVoice.intro}</p>
+      </div>
+      <div class="grid grid--3">
+        {page.parentVoice.items.map((q: any) => (
+          <figure class="card quote reveal">
+            <Icon name="quote" size={34} class="q-icon" />
+            <blockquote><Rich as="p" text={q.quote} /></blockquote>
+            <figcaption><Rich text={q.who} /></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title={page.cta.title} text={page.cta.text} lang={lang} />
+</BaseLayout>
+
+<style>
+  .muted { color: var(--c-text-muted); font-size: 1.1rem; margin-block-start: 1rem; }
+  .facts-wrap { position: relative; z-index: 2; margin-block-start: -3.5rem; }
+  .facts { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); background: #fff; border-radius: calc(var(--radius) * 1.3); box-shadow: 0 30px 70px -40px rgba(6,24,51,.55); border: 1px solid var(--c-border); overflow: hidden; }
+  @media (min-width: 900px) { .facts { grid-template-columns: repeat(4, 1fr); } }
+  .facts li { display: grid; gap: .35rem; align-content: start; padding: clamp(1.1rem, 2.5vw, 1.6rem) clamp(1rem, 2.5vw, 1.75rem); border-inline-end: 1px solid var(--c-border); border-block-end: 1px solid var(--c-border); }
+  .facts strong { font: 600 clamp(1.1rem, 2.4vw, 1.5rem)/1.15 var(--font-heading); color: var(--c-primary); }
+  .facts span { font-size: .92rem; color: var(--c-text-muted); }
+
+  .steps { list-style: none; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); margin-block-end: 2.5rem; counter-reset: s; }
+  .steps li { position: relative; padding: 2rem 1.75rem; border: 1px solid rgba(201,162,74,.35); border-radius: var(--radius); background: rgba(255,255,255,.03); }
+  .steps li::after { content: ''; position: absolute; inset-block-start: 2.6rem; inset-inline-end: -1.25rem; inline-size: 1.25rem; block-size: 1px; background: var(--c-accent); opacity: .6; }
+  .steps li:last-child::after { display: none; }
+  .num { font: 600 .85rem/1 var(--font-body); letter-spacing: .14em; color: var(--c-accent); }
+  .steps h3 { margin-block: .9rem .5rem; }
+  .grades { font: 500 1.25rem/1.3 var(--font-heading); color: var(--c-accent); }
+  .who { font-size: .95rem; color: #C9D2E0; margin-block-start: .35rem; }
+
+  .head-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; margin-block-end: clamp(2rem, 4vw, 3.5rem); }
+  .head-row .section-head { margin: 0; }
+
+  .quote { display: grid; gap: 1.25rem; align-content: start; margin: 0; }
+  .quote :global(.q-icon) { color: var(--c-accent); }
+  .quote blockquote p { font: 400 1.2rem/1.55 var(--font-heading); color: var(--c-primary); font-style: italic; }
+  .quote figcaption { font-size: .92rem; color: var(--c-text-muted); }
+</style>

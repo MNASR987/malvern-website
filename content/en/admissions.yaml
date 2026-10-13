@@ -1,0 +1,83 @@
+# ADMISSIONS PAGE
+seo:
+  title: "Admissions"
+  description: "Admissions at Malvern International School, Riyadh: who we admit, the admissions process, required documents, 2026–2027 tuition fees, FAQ, enquiries and school tours."
+
+hero:
+  title: "Admissions"
+  text: "We look forward to welcoming your family. Here is everything you need to begin."
+
+whoWeAdmit:
+  title: "Who We Admit"
+  groups:
+    - { title: "Girls", text: "KG1 to Grade 12" }
+    - { title: "Boys", text: "KG1 to Grade 6" }
+  note: "[TO CONFIRM: Age requirements for each grade (e.g. age on 1 September), nationalities accepted, and any entry requirements]"
+
+process:
+  title: "The Admissions Process"
+  note: "[TO CONFIRM: Please check these steps match the school's actual process]"
+  steps:
+    - { title: "Enquire", text: "Send us an enquiry online, by WhatsApp or by phone." }
+    - { title: "Visit", text: "Book a tour of the school and meet our admissions team." }
+    - { title: "Apply", text: "Complete the application and submit the required documents." }
+    - { title: "Assessment", text: "[TO CONFIRM: Entry assessment or interview — which grades and what it involves]" }
+    - { title: "Offer", text: "[TO CONFIRM: How and when families receive the admission decision]" }
+    - { title: "Registration", text: "[TO CONFIRM: How to confirm the place — e.g. registration form and fee payment]" }
+
+documents:
+  title: "Required Documents"
+  note: "[TO CONFIRM: Final list of required documents]"
+  items:
+    - "[TO CONFIRM: e.g. Student's birth certificate]"
+    - "[TO CONFIRM: e.g. Passport and Iqama / National ID copies]"
+    - "[TO CONFIRM: e.g. Previous school reports and transfer certificate]"
+    - "[TO CONFIRM: e.g. Vaccination record]"
+    - "[TO CONFIRM: e.g. Passport-size photographs]"
+
+fees:
+  title: "Tuition Fees 2026–2027"
+  intro: "Annual tuition fees in Saudi riyals (SAR), excluding VAT."
+  columnStage: "Grade"
+  columnFee: "Annual tuition (SAR)"
+  # Full annual fees only. Do not add discounted fees here.
+  rows:
+    - { stage: "KG1", fee: "11,875" }
+    - { stage: "KG2 – KG3", fee: "12,500" }
+    - { stage: "Grades 1 – 2", fee: "13,750" }
+    - { stage: "Grades 3 – 4", fee: "15,000" }
+    - { stage: "Grades 5 – 6", fee: "16,250" }
+    - { stage: "Grades 7 – 9", fee: "17,500" }
+    - { stage: "Grades 10 – 12", fee: "18,000" }
+  notes:
+    - "All fees exclude VAT."
+    - "Boys are admitted from KG1 to Grade 6; girls from KG1 to Grade 12."
+    - "[TO CONFIRM: Other fees, if any — e.g. registration, books, uniform, transport — and payment schedule]"
+
+offers:
+  title: "Offers & Announcements"
+  intro: "Current campaigns and announcements from our admissions team."
+
+faq:
+  title: "Frequently Asked Questions"
+  items:
+    - q: "Which grades do you offer?"
+      a: "Girls from KG1 to Grade 12, and boys from KG1 to Grade 6."
+    - q: "Are the fees inclusive of VAT?"
+      a: "No. The tuition fees shown are annual fees in Saudi riyals, excluding VAT."
+    - q: "Which curriculum do you follow?"
+      a: "[TO CONFIRM: Curriculum framework]"
+    - q: "Do you teach Arabic and Islamic Studies?"
+      a: "Yes. Arabic, Holy Quran and Islamic Studies, and Social Studies are taught as identity subjects."
+    - q: "What is the SPRIX programme?"
+      a: "Malvern partners with SPRIX Inc. (Japan) for mathematics and programming in Grades 1 to 9, including the TOFAS external assessment."
+    - q: "Is the school accredited?"
+      a: "[TO CONFIRM: Approved Cognia accreditation status wording]"
+    - q: "Do you provide school transport?"
+      a: "[TO CONFIRM: Transport availability and areas covered]"
+    - q: "When can my child start?"
+      a: "[TO CONFIRM: Admission windows and mid-year entry policy]"
+
+enquire:
+  title: "Enquire or Book a Tour"
+  text: "Share a few details and our admissions team will contact you."

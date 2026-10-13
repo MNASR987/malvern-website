@@ -1,0 +1,75 @@
+# HOME PAGE
+# Tip: any text written as [TO CONFIRM: ...] shows on the website as a
+# highlighted yellow placeholder. Replace it with the real wording.
+
+seo:
+  title: "Malvern International School, Riyadh"
+  description: "Malvern International School in Riyadh, Saudi Arabia: girls KG to Grade 12 and boys KG to Grade 6, with mathematics and programming in partnership with SPRIX Inc. (Japan)."
+
+hero:
+  eyebrow: "Malvern International School · Riyadh"
+  title: "An international education, rooted in Saudi identity."
+  text: "Girls from KG to Grade 12 and boys from KG to Grade 6, learning with global standards and strong Arabic, Islamic and national foundations."
+
+facts:
+  - { value: "KG – Grade 12", label: "Girls" }
+  - { value: "KG – Grade 6", label: "Boys" }
+  - { value: "SPRIX · Japan", label: "Mathematics & programming partner, Grades 1–9" }
+  - { value: "01SOL260054", label: "Ministry licence no." }
+
+why:
+  title: "Why Malvern"
+  intro: "[TO CONFIRM: One or two sentences on what makes Malvern different]"
+  items:
+    - title: "International learning"
+      text: "[TO CONFIRM: Curriculum framework and international approach]"
+      icon: globe
+    - title: "Saudi identity at the heart"
+      text: "Arabic, Holy Quran and Islamic Studies, and Social Studies are core to every learner's week."
+      icon: crescent
+    - title: "Japanese mathematics & programming"
+      text: "In partnership with SPRIX Inc. (Japan) for Grades 1–9, with the TOFAS external assessment."
+      icon: cube
+    - title: "Committed to quality"
+      text: "[TO CONFIRM: Cognia accreditation status — e.g. “Malvern is currently working through the Cognia accreditation process.”]"
+      icon: shield
+
+journey:
+  title: "The Learner Journey"
+  intro: "A clear path from the first day of KG to graduation."
+  linkLabel: "Explore the Learner Journey"
+
+tour:
+  title: "Visit Malvern"
+  text: "The best way to know a school is to walk through it. Book a personal tour with our admissions team."
+  videoPlaceholder: "[TO CONFIRM: Virtual tour video or 360° tour — coming soon]"
+
+# School film on the home page. Paste the YouTube link between the quotes,
+# e.g. url: "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+video:
+  title: "Life at Malvern"
+  text: "A glimpse of learning and life at Malvern International School."
+  url: ""
+
+offers:
+  title: "Offers & Announcements"
+  intro: "The latest news from our admissions team."
+
+news:
+  title: "News & Events"
+  linkLabel: "All news & events"
+
+parentVoice:
+  title: "Parent Voice"
+  intro: "What families say about Malvern."
+  items:
+    - quote: "[TO CONFIRM: Parent testimonial — use only with the parent's written consent]"
+      who: "[TO CONFIRM: e.g. “Parent of a Grade 3 student”]"
+    - quote: "[TO CONFIRM: Parent testimonial — use only with the parent's written consent]"
+      who: "[TO CONFIRM: e.g. “Parent of a KG2 student”]"
+    - quote: "[TO CONFIRM: Parent testimonial — use only with the parent's written consent]"
+      who: "[TO CONFIRM: e.g. “Parent of a Grade 9 student”]"
+
+cta:
+  title: "Begin your Malvern journey"
+  text: "Our admissions team is here to answer your questions and welcome you on campus."

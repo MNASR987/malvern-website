@@ -1,0 +1,28 @@
+# STUDENT LIFE PAGE
+seo:
+  title: "Student Life"
+  description: "Student life at Malvern International School, Riyadh: wellbeing, activities and clubs, and health and safety."
+
+hero:
+  title: "Student Life"
+  text: "Happy, safe and curious learners — inside and beyond the classroom."
+
+# Optional YouTube video on the Student Life page.
+video:
+  title: "Student life at Malvern"
+  url: ""
+
+sections:
+  - id: wellbeing
+    title: "Wellbeing"
+    text: "[TO CONFIRM: How the school supports wellbeing — e.g. pastoral care, counselling, anti-bullying approach]"
+  - id: activities
+    title: "Activities & Clubs"
+    text: "[TO CONFIRM: Activities, clubs, sports, competitions and trips offered]"
+    list:
+      - "[TO CONFIRM: Club or activity 1]"
+      - "[TO CONFIRM: Club or activity 2]"
+      - "[TO CONFIRM: Club or activity 3]"
+  - id: health
+    title: "Health & Safety"
+    text: "[TO CONFIRM: School clinic — staffing (e.g. qualified nurse), opening hours, medication and allergy procedures, and campus safety and security arrangements]"

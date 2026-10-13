@@ -1,0 +1,85 @@
+---
+// Home page hero. Uses, in order of preference:
+//  1. brand/hero-video.mp4 (silent loop, auto-compressed) with a still image
+//  2. brand/hero.jpg (photo)
+//  3. the navy & gold pattern design
+import { existsSync } from 'node:fs';
+import { getImage } from 'astro:assets';
+import Pattern from './Pattern.astro';
+import Rich from './Rich.astro';
+import { rich } from '../lib/text';
+import Icon from './Icon.astro';
+import { heroImage } from '../lib/images';
+import { asset, href } from '../lib/paths';
+import type { Lang } from '../lib/content';
+interface Props { hero: any; buttons: any; lang: Lang }
+const { hero, buttons, lang } = Astro.props;
+
+const hasVideo = existsSync('public/media/hero.mp4');
+const photo = heroImage ? await getImage({ src: heroImage, width: 1800, format: 'webp' }) : undefined;
+const still = photo?.src ?? (hasVideo ? asset('media/hero-poster.jpg') : undefined);
+---
+<section class:list={['hero', { 'has-media': still }]}>
+  {still && <img class="media" src={still} alt="" fetchpriority="high" decoding="async" />}
+  {hasVideo && (
+    <video class="media" muted loop playsinline preload="none" poster={still} aria-hidden="true" data-hero-video data-src={asset('media/hero.mp4')}></video>
+  )}
+  {!still && <Pattern opacity={0.13} />}
+  <div class="shade" aria-hidden="true"></div>
+
+  <div class="container inner">
+    <p class="eyebrow">{hero.eyebrow}</p>
+    <h1><Rich text={hero.title} /></h1>
+    <p class="lead" set:html={rich(hero.text)} />
+    <div class="btn-row">
+      <a class="btn btn--gold" href={href('/admissions/?type=tour#enquire', lang)}>{buttons.bookTour}</a>
+      <a class="btn btn--outline-light" href={href('/admissions/#enquire', lang)}>{buttons.enquire}</a>
+    </div>
+  </div>
+
+  {hasVideo && (
+    <button class="pause" type="button" data-hero-toggle hidden aria-label="Pause background video">
+      <span class="i-pause" aria-hidden="true">❚❚</span><span class="i-play" aria-hidden="true"><Icon name="play" size={16} /></span>
+    </button>
+  )}
+</section>
+
+<script>
+  const video = document.querySelector<HTMLVideoElement>('[data-hero-video]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-hero-toggle]');
+  if (video && toggle) {
+    // Only play the video on good connections, and never when the visitor prefers reduced motion.
+    const conn = (navigator as any).connection;
+    const slow = conn && (conn.saveData || /(^|-)(2g|3g)$/.test(conn.effectiveType ?? ''));
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!slow && !reduced) {
+      video.src = video.dataset.src!;
+      video.play().then(() => { video.classList.add('ready'); toggle.hidden = false; }).catch(() => {});
+      toggle.addEventListener('click', () => {
+        const paused = video.paused;
+        paused ? video.play() : video.pause();
+        toggle.classList.toggle('is-paused', !paused);
+        toggle.setAttribute('aria-label', paused ? 'Pause background video' : 'Play background video');
+      });
+    }
+  }
+</script>
+
+<style>
+  .hero { position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(120% 120% at 85% 0%, #17396B 0%, var(--c-primary) 45%, var(--c-primary-deep) 100%); color: #E9EDF4; min-block-size: min(88vh, 860px); display: grid; align-items: center; padding-block: clamp(3.5rem, 10vw, 9rem) clamp(6rem, 12vw, 9rem); }
+  .media { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; z-index: -2; }
+  video.media { opacity: 0; transition: opacity 1s; }
+  video.media.ready { opacity: 1; }
+  .shade { position: absolute; inset: 0; z-index: -1; }
+  .has-media .shade { background: linear-gradient(90deg, rgba(6,24,51,.88) 0%, rgba(6,24,51,.55) 55%, rgba(6,24,51,.25) 100%); }
+  [dir='rtl'] .has-media .shade { background: linear-gradient(270deg, rgba(6,24,51,.88) 0%, rgba(6,24,51,.55) 55%, rgba(6,24,51,.25) 100%); }
+  .hero:not(.has-media)::before { content: ''; position: absolute; inset-inline-end: -10vw; inset-block-start: 10%; inline-size: 55vw; max-inline-size: 760px; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(201,162,74,.35); box-shadow: 0 0 0 40px rgba(201,162,74,.04), 0 0 0 90px rgba(201,162,74,.03); z-index: -1; }
+  .inner { position: relative; }
+  h1 { color: #fff; max-width: 15ch; font-size: clamp(2.6rem, 6.5vw, 4.75rem); }
+  .lead { display: block; max-width: 38rem; font-size: clamp(1.1rem, 1.8vw, 1.3rem); margin-block: 1.5rem 2.25rem; color: #D5DCE7; }
+  .pause { position: absolute; inset-inline-end: 1.25rem; inset-block-end: 1.25rem; inline-size: 44px; block-size: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); background: rgba(6,24,51,.5); color: #fff; cursor: pointer; display: grid; place-items: center; font-size: .75rem; }
+  .pause[hidden] { display: none; }
+  .i-play { display: none; }
+  .pause.is-paused .i-play { display: block; }
+  .pause.is-paused .i-pause { display: none; }
+</style>

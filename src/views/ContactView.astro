@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Rich from '../components/Rich.astro';
+import Icon from '../components/Icon.astro';
+import Pattern from '../components/Pattern.astro';
+import { getPage, settings, type Lang } from '../lib/content';
+import { phone, email, telLink, mailLink, whatsappLink } from '../lib/contact';
+import { href } from '../lib/paths';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const p = getPage('contact', lang);
+const ui = getPage('ui', lang);
+const c = settings.contact;
+const L = p.labels;
+const rows = [
+  { id: 'phone', icon: 'phone', label: L.phone, link: telLink, value: phone, ltr: true, missing: '[TO CONFIRM: Phone number]' },
+  { id: 'email', icon: 'mail', label: L.email, link: mailLink, value: email, missing: '[TO CONFIRM: Email address]' },
+  { id: 'whatsapp', icon: 'whatsapp', label: L.whatsapp, link: whatsappLink(), value: whatsappLink() ? ui.buttons.whatsapp : '', missing: '[TO CONFIRM: WhatsApp number]' },
+  { id: 'address', icon: 'pin', label: L.address, link: c.mapLink, value: c.address, missing: '[TO CONFIRM: School address]' },
+  { id: 'hours', icon: 'clock', label: L.hours, link: '', value: c.workingHours, missing: '[TO CONFIRM: Working hours]' },
+];
+---
+<BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
+  <PageHero title={p.hero.title} text={p.hero.text} />
+  <section class="section">
+    <div class="container contact">
+      <ul class="rows" role="list">
+        {rows.map((r) => (
+          <li id={r.id}>
+            <span class="icon-badge"><Icon name={r.icon} /></span>
+            <div>
+              <h2>{r.label}</h2>
+              {r.value ? (r.link ? <a href={r.link} dir={r.ltr ? 'ltr' : undefined} rel="noopener">{r.value}</a> : <p>{r.value}</p>) : <Rich as="p" text={r.missing} />}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div class="map-wrap">
+        {c.mapEmbedUrl ? (
+          <iframe src={c.mapEmbedUrl} title={`${L.map}: ${settings.schoolName}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        ) : (
+          <div class="map-ph"><Pattern opacity={0.15} /><span><Icon name="pin" size={36} /><Rich text="[TO CONFIRM: Google Maps embed link]" /></span></div>
+        )}
+        {c.mapLink && <a class="link-arrow open" href={c.mapLink} rel="noopener">{L.openMap}</a>}
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="narrow center">
+      <h2>{ui.buttons.bookTour}</h2>
+      <p class="lead">Visit the school and meet our admissions team.</p>
+      <div class="btn-row centered">
+        <a class="btn btn--navy" href={href('/admissions/?type=tour#enquire', lang)}>{ui.buttons.bookTour}</a>
+        <a class="btn btn--outline" href={href('/admissions/#enquire', lang)}>{ui.buttons.enquire}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .contact { display: grid; gap: 3rem; }
+  @media (min-width: 960px) { .contact { grid-template-columns: .9fr 1.1fr; } }
+  .rows { list-style: none; padding: 0; display: grid; gap: 1.5rem; }
+  .rows li { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start; padding-block-end: 1.5rem; border-block-end: 1px solid var(--c-border); }
+  .rows .icon-badge { margin: 0; }
+  .rows h2 { font: 600 .8rem/1.4 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--c-accent-text); margin-block-end: .3rem; }
+  .rows a, .rows p { font-size: 1.15rem; }
+  .map-wrap { display: grid; gap: 1rem; }
+  iframe, .map-ph { inline-size: 100%; min-block-size: 420px; border: 0; border-radius: var(--radius); }
+  .map-ph { position: relative; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, #12305A, var(--c-primary-deep)); color: #fff; text-align: center; padding: 1.5rem; }
+  .map-ph span { position: relative; display: grid; gap: 1rem; justify-items: center; }
+  .map-ph :global(svg) { color: var(--c-accent); }
+  .open { justify-self: start; }
+  .center { text-align: center; }
+  .lead { font-size: 1.12rem; color: var(--c-text-muted); margin-block: 1rem 2rem; }
+  .centered { justify-content: center; }
+</style>

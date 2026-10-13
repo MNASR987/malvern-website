@@ -1,0 +1,23 @@
+---
+import Pattern from './Pattern.astro';
+import Rich from './Rich.astro';
+import { rich } from '../lib/text';
+interface Props { title: string; text?: string; eyebrow?: string }
+const { title, text, eyebrow = 'Malvern International School' } = Astro.props;
+---
+<section class="page-hero">
+  <Pattern opacity={0.1} />
+  <div class="container inner">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    {text && <p class="lead" set:html={rich(text)} />}
+    <slot />
+  </div>
+</section>
+<style>
+  .page-hero { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--c-primary-deep), var(--c-primary)); color: #E9EDF4; padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3.5rem, 8vw, 6rem); }
+  .page-hero::after { content: ''; position: absolute; inset-inline: 0; inset-block-end: 0; block-size: 4px; background: linear-gradient(90deg, transparent, var(--c-accent), transparent); opacity: .7; }
+  .inner { position: relative; max-width: 1200px; }
+  h1 { color: #fff; max-width: 18ch; }
+  .lead { display: block; font-size: clamp(1.1rem, 1.8vw, 1.3rem); max-width: 42rem; margin-block-start: 1.25rem; color: #C9D2E0; }
+</style>

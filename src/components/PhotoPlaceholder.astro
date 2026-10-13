@@ -1,0 +1,24 @@
+---
+// Neutral placeholder used until real photos arrive in the "brand" folder.
+import { Image } from 'astro:assets';
+import { brandImage } from '../lib/images';
+import { getPage } from '../lib/content';
+import Pattern from './Pattern.astro';
+interface Props { label?: string; photo?: string; alt?: string; ratio?: string; widths?: number[] }
+const { label, photo, alt = '', ratio = '4 / 3', widths = [480, 800, 1200] } = Astro.props;
+const img = brandImage(photo);
+const ui = getPage('ui');
+---
+{img ? (
+  <Image src={img} alt={alt} widths={widths} sizes="(min-width: 900px) 50vw, 100vw" class="photo" style={`aspect-ratio:${ratio}`} />
+) : (
+  <div class="ph" style={`aspect-ratio:${ratio}`} role="img" aria-label={label ?? ui.placeholders.photo}>
+    <Pattern opacity={0.18} />
+    <span>{label ?? ui.placeholders.photo}</span>
+  </div>
+)}
+<style>
+  .photo { inline-size: 100%; object-fit: cover; border-radius: var(--radius); }
+  .ph { position: relative; overflow: hidden; display: grid; place-items: center; border-radius: var(--radius); background: linear-gradient(135deg, #12305A, var(--c-primary-deep)); color: #E9EDF4; text-align: center; padding: 1rem; }
+  .ph span { position: relative; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; border: 1px solid rgba(201,162,74,.6); padding: .5rem 1rem; border-radius: 999px; background: rgba(6,24,51,.6); }
+</style>

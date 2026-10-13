@@ -1,0 +1,97 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { getPage, type Lang } from '../lib/content';
+import { href } from '../lib/paths';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = getPage('ui', lang);
+const current = Astro.url.pathname.replace(/\/$/, '');
+const isActive = (p: string) => current.endsWith(p.replace(/\/$/, ''));
+---
+<header class="site-header" data-header>
+  <div class="container bar">
+    <a href={href('/', lang)} class="brand"><Logo size="sm" /></a>
+
+    <nav class="desktop-nav" aria-label="Main">
+      <ul>
+        {ui.nav.map((item: any) => (
+          <li><a href={href(item.href, lang)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <a class="btn btn--outline btn--sm tour" href={href('/admissions/?type=tour#enquire', lang)}>{ui.buttons.bookTour}</a>
+      <a class="btn btn--gold btn--sm" href={href('/admissions/#enquire', lang)}>{ui.buttons.enquireShort}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open>
+        <Icon name="menu" /><span class="visually-hidden">{ui.buttons.menu}</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu" hidden data-menu>
+    <div class="container mm-inner">
+      <div class="mm-top">
+        <Logo light size="sm" />
+        <button class="menu-btn light" type="button" data-menu-close><Icon name="close" /><span class="visually-hidden">{ui.buttons.close}</span></button>
+      </div>
+      <nav aria-label="Mobile">
+        <ul>
+          {[...ui.nav, ...ui.moreNav].map((item: any) => (
+            <li><a href={href(item.href, lang)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="btn-row">
+        <a class="btn btn--gold" href={href('/admissions/#enquire', lang)}>{ui.buttons.enquire}</a>
+        <a class="btn btn--outline-light" href={href('/admissions/?type=tour#enquire', lang)}>{ui.buttons.bookTour}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-header]')!;
+  const menu = document.querySelector<HTMLElement>('[data-menu]')!;
+  const openBtn = document.querySelector<HTMLButtonElement>('[data-menu-open]')!;
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-menu-close]')!;
+  const setOpen = (open: boolean) => {
+    menu.hidden = !open;
+    openBtn.setAttribute('aria-expanded', String(open));
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    (open ? closeBtn : openBtn).focus();
+  };
+  openBtn.addEventListener('click', () => setOpen(true));
+  closeBtn.addEventListener('click', () => setOpen(false));
+  menu.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) setOpen(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) setOpen(false); });
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+
+<style>
+  .site-header { position: sticky; inset-block-start: 0; z-index: 50; background: rgba(255,255,255,.96); backdrop-filter: saturate(1.4) blur(10px); border-block-end: 1px solid transparent; transition: border-color .3s, box-shadow .3s; }
+  .site-header.scrolled { border-color: var(--c-border); box-shadow: 0 6px 24px -18px rgba(6,24,51,.45); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-block-size: 76px; }
+  .brand { text-decoration: none; flex-shrink: 0; }
+  .desktop-nav { display: none; }
+  .desktop-nav ul { display: flex; gap: clamp(.9rem, 1.6vw, 1.8rem); list-style: none; padding: 0; }
+  .desktop-nav a { text-decoration: none; font-weight: 500; font-size: .95rem; color: var(--c-text); padding-block: .5rem; border-block-end: 2px solid transparent; }
+  .desktop-nav a:hover, .desktop-nav a[aria-current='page'] { color: var(--c-primary); border-color: var(--c-accent); }
+  .actions { display: flex; align-items: center; gap: .6rem; }
+  .tour { display: none; }
+  .menu-btn { flex-shrink: 0; display: grid; place-items: center; inline-size: 46px; block-size: 46px; border-radius: 50%; border: 1px solid var(--c-border); background: #fff; color: var(--c-primary); cursor: pointer; }
+  .menu-btn.light { background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+  @media (max-width: 420px) { .actions .btn--gold { padding-inline: .9rem; } .menu-btn { inline-size: 42px; block-size: 42px; } }
+  @media (min-width: 640px) { .tour { display: inline-flex; } }
+  @media (min-width: 1180px) { .desktop-nav { display: block; } .menu-btn[data-menu-open] { display: none; } }
+
+  .mobile-menu { position: fixed; inset: 0; z-index: 60; background: var(--c-primary-deep); color: #fff; overflow-y: auto; }
+  .mm-inner { min-block-size: 100%; display: flex; flex-direction: column; gap: 2rem; padding-block: 1rem 2.5rem; }
+  .mm-top { display: flex; justify-content: space-between; align-items: center; min-block-size: 60px; }
+  .mobile-menu ul { list-style: none; padding: 0; display: grid; }
+  .mobile-menu li a { display: block; padding-block: .85rem; color: #fff; text-decoration: none; font: 500 1.6rem/1.2 var(--font-heading); border-block-end: 1px solid rgba(255,255,255,.12); }
+  .mobile-menu li a[aria-current='page'] { color: var(--c-accent); }
+</style>
