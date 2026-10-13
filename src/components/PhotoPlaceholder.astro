@@ -5,12 +5,12 @@ import { Image } from 'astro:assets';
 import { brandImage, logo } from '../lib/images';
 import Pattern from './Pattern.astro';
 import Icon from './Icon.astro';
-interface Props { photo?: string; alt?: string; ratio?: string; widths?: number[]; icon?: string; caption?: string; crest?: boolean; label?: string }
-const { photo, alt = '', ratio = '4 / 3', widths = [480, 800, 1200], icon, caption, crest = false } = Astro.props;
+interface Props { position?: string; photo?: string; alt?: string; ratio?: string; widths?: number[]; icon?: string; caption?: string; crest?: boolean; label?: string }
+const { position = 'center', photo, alt = '', ratio = '4 / 3', widths = [480, 800, 1200], icon, caption, crest = false } = Astro.props;
 const img = brandImage(photo);
 ---
 {img ? (
-  <Image src={img} alt={alt} widths={widths} sizes="(min-width: 900px) 50vw, 100vw" class="photo" style={`aspect-ratio:${ratio}`} />
+  <Image src={img} alt={alt} widths={widths} sizes="(min-width: 900px) 50vw, 100vw" class="photo" style={`aspect-ratio:${ratio};object-position:${position}`} />
 ) : (
   <div class="ph" style={`aspect-ratio:${ratio}`} aria-hidden="true">
     <Pattern opacity={0.16} />

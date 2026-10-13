@@ -33,6 +33,20 @@ const showLeadership = people.length > 1;
     </div>
   </section>
 
+  {p.academicWord && (
+    <section class="section word2" id="academic" aria-labelledby="academic-h">
+      <div class="container split split--wide-text flip">
+        <div class="reveal">
+          <p class="eyebrow">Learning at Malvern</p>
+          <h2 id="academic-h">{p.academicWord.title}</h2>
+          <div class="welcome-body"><Rich paras text={p.academicWord.body} /></div>
+          <p class="sign"><strong>{p.academicWord.name}</strong><span>{p.academicWord.role}</span></p>
+        </div>
+        <div class="reveal portrait"><PhotoPlaceholder ratio="4 / 5" position="center 20%" photo={p.academicWord.photo} alt={`${p.academicWord.name}, ${p.academicWord.role}`} widths={[400, 640, 900]} crest /></div>
+      </div>
+    </section>
+  )}
+
   <section class="section section--alt" id="vision" aria-labelledby="vision-h">
     <div class="container">
       <h2 id="vision-h" class="visually-hidden">Vision, mission and values</h2>
@@ -59,10 +73,10 @@ const showLeadership = people.length > 1;
   {showLeadership && <section class="section section--alt" id="leadership" aria-labelledby="lead-h">
     <div class="container">
       <div class="section-head"><p class="eyebrow">Our team</p><h2 id="lead-h">{p.leadership.title}</h2>{real(p.leadership.intro) && <Rich as="p" text={p.leadership.intro} />}</div>
-      <div class="grid grid--3">
+      <div class="people">
         {people.map((person: any) => (
           <article class="person reveal">
-            <PhotoPlaceholder ratio="1 / 1" photo={person.photo} alt={person.name} icon="user" widths={[400, 600]} />
+            <PhotoPlaceholder ratio="1 / 1" position="center 18%" photo={person.photo} alt={person.name} icon="user" widths={[400, 600]} />
             <h3><Rich text={person.name} /></h3>
             <p><Rich text={person.role} /></p>
           </article>
@@ -103,6 +117,9 @@ const showLeadership = people.length > 1;
   <CtaBand title="Come and see Malvern for yourself" lang={lang} />
 </BaseLayout>
 <style>
+  .word2 { border-block-start: 1px solid var(--c-border); }
+  @media (min-width: 900px) { .flip > :first-child { order: 2; } .flip.split--wide-text { grid-template-columns: 1fr 1.2fr; } }
+  .portrait :global(img) { box-shadow: 0 30px 60px -35px rgba(6,24,51,.55); }
   .welcome-body { margin-block: 1.5rem; font-size: 1.1rem; }
   .sign { display: grid; gap: .2rem; border-inline-start: 3px solid var(--c-accent); padding-inline-start: 1rem; }
   .sign span { color: var(--c-text-muted); font-size: .95rem; }
@@ -110,6 +127,7 @@ const showLeadership = people.length > 1;
   .partner-logo { block-size: 96px; inline-size: auto; margin-block-end: 1.25rem; }
   .values-title { margin-block: 3.5rem 1.5rem; }
   .card h4 { margin-block-end: .5rem; }
+  .people { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 17rem)); }
   .person h3 { margin-block: 1.25rem .25rem; font-size: 1.3rem; }
   .person p { color: var(--c-text-muted); }
   .lic-text { margin-block-start: 1rem; font-size: 1.15rem; }

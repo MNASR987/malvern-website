@@ -24,6 +24,21 @@ welcome:
   name: "Ms. Sara El-Massry"
   role: "Principal"
 
+# A word from the Chief Academic Manager (shown under the Principal's welcome).
+academicWord:
+  title: "A Word from our Chief Academic Manager"
+  body: |
+    Every plan we make at Malvern starts with one question: what does the best learning in the world look like, and how do we make it work for children in Riyadh?
+
+    We look carefully at what leading international schools do well, then shape it for our students and our community. That is why we teach an American curriculum through Savvas and Obelearn programmes, study mathematics and programming with SPRIX from Japan, and measure progress against outside benchmarks such as TOFAS. And it is why Arabic, the Holy Quran, Islamic Studies and Social Studies remain at the heart of every week.
+
+    Good learning should be clear to parents, too. Our calendar sets out quizzes, revision weeks, semester exams and two parent–teacher conferences each year, so you always know how your child is doing and how to help.
+
+    Our work is never finished. We keep reviewing, improving and asking how we can do better for every learner.
+  name: "Mr. Mahmoud Nasr"
+  role: "Chief Academic Manager"
+  photo: "mahmoud-nasr.jpg"
+
 # Optional YouTube video on the About page (e.g. a message from the Principal).
 video:
   title: "Welcome to Malvern"
@@ -58,7 +73,7 @@ leadership:
   # "brand" folder and write its name, e.g. photo: "principal.jpg"
   people:
     - { name: "Ms. Sara El-Massry", role: "Principal", photo: "" }
-    - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
+    - { name: "Mr. Mahmoud Nasr", role: "Chief Academic Manager", photo: "mahmoud-nasr.jpg" }
     - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
 
 partnerships:
