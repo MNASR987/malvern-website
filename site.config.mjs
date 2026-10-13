@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────
 //  WEBSITE ADDRESS SETTINGS
 //
-//  Today the site lives at:  https://mnasr987.github.io/malvernschools/
+//  Today the site lives at:  https://mnasr987.github.io/malvern-website/
 //
 //  When the school's own domain is ready (e.g. www.malvern.edu.sa),
 //  change ONLY the line below, for example:
@@ -20,5 +20,5 @@ export default {
 
   // GitHub details — normally never change.
   githubUser: 'mnasr987',
-  githubRepo: 'malvernschools',
+  githubRepo: 'malvern-website',
 };
