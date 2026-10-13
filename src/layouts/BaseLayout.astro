@@ -33,6 +33,8 @@ const jsonLd = {
   name: school,
   url: new URL(href('/'), Astro.site).href,
   address: { '@type': 'PostalAddress', addressLocality: settings.city, addressCountry: 'SA', ...(settings.contact.address ? { streetAddress: settings.contact.address } : {}) },
+  ...(settings.group ? { parentOrganization: { '@type': 'EducationalOrganization', name: settings.group } } : {}),
+  memberOf: { '@type': 'Organization', name: 'Cognia' },
   ...(phone ? { telephone: phone } : {}),
   ...(email ? { email } : {}),
 };

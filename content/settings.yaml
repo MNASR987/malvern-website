@@ -5,6 +5,7 @@
 # ─────────────────────────────────────────────────────────────
 
 schoolName: "Malvern International School"
+group: "El-Shrouk Pioneer Academy"   # the group the school belongs to (leave "" if none)
 city: "Riyadh"
 country: "Saudi Arabia"
 

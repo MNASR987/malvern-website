@@ -24,7 +24,7 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [ ] Approve the hero sub-text (draft) and the "Begin your Malvern journey" closing text (draft)
 - [x] "Why Malvern" — one or two sentences on what makes Malvern different
 - [x] "International learning" card — American curriculum
-- [ ] "Committed to quality" card — **approved Cognia wording** (the school is in the accreditation process; must NOT say "accredited")
+- [x] "Committed to quality" card — Cognia member + El-Shrouk Pioneer Academy
 - [ ] School film — the YouTube link of the video to feature (channel: youtube.com/@MalvernSch)
 - [ ] Hero video — short silent clip (10–20 seconds) uploaded to `brand` as `hero-video.mp4`; or a still photo as `brand/hero.jpg`
 - [ ] Virtual tour — YouTube link or 360° tour link (`content/settings.yaml` → `virtualTourEmbedUrl`)
@@ -38,7 +38,8 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [x] Mission statement
 - [x] Beliefs (6 shown on About; the 7th is used in "Why Malvern" on Home)
 - [ ] Leadership team: names, roles, photos (optional), and one introductory sentence
-- [ ] Cognia — approved accreditation-status wording
+- [x] Cognia membership and El-Shrouk Pioneer Academy group
+- [ ] Optional: El-Shrouk Pioneer Academy logo/website link, and the Cognia member logo (only if Cognia permits members to use it)
 - [ ] About-page video — YouTube link (optional, e.g. Principal's message)
 
 ## Learning (`content/en/learning.yaml`)
@@ -68,7 +69,7 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [ ] How to confirm a place (registration form, fee payment)
 - [ ] Final list of required documents
 - [ ] Other fees, if any (registration, books, uniform, transport) and payment schedule
-- [ ] FAQ answers: Cognia wording; transport; admission windows / mid-year entry
+- [ ] FAQ answers: transport; admission windows / mid-year entry
 - [x] Tuition fees 2026–2027 (full fees, excl. VAT) — done, no discounts shown
 
 ## Parents (`content/en/parents.yaml`)

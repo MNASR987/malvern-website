@@ -18,6 +18,10 @@ const socialNames: Record<string, string> = { instagram: 'Instagram', x: 'X', li
     <div class="about">
       <Logo light size="lg" />
       <p>{ui.footer.tagline}</p>
+      <ul class="trust">
+        {settings.group && <li>{ui.footer.group} <strong>{settings.group}</strong></li>}
+        <li>{ui.footer.cognia}</li>
+      </ul>
       <div class="btn-row">
         <a class="btn btn--gold btn--sm" href={href('/admissions/#enquire', lang)}>{ui.buttons.enquire}</a>
         <a class="btn btn--outline-light btn--sm" href={href('/admissions/?type=tour#enquire', lang)}>{ui.buttons.bookTour}</a>
@@ -58,7 +62,10 @@ const socialNames: Record<string, string> = { instagram: 'Instagram', x: 'X', li
   .site-footer { background: var(--c-primary-deep); color: #C9D2E0; font-size: .97rem; }
   .top { display: grid; gap: 3rem; padding-block: clamp(3.5rem, 7vw, 5.5rem); }
   @media (min-width: 860px) { .top { grid-template-columns: 1.4fr 1fr 1.2fr; } }
-  .about p { margin-block: 1.25rem 1.5rem; max-width: 30rem; }
+  .about p { margin-block: 1.25rem .75rem; max-width: 30rem; }
+  .trust { display: grid; gap: .3rem; margin-block-end: 1.5rem; font-size: .92rem; }
+  .trust li::before { content: '◆'; color: var(--c-accent); font-size: .6rem; margin-inline-end: .6rem; vertical-align: middle; }
+  .trust strong { color: #fff; font-weight: 600; }
   .f-head { font: 600 .8rem/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--c-accent); margin-block-end: 1.25rem; }
   ul { list-style: none; padding: 0; }
   .links { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem 1rem; }

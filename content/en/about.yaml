@@ -1,7 +1,7 @@
 # ABOUT PAGE
 seo:
   title: "About Us"
-  description: "About Malvern International School, Riyadh: a word from the Principal, Ms. Sara El-Massry,, vision, mission and values, leadership, partnerships, accreditation status and licensing."
+  description: "About Malvern International School, Riyadh, one of the schools of El-Shrouk Pioneer Academy: a word from the Principal, Ms. Sara El-Massry,, vision, mission and values, leadership, partnerships, accreditation status and licensing."
 
 hero:
   title: "About Malvern"
@@ -62,12 +62,14 @@ leadership:
     - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
 
 partnerships:
-  title: "Accreditation & Partnerships"
+  title: "Our Group, Accreditation & Partnerships"
   items:
+    - title: "El-Shrouk Pioneer Academy"
+      text: "Malvern International School is one of the schools of El-Shrouk Pioneer Academy."
     - title: "SPRIX Inc. (Japan)"
       text: "Our partner for mathematics and programming in Grades 1 to 9, including the TOFAS external assessment."
     - title: "Cognia"
-      text: "[TO CONFIRM: Approved wording for Cognia accreditation status — e.g. “Malvern International School is currently in the Cognia accreditation process.”]"
+      text: "Malvern International School is a member of Cognia and is working through the Cognia accreditation process."
 
 licensing:
   title: "Licensing"
