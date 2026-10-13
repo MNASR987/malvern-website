@@ -15,6 +15,9 @@ export default {
   // Change to false when the website is approved and ready for the public.
   hideFromSearch: false,
 
+  // Google Search Console verification code (the content="..." part of the meta tag).
+  googleVerification: 'Bxin8WAaqz0zXPuDFlaSbHIBqRPRiFKb8gzLbwHaKPI',
+
   // GitHub details — normally never change.
   githubUser: 'mnasr987',
   githubRepo: 'malvernschools',
