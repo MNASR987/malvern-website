@@ -1,0 +1,44 @@
+---
+// Welcome banner (brand/hero-banner.jpg) shown at the top of the home page,
+// with the main buttons underneath. Remove the file to go back to the standard hero.
+import { Picture } from 'astro:assets';
+import Rich from './Rich.astro';
+import { heroBanner } from '../lib/images';
+import { href } from '../lib/paths';
+import type { Lang } from '../lib/content';
+interface Props { hero: any; buttons: any; lang: Lang }
+const { hero, buttons, lang } = Astro.props;
+---
+<section class="banner" aria-labelledby="welcome-title">
+  <h1 id="welcome-title" class="visually-hidden">Malvern International School, Riyadh</h1>
+  <div class="frame">
+    <Picture
+      src={heroBanner!}
+      alt={hero.bannerAlt}
+      formats={['avif', 'webp']}
+      widths={[640, 960, 1280, 1536]}
+      sizes="(min-width: 1536px) 1536px, 100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="img"
+    />
+  </div>
+  <div class="bar">
+    <div class="container bar-inner">
+      <Rich as="p" class="text" text={hero.bannerText} />
+      <div class="btn-row">
+        <a class="btn btn--gold" href={href('/admissions/?type=tour#enquire', lang)}>{buttons.bookTour}</a>
+        <a class="btn btn--outline-light" href={href('/admissions/#enquire', lang)}>{buttons.enquire}</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .banner { background: #021c41; }
+  .frame { max-inline-size: 1536px; margin-inline: auto; }
+  .frame :global(img) { display: block; inline-size: 100%; block-size: auto; aspect-ratio: 1536 / 640; }
+  .bar { background: linear-gradient(180deg, #021c41, var(--c-primary)); border-block-start: 1px solid rgba(214,176,106,.45); padding-block: clamp(1.5rem, 3vw, 2rem) clamp(5rem, 9vw, 6.5rem); }
+  .bar-inner { display: grid; gap: 1.25rem; align-items: center; }
+  @media (min-width: 960px) { .bar-inner { grid-template-columns: 1fr auto; gap: 3rem; } }
+  .bar :global(.text) { color: #D5DCE7; font-size: clamp(1rem, 1.6vw, 1.15rem); max-width: 46rem; }
+</style>

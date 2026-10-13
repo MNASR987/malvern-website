@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeHero from '../components/HomeHero.astro';
+import HomeBanner from '../components/HomeBanner.astro';
+import { heroBanner } from '../lib/images';
 import Rich from '../components/Rich.astro';
 import Icon from '../components/Icon.astro';
 import VideoEmbed from '../components/VideoEmbed.astro';
@@ -18,7 +20,9 @@ const phases = getPage('learning', lang).journey.phases;
 const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data.date).slice(0, 3);
 ---
 <BaseLayout title={page.seo.title} description={page.seo.description} lang={lang} isHome>
-  <HomeHero hero={page.hero} buttons={ui.buttons} lang={lang} />
+  {heroBanner
+    ? <HomeBanner hero={page.hero} buttons={ui.buttons} lang={lang} />
+    : <HomeHero hero={page.hero} buttons={ui.buttons} lang={lang} />}
 
   <section class="facts-wrap" aria-label="Key facts">
     <div class="container">

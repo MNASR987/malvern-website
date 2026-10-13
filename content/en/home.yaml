@@ -7,6 +7,9 @@ seo:
   description: "Malvern International School in Riyadh, Saudi Arabia: an American curriculum for girls KG to Grade 12 and boys KG to Grade 6, classes of no more than 25 students, and mathematics and programming in partnership with SPRIX Inc. (Japan)."
 
 hero:
+  # Used when the welcome banner (brand/hero-banner.jpg) is shown:
+  bannerAlt: "Malvern International School — Shine Bright at Malvern, a place to learn and belong. Academic excellence, global perspective, creative thinking, character building."
+  bannerText: "Shine bright at Malvern — a place to learn and belong. An American curriculum for girls from KG to Grade 12 and boys from KG to Grade 6, with strong Arabic, Islamic and national foundations."
   eyebrow: "Malvern International School · Riyadh"
   title: "An international education, rooted in Saudi identity."
   text: "Girls from KG to Grade 12 and boys from KG to Grade 6, learning through an American curriculum with strong Arabic, Islamic and national foundations."

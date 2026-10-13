@@ -7,6 +7,8 @@ import Icon from '../components/Icon.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 import VideoEmbed from '../components/VideoEmbed.astro';
 import CtaBand from '../components/CtaBand.astro';
+import { Image } from 'astro:assets';
+import { brandImage } from '../lib/images';
 import { getPage, settings, type Lang } from '../lib/content';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -71,7 +73,9 @@ const ui = getPage('ui', lang);
       <div class="section-head"><p class="eyebrow">Trust</p><h2 id="acc-h">{p.partnerships.title}</h2></div>
       <div class="grid grid--3">
         {p.partnerships.items.map((item: any) => (
-          <article class="card reveal"><span class="icon-badge"><Icon name="shield" /></span><h3>{item.title}</h3><Rich as="p" text={item.text} /></article>
+          <article class="card reveal">{brandImage(item.logo)
+            ? <Image src={brandImage(item.logo)!} alt={`${item.title} logo`} height={96} densities={[1, 2]} class="partner-logo" />
+            : <span class="icon-badge"><Icon name="shield" /></span>}<h3>{item.title}</h3><Rich as="p" text={item.text} /></article>
         ))}
       </div>
     </div>
@@ -100,6 +104,7 @@ const ui = getPage('ui', lang);
   .sign { display: grid; gap: .2rem; border-inline-start: 3px solid var(--c-accent); padding-inline-start: 1rem; }
   .sign span { color: var(--c-text-muted); font-size: .95rem; }
   .statement :global(.big) { font: 400 clamp(1.25rem, 2vw, 1.5rem)/1.5 var(--font-heading); color: var(--c-primary); }
+  .partner-logo { block-size: 96px; inline-size: auto; margin-block-end: 1.25rem; }
   .values-title { margin-block: 3.5rem 1.5rem; }
   .card h4 { margin-block-end: .5rem; }
   .person h3 { margin-block: 1.25rem .25rem; font-size: 1.3rem; }

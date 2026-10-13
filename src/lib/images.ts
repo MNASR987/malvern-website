@@ -14,6 +14,7 @@ export const brandImage = (name?: string) => (name ? brand[name.toLowerCase()] :
 
 export const logo = ['logo.svg', 'logo.png', 'logo.webp', 'logo.jpg'].map((n) => brand[n]).find(Boolean);
 export const logoWhite = ['logo-white.svg', 'logo-white.png', 'logo-white.webp'].map((n) => brand[n]).find(Boolean);
+export const heroBanner = ['hero-banner.jpg', 'hero-banner.jpeg', 'hero-banner.webp', 'hero-banner.png'].map((n) => brand[n]).find(Boolean);
 export const heroImage = ['hero.jpg', 'hero.jpeg', 'hero.webp', 'hero.png'].map((n) => brand[n]).find(Boolean);
 
 /**
