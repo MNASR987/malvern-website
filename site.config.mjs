@@ -13,7 +13,7 @@ export default {
 
   // true = ask Google and other search engines NOT to list the site (use until launch).
   // Change to false when the website is approved and ready for the public.
-  hideFromSearch: true,
+  hideFromSearch: false,
 
   // GitHub details — normally never change.
   githubUser: 'mnasr987',
