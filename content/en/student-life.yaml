@@ -1,7 +1,7 @@
 # STUDENT LIFE PAGE
 seo:
   title: "Student Life"
-  description: "Student life at Malvern International School, Riyadh: wellbeing, activities and clubs, and health and safety."
+  description: "Student life at Malvern International School, Riyadh: wellbeing and pastoral care, activities and clubs, and health and safety with our school clinic."
 
 hero:
   title: "Student Life"
@@ -15,14 +15,40 @@ video:
 sections:
   - id: wellbeing
     title: "Wellbeing"
-    text: "[TO CONFIRM: How the school supports wellbeing — e.g. pastoral care, counselling, anti-bullying approach]"
+    text: |
+      Children learn best when they feel safe, known and valued. With no more than 25 students in a class, every teacher knows each child well — their strengths, their worries and what helps them grow.
+
+      Each class has a homeroom teacher who is the first point of contact for students and parents. Our expectations are clear and rooted in Islamic values: respect, kindness, honesty and responsibility. We do not accept bullying in any form, and every concern is listened to and followed up.
+
+      We work closely with families. If something is worrying your child, please tell us early — together we can help.
+    list:
+      - "A homeroom teacher who knows every child"
+      - "Clear behaviour expectations rooted in Islamic values"
+      - "Zero tolerance for bullying"
+      - "Regular contact with parents, including two parent–teacher conferences a year"
   - id: activities
     title: "Activities & Clubs"
-    text: "[TO CONFIRM: Activities, clubs, sports, competitions and trips offered]"
+    text: |
+      Learning at Malvern goes beyond the timetable. Activities and clubs help students discover new interests, build friendships and develop leadership and teamwork.
+
+      Throughout the year, the whole school comes together to celebrate national occasions such as Saudi National Day and Founding Day.
     list:
-      - "[TO CONFIRM: Club or activity 1]"
-      - "[TO CONFIRM: Club or activity 2]"
-      - "[TO CONFIRM: Club or activity 3]"
+      - "Quran recitation"
+      - "Coding and programming"
+      - "Reading and public speaking"
+      - "Science and STEM challenges"
+      - "Art and creativity"
+      - "Sports and physical activity"
   - id: health
     title: "Health & Safety"
-    text: "[TO CONFIRM: School clinic — staffing (e.g. qualified nurse), opening hours, medication and allergy procedures, and campus safety and security arrangements]"
+    text: |
+      Our school clinic cares for students during the school day, from minor injuries to feeling unwell. Parents are contacted promptly whenever their child needs to go home or needs medical attention.
+
+      Medication is given at school only with written consent from parents. Please tell us about any allergies or medical conditions when your child joins, and whenever anything changes.
+
+      Students are supervised at all times, including arrival and dismissal, and entry to the school is controlled so that only authorised visitors come on site.
+    list:
+      - "School clinic during the school day"
+      - "Medication only with written parental consent"
+      - "Supervised arrival and dismissal"
+      - "Controlled entry for visitors"

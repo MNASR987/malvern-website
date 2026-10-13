@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import SubNav from '../components/SubNav.astro';
 import Rich from '../components/Rich.astro';
 import Icon from '../components/Icon.astro';
+import CalendarSection from '../components/CalendarSection.astro';
 import { getPage, settings, type Lang } from '../lib/content';
 import { asset } from '../lib/paths';
+import { rich, paragraphs } from '../lib/text';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const p = getPage('parents', lang);
@@ -13,23 +16,34 @@ const portal = settings.links.parentPortal;
 <BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
   <PageHero title={p.hero.title} text={p.hero.text}>
     <div class="btn-row" style="margin-block-start:2rem">
-      {portal ? <a class="btn btn--gold" href={portal} rel="noopener"><Icon name="lock" size={18} /> {p.portal.button}</a> : <Rich text={p.portal.missing} />}
+      <a class="btn btn--gold" href="#calendar"><Icon name="calendar" size={18} /> Academic calendar</a>
+      {portal && <a class="btn btn--outline-light" href={portal} rel="noopener"><Icon name="lock" size={18} /> {p.portal.button}</a>}
     </div>
   </PageHero>
+  <SubNav items={[['#calendar', 'Calendar'], ['#uniform', 'Uniform'], ['#together', 'Working together'], ['#policies', 'Policies'], ['#portal', 'Parent Portal']]} />
 
-  <section class="section">
-    <div class="container grid grid--2">
-      <article class="card card--gold-top reveal" id="calendar">
-        <span class="icon-badge"><Icon name="calendar" /></span>
-        <h2>{p.calendar.title}</h2>
-        <Rich as="p" text={p.calendar.text} />
-        {p.calendar.pdf && <p class="dl"><a class="link-arrow" href={asset(`files/${p.calendar.pdf}`)}>{p.calendar.pdfLabel}</a></p>}
-      </article>
-      <article class="card card--gold-top reveal" id="uniform">
-        <span class="icon-badge"><Icon name="star" /></span>
-        <h2>{p.uniform.title}</h2>
-        <Rich as="p" text={p.uniform.text} />
-      </article>
+  <CalendarSection lang={lang} />
+
+  <section class="section section--alt" id="uniform" aria-labelledby="uni-h">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Every day</p>
+        <h2 id="uni-h">{p.uniform.title}</h2>
+        <div class="body">{paragraphs(p.uniform.text).map((t) => <p set:html={rich(t)} />)}</div>
+      </div>
+      <div class="swatches reveal" aria-hidden="true">
+        <div class="shirt girls"><span class="crest">M</span><p>Girls</p><small>White polo · Malvern crest</small></div>
+        <div class="shirt boys"><span class="crest">M</span><p>Boys</p><small>Navy polo · Malvern crest</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="together" aria-labelledby="tog-h">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">Partnership</p><h2 id="tog-h">{p.partnership.title}</h2></div>
+      <div class="grid grid--3">
+        {p.partnership.items.map((it: any) => <article class="card card--gold-top reveal"><h3>{it.title}</h3><Rich as="p" text={it.text} /></article>)}
+      </div>
     </div>
   </section>
 
@@ -56,8 +70,15 @@ const portal = settings.links.parentPortal;
   </section>
 </BaseLayout>
 <style>
-  .card h2 { font-size: clamp(1.5rem, 2.5vw, 1.9rem); margin-block-end: 1rem; }
-  .dl { margin-block-start: 1.5rem; }
+  .body { margin-block-start: 1.25rem; font-size: 1.08rem; }
+  .swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .shirt { border-radius: var(--radius); padding: 2.5rem 1.5rem 1.75rem; text-align: center; display: grid; justify-items: center; gap: .35rem; border: 1px solid var(--c-border); }
+  .shirt.girls { background: #fff; color: var(--c-primary); }
+  .shirt.boys { background: var(--c-primary); color: #fff; }
+  .crest { display: grid; place-items: center; inline-size: 3.25rem; block-size: 3.75rem; clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); background: var(--c-primary); color: var(--c-accent); font: 600 1.5rem/1 var(--font-heading); margin-block-end: 1rem; border: 2px solid var(--c-accent); }
+  .boys .crest { background: var(--c-primary-deep); }
+  .shirt p { font: 600 1.4rem/1.2 var(--font-heading); }
+  .shirt small { font-size: .85rem; opacity: .8; }
   .policies { list-style: none; padding: 0; display: grid; gap: .75rem; }
   .policies li { display: flex; gap: 1rem; align-items: center; background: #fff; border: 1px solid var(--c-border); border-radius: var(--radius); padding: 1.1rem 1.4rem; }
   .policies :global(svg) { color: var(--c-accent-text); flex-shrink: 0; }

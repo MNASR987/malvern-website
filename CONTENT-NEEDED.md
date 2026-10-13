@@ -1,104 +1,92 @@
 # Content needed — Malvern International School website
 
-Everything below shows on the website as a **yellow [TO CONFIRM: …] box** until you send it.
-Tick each item when done. Send the content in any form (Word, email, WhatsApp) and I will place it.
-
-**File to edit** is shown in brackets for anyone who wants to make the change directly.
+Yellow **[TO CONFIRM: …]** boxes on the website show what is still missing.
+Send anything in a normal message and Claude will place it.
 
 ---
 
-## Every page (contact details — `content/settings.yaml`)
-- [x] Phone number
-- [x] Admissions email address
-- [x] WhatsApp number (for the green floating button and the enquiry form)
-- [x] Full school address
-- [x] Working hours (e.g. Sunday–Thursday, 7:00 am – 3:00 pm)
-- [ ] Check the map pin on the Contact page is on the school (map uses the National Address; send the Google Maps "Share" link if the pin is off)
-- [x] YouTube channel linked
-- [ ] Other social media links (Instagram, X, LinkedIn) — optional
-- [x] Logo (crest) added; colours matched to the crest
-- [ ] Optional: the logo as a high-resolution or vector file (SVG/PDF) from the designer, for extra sharpness
+## A. Drafted by Claude — please review and correct
 
-## Home (`content/en/home.yaml`)
-- [ ] Approve the hero headline (draft): "An international education, rooted in Saudi identity."
-- [ ] Approve the hero sub-text (draft) and the "Begin your Malvern journey" closing text (draft)
-- [x] "Why Malvern" — one or two sentences on what makes Malvern different
-- [x] "International learning" card — American curriculum
-- [x] "Committed to quality" card — Cognia member + El-Shrouk Pioneer Academy
-- [ ] School film — the YouTube link of the video to feature (channel: youtube.com/@MalvernSch)
-- [ ] Hero video — short silent clip (10–20 seconds) uploaded to `brand` as `hero-video.mp4`; or a still photo as `brand/hero.jpg`
-- [ ] Virtual tour — YouTube link or 360° tour link (`content/settings.yaml` → `virtualTourEmbedUrl`)
-- [ ] Parent Voice — 3 short testimonials **with each parent's written consent**, and a description such as "Parent of a Grade 3 student" (no names of children)
-- [ ] Offers & Announcements — upload real posters to `content/offers` and **delete `sample-poster.png`**
+These sections were written as drafts from what we know about the school. They are live on the site. Read them and tell Claude anything to change.
 
-## About (`content/en/about.yaml`)
-- [x] Principal's welcome message and name (Ms. Sara El-Massry)
-- [ ] Principal's photo (optional)
-- [x] Vision statement
-- [x] Mission statement
-- [x] Beliefs (6 shown on About; the 7th is used in "Why Malvern" on Home)
-- [ ] Leadership team: names, roles, photos (optional), and one introductory sentence
-- [x] Cognia membership and El-Shrouk Pioneer Academy group
-- [ ] Optional: El-Shrouk Pioneer Academy logo/website link, and the Cognia member logo (only if Cognia permits members to use it)
-- [ ] About-page video — YouTube link (optional, e.g. Principal's message)
+**Learning** (`content/en/learning.yaml`)
+- [ ] The four phase descriptions (KG, Primary, Middle, High School)
+- [ ] Our Curriculum — core subjects (English language arts, mathematics, science) and the "active and practical lessons" paragraph
+- [ ] Identity subjects — Arabic; Holy Quran & Islamic Studies; Social Studies
+- [ ] Languages — English as the language of instruction; Arabic taught to every student
+- [ ] SPRIX — "methods developed in Japanese schools" (from the Principal's letter)
+- [ ] Assessment — quizzes, revision week, semester exams, conferences, TOFAS (from the calendar)
 
-## Learning (`content/en/learning.yaml`)
-- [x] Curriculum: American, with Savvas and Obelearn programmes; classes of 25 or fewer
-- [ ] Subjects taught in each phase, and alignment with Ministry requirements
-- [ ] Kindergarten approach
-- [ ] Primary (Grades 1–5) focus
-- [ ] Middle School (Grades 6–8) focus
-- [ ] High School (Grades 9–12) focus, pathways, graduation requirements
-- [ ] Identity subjects — a short description each: Arabic; Holy Quran & Islamic Studies; Social Studies
-- [ ] Languages — language of instruction and languages offered
-- [ ] SPRIX — how the programme works in class (lessons per week, materials, how TOFAS results are shared)
-- [ ] Approach to assessment (reporting frequency, exams, external assessments)
+**Student Life** (`content/en/student-life.yaml`)
+- [ ] Wellbeing — homeroom teacher, Islamic values, zero tolerance for bullying
+- [ ] Activities & clubs list — Quran recitation, coding, reading & public speaking, STEM, art, sports (please confirm which you actually offer)
+- [ ] Health & safety — school clinic, medication with written consent, supervised arrival and dismissal, controlled entry
 
-## Student Life (`content/en/student-life.yaml`)
-- [ ] Wellbeing — pastoral care, counselling, anti-bullying approach
-- [ ] Activities & clubs — list of clubs, sports, trips
-- [ ] Health & safety — school clinic (staffing, hours, medication/allergy procedures) and campus safety
-- [ ] Student Life video — YouTube link (optional)
-- [ ] Photos — without identifiable students unless consent is confirmed; **never faces of girls in Grades 6–12**
+**Admissions** (`content/en/admissions.yaml`)
+- [ ] Steps 4–6 (placement assessment, offer, registration)
+- [ ] Required documents list
+- [ ] FAQ: transport, joining during the year, school hours, uniform
 
-## Admissions (`content/en/admissions.yaml`)
-- [ ] Age requirements per grade (cut-off date), nationalities accepted, entry requirements
-- [ ] Confirm the 6 admissions steps (Enquire → Visit → Apply → Assessment → Offer → Registration)
-- [ ] Assessment / interview details
-- [ ] How and when the admission decision is sent
-- [ ] How to confirm a place (registration form, fee payment)
-- [ ] Final list of required documents
-- [ ] Other fees, if any (registration, books, uniform, transport) and payment schedule
-- [ ] FAQ answers: transport; admission windows / mid-year entry
-- [x] Tuition fees 2026–2027 (full fees, excl. VAT) — done, no discounts shown
+**Parents** (`content/en/parents.yaml`, `content/en/calendar.yaml`)
+- [ ] Key dates — taken from the draft calendar (update when the final calendar is confirmed)
+- [ ] Uniform text (white polo for girls, navy polo for boys, from the school)
+- [ ] Policy names (6 listed, "available on request")
 
-## Parents (`content/en/parents.yaml`)
-- [ ] Parent portal link (`content/settings.yaml` → `parentPortal`)
-- [ ] Academic calendar 2026–2027 key dates (and a PDF, optional)
-- [ ] Uniform requirements (boys / girls / PE kit, where to buy)
-- [ ] Which policies to publish (as PDFs or "available on request")
-
-## News & Events (`content/news`)
-- [ ] First news stories or events (copy `_TEMPLATE.md`)
-
-## Careers (`content/en/careers.yaml`)
-- [ ] Recruitment email address (`content/settings.yaml` → `careersEmail`)
-- [ ] Why work at Malvern
-- [ ] Current vacancies (if any)
+**Careers** (`content/en/careers.yaml`)
+- [ ] Why work with us
 - [ ] Safer recruitment statement
+- [ ] CVs go to malvernschools@gmail.com — change if HR has its own email
 
-## Contact
-- [ ] Same as "Every page" above (phone, email, WhatsApp, address, hours, map)
+**Privacy Policy** (`content/en/privacy.md`)
+- [ ] Contact, service providers, transfers outside the Kingdom, retention (12 months) — drafted
+- [ ] Must still be **reviewed by management and the legal adviser**, then add the approval date
 
-## Privacy Policy (`content/en/privacy.md`) — needs legal review before launch
-- [ ] Data protection contact (name or role, email, phone)
-- [ ] Service providers used (e.g. Microsoft 365, form service)
-- [ ] Whether data is stored or processed outside Saudi Arabia, and safeguards
-- [ ] Retention periods (enquiries, job applications)
-- [ ] Analytics (only if added later)
-- [ ] Approval date, after review by management and the school's legal adviser
+---
+
+## B. Still missing
+
+**Home**
+- [ ] Parent Voice — 3 testimonials **with each parent's written consent**
+- [ ] School film — YouTube link
+- [ ] Virtual tour — YouTube link or 360° tour link
+- [ ] Real posters for Offers & Announcements, and **delete `content/offers/sample-poster.png`**
+
+**About**
+- [ ] Principal's photo (optional)
+- [ ] Leadership team — other names, roles, photos, and one introductory sentence
+- [ ] About-page video — YouTube link (optional)
+
+**Learning**
+- [ ] High School — certificate awarded at graduation and graduation requirements
+
+**Student Life**
+- [ ] Student Life video — YouTube link (optional)
+- [ ] Photos (no identifiable students without consent; never faces of girls in Grades 6–12)
+
+**Parents**
+- [ ] Parent portal link
+- [ ] Final confirmed academic calendar (key dates will be updated; no PDF is published)
+
+**Contact**
+- [ ] Check the map pin is on the school
+
+**Other**
+- [ ] Other social media links (Instagram, X, LinkedIn) — optional
+- [ ] Cognia member badge — only if Cognia allows members to use it (note: the draft calendar shows an "Accredited" seal; the website says "member")
+
+---
+
+## C. Done
+- [x] Logo (crest), colours, contact details, address, working hours
+- [x] Vision, mission, beliefs
+- [x] Principal's welcome (Ms. Sara El-Massry)
+- [x] American curriculum (Savvas, Obelearn), classes of 25 or fewer
+- [x] Cognia membership, El-Shrouk Pioneer Academy (with logo)
+- [x] Fees 2026–2027 (full fees, excl. VAT, no discounts)
+- [x] Welcome banner on the home page
+- [x] YouTube channel link
 
 ## Later phases
-- [ ] Connect the enquiry form (Microsoft Forms, or a Power Automate / form-service link)
-- [ ] Arabic version (full right-to-left)
-- [ ] School's own domain (e.g. www.malvern.edu.sa)
+- [ ] Connect the enquiry form (Microsoft Forms or Power Automate)
+- [ ] Arabic version (right-to-left)
+- [ ] School's own domain

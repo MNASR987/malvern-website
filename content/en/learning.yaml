@@ -5,51 +5,55 @@ seo:
 
 hero:
   title: "Learning at Malvern"
-  text: "A connected journey from Kindergarten to Grade 12, with high expectations and strong roots."
+  text: "A connected journey from Kindergarten to Grade 12: an American curriculum, classes of no more than 25, and strong Arabic, Islamic and national foundations."
 
 journey:
   title: "The Learner Journey"
-  intro: "Four phases, one continuous journey."
-  # The four phases. "who" explains which students the phase serves.
+  intro: "Four phases, one continuous journey — each building on the last."
   phases:
     - name: "Kindergarten"
       grades: "KG1 – KG3"
       who: "Boys and girls"
-      text: "[TO CONFIRM: Early years approach — e.g. play-based learning, early literacy and numeracy in English and Arabic]"
+      text: "Children learn through play, stories, songs and hands-on discovery. They build early reading, writing and number skills in English and Arabic, learn short surahs and Islamic manners, and grow in confidence, so that they start Grade 1 curious and ready to learn."
     - name: "Primary"
       grades: "Grades 1 – 5"
       who: "Boys and girls"
-      text: "[TO CONFIRM: Primary phase focus]"
+      text: "Strong foundations in English language arts, mathematics, science and social studies through the American curriculum, with Savvas and Obelearn programmes. Mathematics and programming with SPRIX begin in Grade 1, alongside Arabic, Holy Quran and Islamic Studies."
     - name: "Middle School"
       grades: "Grades 6 – 8"
       who: "Girls Grades 6–8 · Boys Grade 6"
-      text: "[TO CONFIRM: Middle school focus]"
+      text: "Students take more ownership of their learning. Subjects deepen, and students practise research, presentation and independent study. SPRIX mathematics and programming continue, building logical and computational thinking."
     - name: "High School"
       grades: "Grades 9 – 12"
       who: "Girls"
-      text: "[TO CONFIRM: High school focus, pathways and graduation requirements]"
+      text: "Rigorous study across core subjects prepares students for university and their future careers, with guidance on subject choices and next steps. SPRIX continues in Grade 9. [TO CONFIRM: certificate awarded at graduation and graduation requirements]"
 
 curriculum:
   title: "Our Curriculum"
   text: |
-    Malvern International School follows an American curriculum, taught through programmes from Savvas and Obelearn. Classes have no more than 25 students, so teachers know each learner's strengths and the things they still find hard. Alongside the American curriculum, every student studies the identity subjects: Arabic, Holy Quran and Islamic Studies, and Social Studies.
+    Malvern International School follows an American curriculum, taught through programmes from Savvas and Obelearn. Classes have no more than 25 students, so teachers know each learner's strengths and the things they still find hard.
 
-    [TO CONFIRM: Subjects taught in each phase, and how the curriculum aligns with Ministry requirements]
+    The core subjects are English language arts, mathematics and science. Alongside them, every student studies the identity subjects: Arabic, Holy Quran and Islamic Studies, and Social Studies. Mathematics and programming from Grade 1 to Grade 9 are enriched through our partnership with SPRIX in Japan.
+
+    Lessons are active and practical. Students question, discuss, investigate and apply what they learn, because we believe critical thinking matters more than memorising information.
 
 identity:
   title: "Identity Subjects"
   intro: "Every Malvern learner grows with a strong sense of faith, language and nation."
   items:
     - title: "Arabic"
-      text: "[TO CONFIRM: Short description of the Arabic programme]"
+      text: "Students build strong reading, writing, speaking and listening skills in Arabic, and grow to love the language of the Quran and of their heritage."
     - title: "Holy Quran & Islamic Studies"
-      text: "[TO CONFIRM: Short description of the Quran and Islamic Studies programme]"
+      text: "Students learn to recite and memorise the Holy Quran and understand its meanings, guided by Islamic principles of respect, honesty and integrity."
     - title: "Social Studies"
-      text: "[TO CONFIRM: Short description of the Social Studies programme]"
+      text: "Students learn about the history, geography and culture of Saudi Arabia, and what it means to be a responsible citizen in a changing world."
 
 languages:
   title: "Languages"
-  text: "[TO CONFIRM: Language of instruction, English and Arabic programmes, and any additional languages offered]"
+  text: |
+    English is the language of instruction for the American curriculum subjects, so students become confident readers, writers and speakers of English.
+
+    Arabic is taught as a core subject to every student, and Holy Quran and Islamic Studies are taught in Arabic. Students leave Malvern able to learn, work and lead in both languages.
 
 stem:
   title: "STEM with SPRIX (Japan)"
@@ -58,8 +62,13 @@ stem:
     - "Mathematics — Grades 1 to 9"
     - "Programming — Grades 1 to 9"
     - "TOFAS external assessment"
-  more: "[TO CONFIRM: How the SPRIX programme works in class — e.g. lessons per week, materials, how TOFAS results are shared with parents]"
+  more: "Students study mathematics and programming using methods developed in Japanese schools, which build deep understanding, logical thinking and problem-solving."
 
 assessment:
   title: "Our Approach to Assessment"
-  text: "[TO CONFIRM: How learning is assessed — e.g. ongoing classroom assessment, reports to parents (how often), internal exams, and external assessments such as TOFAS]"
+  text: |
+    Teachers check understanding every day in class, through questions, classwork and feedback, so that no student is left behind.
+
+    Each semester has two quiz cycles, followed by a revision week and semester exams. Parents meet teachers at two parent–teacher conferences each year, in October and April, and the dates for every assessment are in the academic calendar.
+
+    In Grades 1 to 9, the TOFAS external assessment from SPRIX shows how students are progressing in mathematics against an outside benchmark.

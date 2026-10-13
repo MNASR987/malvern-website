@@ -54,7 +54,7 @@ const subnav = [
   </section>
 
   <section class="section section--alt" id="languages" aria-labelledby="lang-h">
-    <div class="narrow reveal"><p class="eyebrow">Languages</p><h2 id="lang-h">{p.languages.title}</h2><p class="lead" set:html={rich(p.languages.text)} /></div>
+    <div class="narrow reveal"><p class="eyebrow">Languages</p><h2 id="lang-h">{p.languages.title}</h2>{paragraphs(p.languages.text).map((t) => <p class="lead" set:html={rich(t)} />)}</div>
   </section>
 
   <section class="section section--navy" id="stem" aria-labelledby="stem-h">
@@ -72,7 +72,7 @@ const subnav = [
   </section>
 
   <section class="section" id="assessment" aria-labelledby="as-h">
-    <div class="narrow reveal"><p class="eyebrow">Assessment</p><h2 id="as-h">{p.assessment.title}</h2><p class="lead" set:html={rich(p.assessment.text)} /></div>
+    <div class="narrow reveal"><p class="eyebrow">Assessment</p><h2 id="as-h">{p.assessment.title}</h2>{paragraphs(p.assessment.text).map((t) => <p class="lead" set:html={rich(t)} />)}</div>
   </section>
 
   <CtaBand title="See learning in action" text="Book a tour to visit classrooms and meet our teachers." lang={lang} />

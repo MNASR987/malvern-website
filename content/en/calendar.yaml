@@ -1,0 +1,48 @@
+# ACADEMIC CALENDAR 2026–2027 (shown on the Parents page)
+# Key dates and events only. Add, remove or change a line to update the website.
+# type: closed (holiday), ramadan, exam, event
+
+title: "Academic Calendar 2026–2027"
+intro: "Two semesters, 19 teaching weeks each. The school week runs Sunday to Thursday."
+note: "Dates may change. Holiday dates follow the official Saudi calendar and may shift by one day subject to official announcement. The school will confirm any changes."
+
+stats:
+  - { value: "38", label: "Teaching weeks" }
+  - { value: "2", label: "Semesters" }
+  - { value: "4", label: "Exam weeks" }
+  - { value: "2", label: "Parent–teacher conferences" }
+  - { value: "6", label: "Break weeks" }
+
+semesters:
+  - name: "First Semester"
+    dates: "23 August 2026 – 7 January 2027"
+    events:
+      - { date: "Sun 23 Aug 2026", text: "First day of school — orientation", type: event }
+      - { date: "23–24 Sep", text: "National Day holiday", type: closed }
+      - { date: "4–15 Oct", text: "Quiz 1", type: event }
+      - { date: "25–29 Oct", text: "1st Parent–Teacher Conference", type: event }
+      - { date: "8–19 Nov", text: "Quiz 2", type: event }
+      - { date: "22–26 Nov", text: "Fall vacation", type: closed }
+      - { date: "20–24 Dec", text: "Revision week", type: event }
+      - { date: "27 Dec – 7 Jan 2027", text: "1st Semester exams", type: exam }
+  - name: "Second Semester"
+    dates: "17 January – 24 June 2027"
+    events:
+      - { date: "10–14 Jan 2027", text: "Mid-year vacation", type: closed }
+      - { date: "Sun 17 Jan", text: "Second semester begins", type: event }
+      - { date: "7–18 Feb", text: "Ramadan — adjusted school timings", type: ramadan }
+      - { date: "21–22 Feb", text: "Founding Day holiday", type: closed }
+      - { date: "28 Feb – 11 Mar", text: "Eid Al-Fitr holiday", type: closed }
+      - { date: "21 Mar – 1 Apr", text: "Quiz 1", type: event }
+      - { date: "4–8 Apr", text: "2nd Parent–Teacher Conference", type: event }
+      - { date: "25 Apr – 6 May", text: "Quiz 2", type: event }
+      - { date: "9–20 May", text: "Eid Al-Adha holiday", type: closed }
+      - { date: "6–10 Jun", text: "Revision week", type: event }
+      - { date: "13–24 Jun", text: "2nd Semester exams", type: exam }
+      - { date: "Thu 24 Jun 2027", text: "End of the academic year", type: event }
+
+legend:
+  closed: "School closed"
+  ramadan: "Ramadan timings"
+  exam: "Exams"
+  event: "Events & assessments"

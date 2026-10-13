@@ -10,7 +10,7 @@ lastUpdated: "[TO CONFIRM: Date of approval]"
 
 Malvern International School, Riyadh, Saudi Arabia ("the School", "we") is the controller of the personal data collected through this website. Ministry licence no. 01SOL260054, unified no. 7009415220.
 
-Contact for privacy matters: [TO CONFIRM: Data protection contact name or role, email address and phone number]
+Contact for privacy matters: the School Administration, email **malvernschools@gmail.com**, phone **+966 50 731 1584**. Address: 6517 Prince Abdulaziz Ibn Mussaed Ibn Jalawi St, Al Murabba Dist., Riyadh 12628.
 
 ## 2. The personal data we collect
 
@@ -40,16 +40,16 @@ You may withdraw your consent at any time by contacting us (see section 1). With
 We do not sell your personal data. We share it only with:
 
 - staff of the School who need it to answer your enquiry;
-- service providers that help us operate, such as our email and form providers [TO CONFIRM: list of providers, e.g. Microsoft 365], who may process data only on our instructions;
+- service providers that help us operate, such as our email, messaging and office software providers (for example Google, Microsoft and WhatsApp), who may process data only on our instructions;
 - government authorities where required by Saudi law.
 
 ## 6. Transfers outside the Kingdom
 
-[TO CONFIRM: Whether any service provider stores or processes data outside Saudi Arabia, and the safeguards in place, as required by the PDPL and its regulations on data transfer.]
+Some of our service providers (such as email and messaging services) may store or process data outside the Kingdom. Where this happens, we transfer only the minimum data needed and rely on providers that apply appropriate safeguards, in line with the PDPL and its regulations on transferring personal data outside the Kingdom.
 
 ## 7. How long we keep your data
 
-[TO CONFIRM: Retention periods — e.g. enquiries not leading to admission are deleted after X months; job applications after X months.] When data is no longer needed, we destroy it securely.
+Enquiries that do not lead to an application are kept for up to 12 months. Job applications are kept for up to 12 months unless you agree to a longer period. Data of enrolled students is kept as required by Ministry of Education regulations. When data is no longer needed, we destroy it securely.
 
 ## 8. How we protect your data
 
@@ -74,7 +74,7 @@ If you have a concern, please contact us first. You also have the right to lodge
 
 ## 11. Cookies and website analytics
 
-This website does not use advertising or tracking cookies. [TO CONFIRM: If analytics are added later, describe them here.] If an embedded map or video is shown, the provider (for example Google or YouTube) may set its own cookies under its own privacy policy.
+This website does not use advertising or tracking cookies, or website analytics. If an embedded map or video is shown, the provider (for example Google or YouTube) may set its own cookies under its own privacy policy.
 
 ## 12. Changes to this policy
 

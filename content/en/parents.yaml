@@ -1,7 +1,8 @@
 # PARENTS PAGE
+# The academic calendar itself is in content/en/calendar.yaml
 seo:
   title: "Parents"
-  description: "Information for parents at Malvern International School, Riyadh: academic calendar, uniform, key policies and the parent portal."
+  description: "Information for parents at Malvern International School, Riyadh: academic calendar 2026–2027, school uniform, key policies and the parent portal."
 
 hero:
   title: "Parents"
@@ -9,29 +10,37 @@ hero:
 
 portal:
   title: "Parent Portal"
-  text: "Log in to view your child's information."
+  text: "Log in to follow your child's learning, reports and school announcements."
   button: "Go to the Parent Portal"
   missing: "[TO CONFIRM: Parent portal link]"
 
-calendar:
-  title: "Academic Calendar 2026–2027"
-  text: "[TO CONFIRM: Key dates — term start and end dates, holidays and exam periods]"
-  # To offer a PDF: put the file in the "public/files" folder and write its
-  # name here, e.g. pdf: "academic-calendar-2026-2027.pdf"
-  pdf: ""
-  pdfLabel: "Download the calendar (PDF)"
-
 uniform:
-  title: "Uniform"
-  text: "[TO CONFIRM: Uniform requirements for boys and girls, PE kit, and where to buy]"
+  title: "School Uniform"
+  text: |
+    School uniform is compulsory for all students, every school day. It helps our students feel part of one community, and it keeps the focus on learning.
+
+    **Girls** wear a white polo shirt with the Malvern crest. **Boys** wear a navy polo shirt with the Malvern crest.
+
+    The uniform is available from the school. Full details of the complete uniform and the PE kit are given when you collect it. Please label every item with your child's name.
+
+partnership:
+  title: "Working together"
+  items:
+    - title: "Parent–teacher conferences"
+      text: "Two conferences each year — in October and April — to talk with teachers about your child's progress."
+    - title: "Quizzes and exams"
+      text: "Two quiz cycles in each semester, then a revision week and semester exams. Dates are in the calendar above."
+    - title: "Speak to us early"
+      text: "Our door is open. If something is worrying you or your child, contact the class teacher or the school office — we would always rather hear a concern early than late."
 
 policies:
   title: "Key Policies"
-  intro: "[TO CONFIRM: Which policies are published, and whether they are downloadable or available on request]"
+  intro: "Copies of our school policies are available from the school office on request."
   # pdf: put the file in "public/files" and write its name.
   items:
-    - { title: "[TO CONFIRM: e.g. Admissions Policy]", pdf: "" }
-    - { title: "[TO CONFIRM: e.g. Child Protection & Safeguarding Policy]", pdf: "" }
-    - { title: "[TO CONFIRM: e.g. Behaviour Policy]", pdf: "" }
-    - { title: "[TO CONFIRM: e.g. Assessment Policy]", pdf: "" }
-    - { title: "[TO CONFIRM: e.g. Attendance Policy]", pdf: "" }
+    - { title: "Admissions Policy", pdf: "" }
+    - { title: "Child Protection & Safeguarding Policy", pdf: "" }
+    - { title: "Behaviour & Anti-Bullying Policy", pdf: "" }
+    - { title: "Assessment Policy", pdf: "" }
+    - { title: "Attendance & Punctuality Policy", pdf: "" }
+    - { title: "Health & Medication Policy", pdf: "" }

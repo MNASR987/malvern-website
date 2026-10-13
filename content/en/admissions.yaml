@@ -12,28 +12,29 @@ whoWeAdmit:
   groups:
     - { title: "Girls", text: "KG1 to Grade 12" }
     - { title: "Boys", text: "KG1 to Grade 6" }
-  note: "[TO CONFIRM: Age requirements for each grade (e.g. age on 1 September), nationalities accepted, and any entry requirements]"
+  note: "Families of all nationalities are welcome. Age requirements for each grade follow Ministry of Education regulations — our admissions team will confirm the right grade for your child."
 
 process:
   title: "The Admissions Process"
-  note: "[TO CONFIRM: Please check these steps match the school's actual process]"
+  note: "Six simple steps from your first question to your child's first day."
   steps:
     - { title: "Enquire", text: "Send us an enquiry online, by WhatsApp or by phone." }
     - { title: "Visit", text: "Book a tour of the school and meet our admissions team." }
     - { title: "Apply", text: "Complete the application and submit the required documents." }
-    - { title: "Assessment", text: "[TO CONFIRM: Entry assessment or interview — which grades and what it involves]" }
-    - { title: "Offer", text: "[TO CONFIRM: How and when families receive the admission decision]" }
-    - { title: "Registration", text: "[TO CONFIRM: How to confirm the place — e.g. registration form and fee payment]" }
+    - { title: "Assessment", text: "Your child meets our team for a friendly placement assessment, so we can understand their level and support them from day one." }
+    - { title: "Offer", text: "We contact you with the admission decision and the next steps." }
+    - { title: "Registration", text: "Confirm the place by completing registration and paying the fees. We will then welcome your child and share everything you need for the first day." }
 
 documents:
   title: "Required Documents"
-  note: "[TO CONFIRM: Final list of required documents]"
+  note: "Please bring copies of the following. Our admissions team will tell you if anything else is needed for your child's grade."
   items:
-    - "[TO CONFIRM: e.g. Student's birth certificate]"
-    - "[TO CONFIRM: e.g. Passport and Iqama / National ID copies]"
-    - "[TO CONFIRM: e.g. Previous school reports and transfer certificate]"
-    - "[TO CONFIRM: e.g. Vaccination record]"
-    - "[TO CONFIRM: e.g. Passport-size photographs]"
+    - "Student's birth certificate"
+    - "Student's passport and Iqama, or National ID (for Saudi students)"
+    - "Parent's or guardian's ID or Iqama"
+    - "Latest school report and transfer certificate (from Grade 1 upwards)"
+    - "Vaccination record"
+    - "Recent passport-size photographs"
 
 fees:
   title: "Tuition Fees 2026–2027"
@@ -52,7 +53,7 @@ fees:
   notes:
     - "All fees exclude VAT."
     - "Boys are admitted from KG1 to Grade 6; girls from KG1 to Grade 12."
-    - "[TO CONFIRM: Other fees, if any — e.g. registration, books, uniform, transport — and payment schedule]"
+    - "For other costs, such as books, uniform or transport, and for payment schedules, please contact our admissions team."
 
 offers:
   title: "Offers & Announcements"
@@ -73,14 +74,18 @@ faq:
       a: "Yes. Arabic, Holy Quran and Islamic Studies, and Social Studies are taught as identity subjects."
     - q: "What is the SPRIX programme?"
       a: "Malvern partners with SPRIX Inc. (Japan) for mathematics and programming in Grades 1 to 9, including the TOFAS external assessment."
+    - q: "Is there a school uniform?"
+      a: "Yes. Uniform is compulsory for all students and is available from the school."
+    - q: "What are the school hours?"
+      a: "Sunday to Thursday, 6:30 am to 1:30 pm. Timings are adjusted during Ramadan."
     - q: "Is the school accredited?"
       a: "Malvern International School is a member of Cognia and is working through the Cognia accreditation process."
     - q: "Who runs the school?"
       a: "Malvern International School is one of the schools of El-Shrouk Pioneer Academy."
     - q: "Do you provide school transport?"
-      a: "[TO CONFIRM: Transport availability and areas covered]"
+      a: "Please contact our admissions team to ask about school transport for your area."
     - q: "When can my child start?"
-      a: "[TO CONFIRM: Admission windows and mid-year entry policy]"
+      a: "The 2026–2027 school year began on 23 August 2026. Contact our admissions team to check availability in your child's grade — we will be happy to help with joining during the year where places allow."
 
 enquire:
   title: "Enquire or Book a Tour"
