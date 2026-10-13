@@ -42,8 +42,7 @@ Tick each item when done. Send the content in any form (Word, email, WhatsApp) a
 - [ ] About-page video — YouTube link (optional, e.g. Principal's message)
 
 ## Learning (`content/en/learning.yaml`)
-- [x] Curriculum: American, with Savvas and Obelas programmes; classes of 25 or fewer
-- [ ] Confirm the spelling of "Obelas"
+- [x] Curriculum: American, with Savvas and Obelearn programmes; classes of 25 or fewer
 - [ ] Subjects taught in each phase, and alignment with Ministry requirements
 - [ ] Kindergarten approach
 - [ ] Primary (Grades 1–5) focus

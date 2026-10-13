@@ -14,7 +14,7 @@ hero:
 facts:
   - { value: "KG – Grade 12", label: "Girls" }
   - { value: "KG – Grade 6", label: "Boys" }
-  - { value: "American", label: "Curriculum, with Savvas and Obelas programmes" }
+  - { value: "American", label: "Curriculum, with Savvas and Obelearn programmes" }
   - { value: "25 or fewer", label: "Students in every class" }
   - { value: "SPRIX · Japan", label: "Mathematics & programming partner, Grades 1–9" }
   - { value: "01SOL260054", label: "Ministry licence no." }
@@ -24,7 +24,7 @@ why:
   intro: "We believe knowledge and values go hand in hand. We strive to develop students who are capable, honest, and principled."
   items:
     - title: "International learning"
-      text: "An American curriculum taught through Savvas and Obelas programmes, in classes of no more than 25 students."
+      text: "An American curriculum taught through Savvas and Obelearn programmes, in classes of no more than 25 students."
       icon: globe
     - title: "Saudi identity at the heart"
       text: "Arabic, Holy Quran and Islamic Studies, and Social Studies are core to every learner's week."
