@@ -10,10 +10,13 @@ import CtaBand from '../components/CtaBand.astro';
 import { Image } from 'astro:assets';
 import { brandImage } from '../lib/images';
 import { getPage, settings, type Lang } from '../lib/content';
+import { real } from '../lib/text';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const p = getPage('about', lang);
 const ui = getPage('ui', lang);
+const people = p.leadership.people.filter((x: any) => real(x.name));
+const showLeadership = people.length > 1;
 ---
 <BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
   <PageHero title={p.hero.title} text={p.hero.text} />
@@ -26,7 +29,7 @@ const ui = getPage('ui', lang);
         <div class="welcome-body"><Rich paras text={p.welcome.body} /></div>
         <p class="sign"><Rich as="strong" text={p.welcome.name} /><span>{p.welcome.role}</span></p>
       </div>
-      <div class="reveal"><PhotoPlaceholder ratio="4 / 5" label="Principal's photo to come" /></div>
+      <div class="reveal"><PhotoPlaceholder ratio="4 / 5" photo="principal.jpg" alt={p.welcome.name} crest caption="“Our door is open.”" /></div>
     </div>
   </section>
 
@@ -46,27 +49,27 @@ const ui = getPage('ui', lang);
     </div>
   </section>
 
-  <section class="section" id="video" aria-labelledby="video-h">
+  {p.video.url && <section class="section" id="video" aria-labelledby="video-h">
     <div class="narrow">
       <h2 id="video-h" class="visually-hidden">{p.video.title}</h2>
-      <VideoEmbed url={p.video.url} title={p.video.title} placeholder="[TO CONFIRM: YouTube link for the About page video]" />
+      <VideoEmbed url={p.video.url} title={p.video.title} />
     </div>
-  </section>
+  </section>}
 
-  <section class="section section--alt" id="leadership" aria-labelledby="lead-h">
+  {showLeadership && <section class="section section--alt" id="leadership" aria-labelledby="lead-h">
     <div class="container">
-      <div class="section-head"><p class="eyebrow">Our team</p><h2 id="lead-h">{p.leadership.title}</h2><Rich as="p" text={p.leadership.intro} /></div>
+      <div class="section-head"><p class="eyebrow">Our team</p><h2 id="lead-h">{p.leadership.title}</h2>{real(p.leadership.intro) && <Rich as="p" text={p.leadership.intro} />}</div>
       <div class="grid grid--3">
-        {p.leadership.people.map((person: any) => (
+        {people.map((person: any) => (
           <article class="person reveal">
-            <PhotoPlaceholder ratio="1 / 1" photo={person.photo} alt={person.name} label="Photo to come" widths={[400, 600]} />
+            <PhotoPlaceholder ratio="1 / 1" photo={person.photo} alt={person.name} icon="user" widths={[400, 600]} />
             <h3><Rich text={person.name} /></h3>
             <p><Rich text={person.role} /></p>
           </article>
         ))}
       </div>
     </div>
-  </section>
+  </section>}
 
   <section class="section" id="accreditation" aria-labelledby="acc-h">
     <div class="container">

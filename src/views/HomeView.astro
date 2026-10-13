@@ -12,11 +12,15 @@ import NewsCard from '../components/NewsCard.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { getPage, settings, type Lang } from '../lib/content';
 import { href } from '../lib/paths';
+import { real } from '../lib/text';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const page = getPage('home', lang);
 const ui = getPage('ui', lang);
 const phases = getPage('learning', lang).journey.phases;
+const voices = page.parentVoice.items.filter((q: any) => real(q.quote));
+const tourUrl = settings.links.virtualTourEmbedUrl;
 const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data.date).slice(0, 3);
 ---
 <BaseLayout title={page.seo.title} description={page.seo.description} lang={lang} isHome>
@@ -60,16 +64,16 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
     </div>
   </section>
 
-  <section class="section section--alt" aria-labelledby="film">
+  {page.video.url && <section class="section section--alt" aria-labelledby="film">
     <div class="container split">
       <div class="reveal">
         <p class="eyebrow">Watch</p>
         <h2 id="film">{page.video.title}</h2>
         <p class="muted">{page.video.text}</p>
       </div>
-      <div class="reveal"><VideoEmbed url={page.video.url} title={page.video.title} placeholder="[TO CONFIRM: YouTube link for the school film]" /></div>
+      <div class="reveal"><VideoEmbed url={page.video.url} title={page.video.title} /></div>
     </div>
-  </section>
+  </section>}
 
   <section class="section section--navy journey" aria-labelledby="journey">
     <div class="container">
@@ -97,7 +101,7 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
   <section class="section section--alt" aria-labelledby="visit">
     <div class="container split">
       <div class="reveal">
-        <p class="eyebrow">Virtual tour</p>
+        <p class="eyebrow">{tourUrl ? 'Virtual tour' : 'Visit us'}</p>
         <h2 id="visit">{page.tour.title}</h2>
         <p class="muted">{page.tour.text}</p>
         <div class="btn-row" style="margin-block-start:2rem">
@@ -105,7 +109,9 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
           <a class="link-arrow" href={href('/contact/', lang)}>Find us</a>
         </div>
       </div>
-      <div class="reveal"><VideoEmbed url={settings.links.virtualTourEmbedUrl} title="Virtual tour" placeholder={page.tour.videoPlaceholder} /></div>
+      <div class="reveal">{tourUrl
+        ? <VideoEmbed url={tourUrl} title="Virtual tour" />
+        : <PhotoPlaceholder crest caption="Al Murabba, Riyadh — we look forward to welcoming you." ratio="16 / 10" />}</div>
     </div>
   </section>
 
@@ -123,7 +129,7 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
     </div>
   </section>
 
-  <section class="section section--alt" aria-labelledby="voice">
+  {voices.length > 0 && <section class="section section--alt" aria-labelledby="voice">
     <div class="container">
       <div class="section-head section-head--center">
         <p class="eyebrow">Families</p>
@@ -131,7 +137,7 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
         <p>{page.parentVoice.intro}</p>
       </div>
       <div class="grid grid--3">
-        {page.parentVoice.items.map((q: any) => (
+        {voices.map((q: any) => (
           <figure class="card quote reveal">
             <Icon name="quote" size={34} class="q-icon" />
             <blockquote><Rich as="p" text={q.quote} /></blockquote>
@@ -140,7 +146,7 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
         ))}
       </div>
     </div>
-  </section>
+  </section>}
 
   <CtaBand title={page.cta.title} text={page.cta.text} lang={lang} />
 </BaseLayout>

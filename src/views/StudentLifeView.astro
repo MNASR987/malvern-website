@@ -12,6 +12,7 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const p = getPage('student-life', lang);
 const icons: Record<string, string> = { wellbeing: 'heart', activities: 'star', health: 'plus' };
+const captions: Record<string, string> = { wellbeing: 'Safe, known and valued.', activities: 'Beyond the timetable.', health: 'Cared for every day.' };
 ---
 <BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
   <PageHero title={p.hero.title} text={p.hero.text} />
@@ -24,16 +25,16 @@ const icons: Record<string, string> = { wellbeing: 'heart', activities: 'star', 
           {paragraphs(s.text).map((t: string) => <p class="lead" set:html={rich(t)} />)}
           {s.list && <ul class="check-list">{s.list.map((li: string) => <li><Rich text={li} /></li>)}</ul>}
         </div>
-        <div class="reveal"><PhotoPlaceholder label="Photo to come (no identifiable students)" /></div>
+        <div class="reveal"><PhotoPlaceholder photo={`${s.id}.jpg`} icon={icons[s.id] ?? 'star'} caption={captions[s.id]} /></div>
       </div>
     </section>
   ))}
-  <section class="section section--navy" aria-labelledby="sl-video">
+  {p.video.url && <section class="section section--navy" aria-labelledby="sl-video">
     <div class="narrow">
       <h2 id="sl-video" class="section-head--center" style="text-align:center;margin-block-end:2rem">{p.video.title}</h2>
-      <VideoEmbed url={p.video.url} title={p.video.title} placeholder="[TO CONFIRM: YouTube link for the Student Life video]" />
+      <VideoEmbed url={p.video.url} title={p.video.title} />
     </div>
-  </section>
+  </section>}
   <CtaBand title="Discover life at Malvern" lang={lang} />
 </BaseLayout>
 <style>

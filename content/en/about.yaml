@@ -53,7 +53,7 @@ values:
 
 leadership:
   title: "Leadership"
-  intro: "[TO CONFIRM: One sentence introducing the leadership team]"
+  intro: ""
   # Add one entry per leader. Photos are optional: put the file in the
   # "brand" folder and write its name, e.g. photo: "principal.jpg"
   people:

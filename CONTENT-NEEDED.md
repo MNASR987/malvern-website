@@ -1,6 +1,6 @@
 # Content needed — Malvern International School website
 
-Yellow **[TO CONFIRM: …]** boxes on the website show what is still missing.
+Missing items are **hidden** on the website (no yellow boxes). Sections without content appear automatically once the content is added.
 Send anything in a normal message and Claude will place it.
 
 ---

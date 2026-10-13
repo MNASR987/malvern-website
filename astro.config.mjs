@@ -20,7 +20,7 @@ const cname = {
   },
 };
 
-/** Highlights [TO CONFIRM: …] placeholders inside Markdown pages (privacy policy, news). */
+/** Hides [TO CONFIRM: …] notes inside Markdown pages (privacy policy, news). */
 function rehypeTbc() {
   const re = /\[TO CONFIRM:[^\]]*\]/g;
   const walk = (node) => {
@@ -32,7 +32,6 @@ function rehypeTbc() {
       let last = 0;
       for (const m of child.value.matchAll(re)) {
         if (m.index > last) out.push({ type: 'text', value: child.value.slice(last, m.index) });
-        out.push({ type: 'element', tagName: 'mark', properties: { className: ['tbc'] }, children: [{ type: 'text', value: m[0] }] });
         last = m.index + m[0].length;
       }
       if (last < child.value.length) out.push({ type: 'text', value: child.value.slice(last) });

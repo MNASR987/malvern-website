@@ -22,7 +22,7 @@ The website rebuilds and republishes itself automatically about 2 minutes after 
 | Website address (own domain) | `site.config.mjs` |
 | What is still missing | `CONTENT-NEEDED.md` |
 
-Anything written as `[TO CONFIRM: …]` shows on the site as a yellow placeholder. Replace it with the real text.
+Anything written as `[TO CONFIRM: …]` is a private reminder: it is **hidden** on the website. Sections with nothing real in them (e.g. Parent Voice, extra leadership, virtual tour, parent portal, extra videos) stay hidden until real content is added.
 
 ---
 

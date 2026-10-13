@@ -20,7 +20,7 @@ const portal = settings.links.parentPortal;
       {portal && <a class="btn btn--outline-light" href={portal} rel="noopener"><Icon name="lock" size={18} /> {p.portal.button}</a>}
     </div>
   </PageHero>
-  <SubNav items={[['#calendar', 'Calendar'], ['#uniform', 'Uniform'], ['#together', 'Working together'], ['#policies', 'Policies'], ['#portal', 'Parent Portal']]} />
+  <SubNav items={[['#calendar', 'Calendar'], ['#uniform', 'Uniform'], ['#together', 'Working together'], ['#policies', 'Policies'], ...(portal ? [['#portal', 'Parent Portal']] : [])] as [string, string][]} />
 
   <CalendarSection lang={lang} />
 
@@ -61,13 +61,13 @@ const portal = settings.links.parentPortal;
     </div>
   </section>
 
-  <section class="section section--navy" id="portal" aria-labelledby="portal-h">
+  {portal && <section class="section section--navy" id="portal" aria-labelledby="portal-h">
     <div class="narrow center">
       <h2 id="portal-h">{p.portal.title}</h2>
       <p class="lead">{p.portal.text}</p>
-      {portal ? <a class="btn btn--gold" href={portal} rel="noopener">{p.portal.button}</a> : <Rich as="p" text={p.portal.missing} />}
+      <a class="btn btn--gold" href={portal} rel="noopener">{p.portal.button}</a>
     </div>
-  </section>
+  </section>}
 </BaseLayout>
 <style>
   .body { margin-block-start: 1.25rem; font-size: 1.08rem; }

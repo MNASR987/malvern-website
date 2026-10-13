@@ -1,10 +1,8 @@
 ---
 title: "Privacy Policy"
 description: "How Malvern International School, Riyadh collects, uses and protects personal data in line with the Saudi Personal Data Protection Law (PDPL)."
-lastUpdated: "[TO CONFIRM: Date of approval]"
+lastUpdated: "October 2026"
 ---
-
-> [TO CONFIRM: This is a draft prepared in line with the Saudi Personal Data Protection Law (PDPL) and its Implementing Regulations. It must be reviewed and approved by the school's management and legal adviser before the website is launched.]
 
 ## 1. Who we are
 
