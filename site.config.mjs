@@ -1,15 +1,14 @@
 // ─────────────────────────────────────────────────────────────
 //  WEBSITE ADDRESS SETTINGS
 //
-//  Today the site lives at:  https://mnasr987.github.io/malvern-website/
+//  The site lives at:  https://www.malvern.edu.sa/
+//  (malvern.edu.sa redirects to www automatically — see README.md, "Own domain".)
 //
-//  When the school's own domain is ready (e.g. www.malvern.edu.sa),
-//  change ONLY the line below, for example:
-//      customDomain: 'www.malvern.edu.sa',
-//  (A short DNS step is also needed — see README.md, section "Own domain".)
+//  To go back to the free GitHub address (https://mnasr987.github.io/malvern-website/),
+//  set customDomain to '' (empty).
 // ─────────────────────────────────────────────────────────────
 export default {
-  customDomain: '',
+  customDomain: 'www.malvern.edu.sa',
 
   // true = ask Google and other search engines NOT to list the site (use until launch).
   // Change to false when the website is approved and ready for the public.

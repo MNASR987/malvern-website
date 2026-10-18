@@ -1,7 +1,7 @@
 # Malvern International School — website
 
 Official website of Malvern International School, Riyadh.
-Live preview: **https://mnasr987.github.io/malvern-website/**
+Live website: **https://www.malvern.edu.sa/** (malvern.edu.sa redirects to www)
 
 The website rebuilds and republishes itself automatically about 2 minutes after any change is saved on GitHub.
 
@@ -78,11 +78,13 @@ To connect it later (`content/settings.yaml` → `forms:`):
 - **Microsoft Forms:** in Microsoft Forms click **Collect responses → Embed**, copy the link inside `src="..."`, paste it into `microsoftFormsEmbedUrl`. (Add a consent question in the Microsoft Form.)
 - **Power Automate / Formspree:** paste the address into `enquiryEndpoint`.
 
-## Own domain (e.g. www.malvern.edu.sa)
+## Own domain (www.malvern.edu.sa)
 
-1. In `site.config.mjs` change `customDomain: ''` to `customDomain: 'www.malvern.edu.sa'`.
-2. Ask your domain provider to add a **CNAME** record: `www` → `mnasr987.github.io`.
-3. On GitHub: **Settings → Pages → Custom domain**, type the domain, **Save**, then tick **Enforce HTTPS** when it becomes available.
+The site runs on **www.malvern.edu.sa**; **malvern.edu.sa** redirects to it.
+- `site.config.mjs` → `customDomain: 'www.malvern.edu.sa'` (sets the address, links, sitemap and the `CNAME` file GitHub Pages needs).
+- DNS (at the company managing the domain): `www` **CNAME** → `mnasr987.github.io`; `@` **A** → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; `@` **AAAA** → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
+- GitHub: **Settings → Pages → Custom domain** = `www.malvern.edu.sa`, then tick **Enforce HTTPS**.
+- To return to the free GitHub address, set `customDomain: ''`.
 
 ## Re-using this project for Nile International School
 
