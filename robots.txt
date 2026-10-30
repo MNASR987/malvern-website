@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mnasr987.github.io/malvern-website/sitemap-index.xml
