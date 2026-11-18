@@ -1,14 +1,14 @@
 // ─────────────────────────────────────────────────────────────
 //  WEBSITE ADDRESS SETTINGS
 //
-//  The site lives at:  https://mnasr987.github.io/malvern-website/
+//  The site lives at:  https://www.malvern.edu.sa/  (to return to https://mnasr987.github.io/malvern-website/, set customDomain to '')
 //
 //  When the DNS records for malvern.edu.sa are in place (see README.md, "Own domain"),
 //  change ONLY the line below to:
 //      customDomain: 'www.malvern.edu.sa',
 // ─────────────────────────────────────────────────────────────
 export default {
-  customDomain: '',
+  customDomain: 'www.malvern.edu.sa',
 
   // true = ask Google and other search engines NOT to list the site (use until launch).
   // Change to false when the website is approved and ready for the public.

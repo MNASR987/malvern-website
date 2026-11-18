@@ -1,7 +1,7 @@
 # Malvern International School — website
 
 Official website of Malvern International School, Riyadh.
-Live website: **https://mnasr987.github.io/malvern-website/** — moving to **www.malvern.edu.sa** once its DNS records are added at Nour
+Live website: **https://www.malvern.edu.sa/**
 
 The website rebuilds and republishes itself automatically about 2 minutes after any change is saved on GitHub.
 
