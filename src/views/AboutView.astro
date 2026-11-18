@@ -21,10 +21,24 @@ const showLeadership = people.length > 1;
 <BaseLayout title={p.seo.title} description={p.seo.description} lang={lang}>
   <PageHero title={p.hero.title} text={p.hero.text} />
 
-  <section class="section" id="welcome" aria-labelledby="welcome-h">
-    <div class="container split split--wide-text">
+  {p.superintendent && (
+    <section class="section" id="superintendent" aria-labelledby="superintendent-h">
+      <div class="container split split--wide-text">
+        <div class="reveal">
+          <p class="eyebrow">Welcome</p>
+          <h2 id="superintendent-h">{p.superintendent.title}</h2>
+          <div class="welcome-body"><Rich paras text={p.superintendent.body} /></div>
+          <p class="sign"><strong>{p.superintendent.name}</strong><span>{p.superintendent.role}</span></p>
+        </div>
+        <div class="reveal portrait"><PhotoPlaceholder ratio="4 / 5" position="center 20%" photo={p.superintendent.photo} alt={`${p.superintendent.name}, ${p.superintendent.role}`} widths={[400, 640, 900]} crest /></div>
+      </div>
+    </section>
+  )}
+
+  <section class="section word2" id="welcome" aria-labelledby="welcome-h">
+    <div class="container split split--wide-text flip">
       <div class="reveal">
-        <p class="eyebrow">Welcome</p>
+        <p class="eyebrow">From the Principal</p>
         <h2 id="welcome-h">{p.welcome.title}</h2>
         <div class="welcome-body"><Rich paras text={p.welcome.body} /></div>
         <p class="sign"><Rich as="strong" text={p.welcome.name} /><span>{p.welcome.role}</span></p>
@@ -33,19 +47,6 @@ const showLeadership = people.length > 1;
     </div>
   </section>
 
-  {p.academicWord && (
-    <section class="section word2" id="academic" aria-labelledby="academic-h">
-      <div class="container split split--wide-text flip">
-        <div class="reveal">
-          <p class="eyebrow">Learning at Malvern</p>
-          <h2 id="academic-h">{p.academicWord.title}</h2>
-          <div class="welcome-body"><Rich paras text={p.academicWord.body} /></div>
-          <p class="sign"><strong>{p.academicWord.name}</strong><span>{p.academicWord.role}</span></p>
-        </div>
-        <div class="reveal portrait"><PhotoPlaceholder ratio="4 / 5" position="center 20%" photo={p.academicWord.photo} alt={`${p.academicWord.name}, ${p.academicWord.role}`} widths={[400, 640, 900]} crest /></div>
-      </div>
-    </section>
-  )}
 
   <section class="section section--alt" id="vision" aria-labelledby="vision-h">
     <div class="container">

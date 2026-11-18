@@ -1,7 +1,7 @@
 # ABOUT PAGE
 seo:
   title: "About Us"
-  description: "About Malvern International School, Riyadh, one of the schools of El-Shrouk Pioneer Academy: a word from the Principal, Ms. Sara El-Massry,, vision, mission and values, leadership, partnerships, accreditation status and licensing."
+  description: "About Malvern International School, Riyadh, one of the schools of El-Shrouk Pioneer Academy: words from the Superintendent, Mr. Mahmoud Nasr, and the Principal, Ms. Sara El-Massry; vision, mission and values, leadership, partnerships, accreditation status and licensing."
 
 hero:
   title: "About Malvern"
@@ -24,9 +24,9 @@ welcome:
   name: "Ms. Sara El-Massry"
   role: "Principal"
 
-# A word from the Chief Academic Manager (shown under the Principal's welcome).
-academicWord:
-  title: "A Word from our Chief Academic Manager"
+# A word from the Superintendent (shown first on the About page, before the Principal's welcome).
+superintendent:
+  title: "A Word from our Superintendent"
   body: |
     Every plan we make at Malvern starts with one question: what does the best learning in the world look like, and how do we make it work for children in Riyadh?
 
@@ -36,7 +36,7 @@ academicWord:
 
     Our work is never finished. We keep reviewing, improving and asking how we can do better for every learner.
   name: "Mr. Mahmoud Nasr"
-  role: "Chief Academic Manager"
+  role: "Superintendent"
   photo: "mahmoud-nasr.jpg"
 
 # Optional YouTube video on the About page (e.g. a message from the Principal).
@@ -72,8 +72,8 @@ leadership:
   # Add one entry per leader. Photos are optional: put the file in the
   # "brand" folder and write its name, e.g. photo: "principal.jpg"
   people:
+    - { name: "Mr. Mahmoud Nasr", role: "Superintendent", photo: "mahmoud-nasr.jpg" }
     - { name: "Ms. Sara El-Massry", role: "Principal", photo: "" }
-    - { name: "Mr. Mahmoud Nasr", role: "Chief Academic Manager", photo: "mahmoud-nasr.jpg" }
     - { name: "[TO CONFIRM: Name]", role: "[TO CONFIRM: Role]", photo: "" }
 
 partnerships:
