@@ -28,7 +28,7 @@ const showLeadership = people.length > 1;
           <p class="eyebrow">Welcome</p>
           <h2 id="superintendent-h">{p.superintendent.title}</h2>
           <div class="welcome-body"><Rich paras text={p.superintendent.body} /></div>
-          <p class="sign"><strong>{p.superintendent.name}</strong><span>{p.superintendent.role}</span></p>
+          <p class="sign"><strong>{p.superintendent.name}</strong><span>{p.superintendent.role}</span>{p.superintendent.email && <a href={`mailto:${p.superintendent.email}`}>{p.superintendent.email}</a>}</p>
         </div>
         <div class="reveal portrait"><PhotoPlaceholder ratio="4 / 5" position="center 20%" photo={p.superintendent.photo} alt={`${p.superintendent.name}, ${p.superintendent.role}`} widths={[400, 640, 900]} crest /></div>
       </div>
@@ -80,6 +80,7 @@ const showLeadership = people.length > 1;
             <PhotoPlaceholder ratio="1 / 1" position="center 18%" photo={person.photo} alt={person.name} icon="user" widths={[400, 600]} />
             <h3><Rich text={person.name} /></h3>
             <p><Rich text={person.role} /></p>
+            {person.email && <p class="email"><a href={`mailto:${person.email}`}>{person.email}</a></p>}
           </article>
         ))}
       </div>
@@ -131,6 +132,9 @@ const showLeadership = people.length > 1;
   .people { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 17rem)); }
   .person h3 { margin-block: 1.25rem .25rem; font-size: 1.3rem; }
   .person p { color: var(--c-text-muted); }
+  .person .email { margin-block-start: .2rem; }
+  .sign a, .person .email a { font-size: .95rem; color: var(--c-accent-text); text-decoration: none; }
+  .sign a:hover, .person .email a:hover { text-decoration: underline; }
   .lic-text { margin-block-start: 1rem; font-size: 1.15rem; }
   .lic { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(201,162,74,.35); border-radius: var(--radius); overflow: hidden; }
   .lic div { background: var(--c-primary); padding: 1.5rem; }
