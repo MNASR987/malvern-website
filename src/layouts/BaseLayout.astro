@@ -52,6 +52,7 @@ const jsonLd = {
     <link rel="apple-touch-icon" href={asset('apple-touch-icon.png')} />
     <link rel="sitemap" href={asset('sitemap-index.xml')} />
     <meta name="theme-color" content={c.primary} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     {siteConfig.hideFromSearch && <meta name="robots" content="noindex, nofollow" />}
     {siteConfig.googleVerification && <meta name="google-site-verification" content={siteConfig.googleVerification} />}
 
