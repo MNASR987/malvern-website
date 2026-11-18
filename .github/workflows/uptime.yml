@@ -1,0 +1,34 @@
+# Checks every 30 minutes that the website is online.
+# If it is down, this check fails and GitHub emails the account owner.
+name: Website uptime check
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check www.malvern.edu.sa
+        run: |
+          set -u
+          check() {
+            curl -sSL --max-time 30 --retry 3 --retry-delay 20 "$@" -o page.html -w '%{http_code}' || echo 000
+          }
+          code=$(check https://www.malvern.edu.sa/)
+          if [ "$code" != "200" ]; then
+            echo "::warning::HTTPS check returned $code, trying plain HTTP (the secure certificate may not be ready yet)"
+            code=$(check http://www.malvern.edu.sa/)
+          fi
+          echo "Status code: $code"
+          if [ "$code" != "200" ] || ! grep -q "Malvern International School" page.html; then
+            echo "::error::www.malvern.edu.sa is DOWN or not showing the school website (status $code)"
+            exit 1
+          fi
+          echo "Website is up."
