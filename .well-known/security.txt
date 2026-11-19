@@ -1,0 +1,6 @@
+# Security contact for Malvern International School's website.
+# To report a security issue, please email us. Thank you for helping keep our community safe.
+Contact: mailto:admin@malvern.edu.sa
+Expires: 2027-11-30T00:00:00.000Z
+Preferred-Languages: en, ar
+Canonical: https://www.malvern.edu.sa/.well-known/security.txt
