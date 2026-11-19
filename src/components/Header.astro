@@ -72,7 +72,10 @@ const isActive = (p: string) => current.endsWith(p.replace(/\/$/, ''));
 </script>
 
 <style>
-  .site-header { position: sticky; inset-block-start: 0; z-index: 50; background: rgba(255,255,255,.96); backdrop-filter: saturate(1.4) blur(10px); border-block-end: 1px solid transparent; transition: border-color .3s, box-shadow .3s; }
+  /* The blur lives on ::before, not on the header itself: a backdrop-filter on the header would trap the
+     full-screen phone menu inside the header bar (it would open only 76px tall). */
+  .site-header { position: sticky; inset-block-start: 0; z-index: 50; border-block-end: 1px solid transparent; transition: border-color .3s, box-shadow .3s; }
+  .site-header::before { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(255,255,255,.96); backdrop-filter: saturate(1.4) blur(10px); }
   .site-header.scrolled { border-color: var(--c-border); box-shadow: 0 6px 24px -18px rgba(6,24,51,.45); }
   .bar { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-block-size: 76px; }
   .brand { text-decoration: none; flex-shrink: 0; }
