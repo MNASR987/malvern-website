@@ -8,7 +8,7 @@ lastUpdated: "October 2026"
 
 Malvern International School, Riyadh, Saudi Arabia ("the School", "we") is the controller of the personal data collected through this website. Ministry licence no. 01SOL260054, unified no. 7009415220.
 
-Contact for privacy matters: the School Administration, email **malvernschools@gmail.com**, phone **+966 50 731 1584**. Address: 6517 Prince Abdulaziz Ibn Mussaed Ibn Jalawi St, Al Murabba Dist., Riyadh 12628.
+Contact for privacy matters: the School Administration, email **info@malvern.edu.sa**, phone **+966 50 731 1584**. Address: 6517 Prince Abdulaziz Ibn Mussaed Ibn Jalawi St, Al Murabba Dist., Riyadh 12628.
 
 ## 2. The personal data we collect
 
